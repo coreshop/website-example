@@ -96,7 +96,7 @@ $(document).ready(function(){
         var data = $.extend({product : product_id, amount : amount}, extraData ? extraData : {});
         
         $.ajax({
-            url : '/de/cart/add',
+            url : '/' + coreshop_language + '/cart/add',
             data : data,
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -134,7 +134,7 @@ $(document).ready(function(){
     shop.removeFromCart = function(cartItem, callback)
     {
         $.ajax({
-            url : '/de/cart/remove',
+            url : '/' + coreshop_language + '/cart/remove',
             data : {cartItem : cartItem},
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -155,7 +155,7 @@ $(document).ready(function(){
     shop.modifyCartItem = function(cartItem, amount, callback)
     {
         $.ajax({
-            url : '/de/cart/modify',
+            url : '/' + coreshop_language + '/cart/modify',
             data : {cartItem : cartItem, amount:amount},
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -186,7 +186,7 @@ $(document).ready(function(){
         var data = $.extend({product : product_id}, extraData ? extraData : {});
 
         $.ajax({
-            url : '/de/compare/add',
+            url : '/' + coreshop_language + '/compare/add',
             data : data,
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -214,7 +214,7 @@ $(document).ready(function(){
         var data = $.extend({product : product_id}, extraData ? extraData : {});
 
         $.ajax({
-            url : '/de/compare/remove',
+            url : '/' + coreshop_language + '/compare/remove',
             data : data,
             dataType: 'json',
             success : function(result,status,xhr) {

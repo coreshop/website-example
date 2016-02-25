@@ -224,6 +224,12 @@
     </footer>
 <!-- Footer Section Ends -->
 <!-- JavaScript Files -->
+
+    <script type="text/javascript">
+
+        var coreshop_language = "<?=$this->language?>";
+
+    </script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
 <script src="/website/static/vendor/jquery-1.11.1.min.js"></script>
 <script src="/website/static/vendor/jquery-migrate-1.2.1.min.js"></script>
