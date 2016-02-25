@@ -2,8 +2,8 @@
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
         <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
-        <li><a href="<?=$this->url(array("lang" => $this->language, "action" => "profile"), "coreshop_user")?>"><?=$this->translate("My Profile")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "action" => "addresses"), "coreshop_user")?>"><?=$this->translate("Addresses")?></a></li>
+        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>"><?=$this->translate("My Profile")?></a></li>
+        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")?>"><?=$this->translate("Addresses")?></a></li>
     </ol>
     <!-- Breadcrumb Ends -->
     <!-- Main Heading Starts -->
@@ -23,10 +23,10 @@
                     <div class="panel-body">
                         <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => $address)); ?>
                         <br/>
-                        <a href="<?=$this->url(array("lang" => $this->language, "address" => $address->getName(), "action" => "address"), "coreshop_user")?>" class="btn btn-default">
+                        <a href="<?=$this->url(array("lang" => $this->language, "address" => $address->getName(), "act" => "address"), "coreshop_user")?>" class="btn btn-default">
                             <?=$this->translate("Edit");?>
                         </a>
-                        <a href="<?=$this->url(array("lang" => $this->language, "address" => $address->getName(), "action" => "deleteaddress"), "coreshop_user")?>" class="btn btn-default">
+                        <a href="<?=$this->url(array("lang" => $this->language, "address" => $address->getName(), "act" => "deleteaddress"), "coreshop_user")?>" class="btn btn-default">
                             <?=$this->translate("Delete");?>
                         </a>
                     </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <a href="<?=$this->url(array("lang" => $this->language, "action" => "address", "_redirect" => $this->url(array("lang" => $this->language, "action" => "addresses"), "coreshop_user")), "coreshop_user", true)?>" class="btn btn-default">
+                <a href="<?=$this->url(array("lang" => $this->language, "act" => "address", "_redirect" => $this->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")), "coreshop_user", true)?>" class="btn btn-default">
                     <?=$this->translate("Add New");?>
                 </a>
             </div>

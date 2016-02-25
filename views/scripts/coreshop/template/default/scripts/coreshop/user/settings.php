@@ -21,8 +21,8 @@ $postValue = function ($name) {
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
         <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
-        <li><a href="<?=$this->url(array("lang" => $this->language, "action" => "profile"), "coreshop_user")?>"><?=$this->translate("My Profile")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "action" => "settings"), "coreshop_user")?>"><?=$this->translate("Settings")?></a></li>
+        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>"><?=$this->translate("My Profile")?></a></li>
+        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "settings"), "coreshop_user")?>"><?=$this->translate("Settings")?></a></li>
     </ol>
     <!-- Breadcrumb Ends -->
     <!-- Main Heading Starts -->
@@ -48,7 +48,7 @@ $postValue = function ($name) {
                     </div>
                     <div class="panel-body">
                         <!-- Registration Form Starts -->
-                        <form class="form-horizontal" role="form" id="shop-settings-form" action="<?=$this->url(array("lang" => $this->language, "action" => "settings"), "coreshop_user")?>" method="post">
+                        <form class="form-horizontal" role="form" id="shop-settings-form" action="<?=$this->url(array("lang" => $this->language, "act" => "settings"), "coreshop_user")?>" method="post">
 
                             <input type="hidden" name="browserName" id="browserName" />
                             <input type="hidden" name="majorVersion" id="majorVersion" />

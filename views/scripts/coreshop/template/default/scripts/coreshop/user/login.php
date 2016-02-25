@@ -2,7 +2,7 @@
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
         <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "action" => "login"), "coreshop_user")?>"><?=$this->translate("Login")?></a></li>
+        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "login"), "coreshop_user")?>"><?=$this->translate("Login")?></a></li>
     </ol>
 
     <!-- Breadcrumb Ends -->
@@ -30,7 +30,7 @@
                             <?=$this->translate("Please login using your existing account")?>
                         </p>
                         <!-- Login Form Starts -->
-                        <form class="form-inline" role="form" method="post" action="<?=$this->url(array("lang" => $this->language, "action" => "login"), "coreshop_user")?>">
+                        <form class="form-inline" role="form" method="post" action="<?=$this->url(array("lang" => $this->language, "act" => "login"), "coreshop_user")?>">
                             <input type="hidden" name="_redirect" value="<?=$this->url(array("lang" =>  $this->language), "coreshop_index")?>" />
 
                             <div class="form-group">
@@ -62,7 +62,7 @@
                         <p>
                             <?=$this->translate("Registration allows you to avoid filling in billing and shipping forms every time you checkout on this website")?>
                         </p>
-                        <a href="<?=$this->url(array("lang" => $this->language, "action" => "register"), "coreshop_user")?>" class="btn btn-black">
+                        <a href="<?=$this->url(array("lang" => $this->language, "act" => "register"), "coreshop_user")?>" class="btn btn-black">
                             <?=$this->translate("Register")?>
                         </a>
                     </div>

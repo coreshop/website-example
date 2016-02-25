@@ -78,7 +78,7 @@
                                 <?php if(!\CoreShop\Config::isCatalogMode()) { ?>
                                     <?php if($this->session->user instanceof \CoreShop\Model\User && !$this->session->user->getIsGuest()) { ?>
                                         <li>
-                                            <a href="<?=$this->url(array("lang" => $this->language, "action" => "profile"), "coreshop_user")?>">
+                                            <a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>">
                                                 <i class="fa fa-user hidden-lg hidden-md" title="<?=$this->translate("My Account")?>"></i>
                                                 <span class="hidden-sm hidden-xs">
                                                     <?=$this->translate("My Account")?>
@@ -86,7 +86,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?=$this->url(array("lang" => $this->language, "action" => "list"), "coreshop_cart")?>">
+                                            <a href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart")?>">
                                                 <i class="fa fa-shopping-cart hidden-lg hidden-md" title="<?=$this->translate("Shopping Cart")?>"></i>
                                                 <span class="hidden-sm hidden-xs">
                                                     <?=$this->translate("Shopping Cart")?>
@@ -94,7 +94,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?=$this->url(array("lang" => $this->language, "action" => "index"), "coreshop_checkout")?>">
+                                            <a href="<?=$this->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout")?>">
                                                 <i class="fa fa-crosshairs hidden-lg hidden-md" title="<?=$this->translate("Checkout")?>"></i>
                                                 <span class="hidden-sm hidden-xs">
                                                     <?=$this->translate("Checkout")?>
@@ -102,7 +102,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?=$this->url(array("lang" => $this->language, "action" => "logout"), "coreshop_user")?>">
+                                            <a href="<?=$this->url(array("lang" => $this->language, "act" => "logout"), "coreshop_user")?>">
                                                 <i class="fa fa-crosshairs hidden-lg hidden-md" title="<?=$this->translate("Logout")?>"></i>
                                                 <span class="hidden-sm hidden-xs">
                                                     <?=$this->translate("Logout")?>
@@ -111,7 +111,7 @@
                                         </li>
                                     <?php } else { ?>
                                     <li>
-                                        <a href="<?=$this->url(array("lang" => $this->language, "action" => "register"), "coreshop_user")?>">
+                                        <a href="<?=$this->url(array("lang" => $this->language, "act" => "register"), "coreshop_user")?>">
                                             <i class="fa fa-unlock hidden-lg hidden-md" title="Register"></i>
                                             <span class="hidden-sm hidden-xs">
                                                 <?=$this->translate("Register")?>
@@ -119,7 +119,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?=$this->url(array("lang" => $this->language, "action" => "login"), "coreshop_user")?>">
+                                        <a href="<?=$this->url(array("lang" => $this->language, "act" => "login"), "coreshop_user")?>">
                                             <i class="fa fa-lock hidden-lg hidden-md" title="Login"></i>
                                             <span class="hidden-sm hidden-xs">
                                                 <?=$this->translate("Login")?>

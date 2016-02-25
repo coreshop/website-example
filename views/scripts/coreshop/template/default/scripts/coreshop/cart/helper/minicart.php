@@ -51,10 +51,10 @@
                 </tbody>
             </table>
             <p class="text-right btn-block1">
-                <a href="<?=$this->url(array("lang" => $this->language, "action" => "list"), "coreshop_cart", false, false)?>">
+                <a href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart", false, false)?>">
                     <?=$this->translate("View Cart")?>
                 </a>
-                <a href="<?=$this->url(array("lang" => $this->language, "action" => "index"), "coreshop_checkout", false, false)?>">
+                <a href="<?=$this->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout", false, false)?>">
                     <?=$this->translate("Checkout")?>
                 </a>
             </p>

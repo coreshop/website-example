@@ -15,7 +15,7 @@ $postValue = function ($name) {
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
         <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "action" => "register"), "coreshop_checkout")?>"><?=$this->translate("Register")?></a></li>
+        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "register"), "coreshop_checkout")?>"><?=$this->translate("Register")?></a></li>
     </ol>
 
     <?=$this->partial("coreshop/helper/order-steps.php", array("step" => 2));?>
@@ -43,7 +43,7 @@ $postValue = function ($name) {
                     </div>
                     <div class="panel-body">
                         <!-- Registration Form Starts -->
-                        <form class="form-horizontal" role="form" id="shop-register-form" action="<?=$this->url(array("lang" => $this->language, "action" => "register"), "coreshop_user")?>" method="post">
+                        <form class="form-horizontal" role="form" id="shop-register-form" action="<?=$this->url(array("lang" => $this->language, "act" => "register"), "coreshop_user")?>" method="post">
 
                             <input type="hidden" name="browserName" id="browserName" />
                             <input type="hidden" name="majorVersion" id="majorVersion" />
