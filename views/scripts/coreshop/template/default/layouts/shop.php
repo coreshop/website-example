@@ -145,7 +145,7 @@
                                 </button>
                                 <ul class="pull-right dropdown-menu">
                                     <?php foreach(\CoreShop\Model\Currency::getAvailable() as $currency) { ?>
-                                    <li><a tabindex="-1" href="<?=$this->url(array("currency" => $currency->getId()))?>"><?=$currency->getName()?> </a></li>
+                                    <li><a tabindex="-1" href="<?=$this->url(array("lang" => $this->language, "currency" => $currency->getId(), "redirect" => $this->url()), "coreshop_change_currency")?>"><?=$currency->getName()?></a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
