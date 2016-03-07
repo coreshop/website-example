@@ -1,16 +1,78 @@
+body {
+    background:white;
+    margin:0;
+    padding:0;
+    font-size:11px;
+}
+
+
 .invoice-table {
     margin-top: 30px;
     background: #fff;
 
-    thead > tr > td {
-        font-weight: 600;
-        border-bottom: none;
+    table.items {
+        td, th {
+            border:1px solid black!important;
+
+            &.text-right {
+                text-align:right!important;
+            }
+        }
+
+        thead {
+            font-weight:600!important;
+
+            th {
+                vertical-align: top;
+                text-align: center;
+                text-transform: uppercase;
+
+                span {
+                    text-transform: none;
+                    font-size:12px;
+                }
+            }
+        }
+
+        height:150mm;
+        margin-bottom:0;
     }
 
-    tbody > tr > td {
-        a:hover {
-            color: #252a2f;
+    table.summary {
+
+        * {
+            border: 0 !important;
         }
+
+        td {
+            border:1px solid black!important;
+
+            &.no-border {
+                border:0!important;
+            }
+
+            &.no-border-top {
+                border-top:0!important;
+            }
+
+            &.background-gray {
+                background: #ccc;
+            }
+        }
+
+        tr:first-child {
+            td:first-child {
+                border:0!important;
+            }
+        }
+
+        p {
+            font-size:10px;
+        }
+    }
+
+    tr {
+        page-break-inside: avoid;
     }
 
     .invoice-item {
@@ -20,13 +82,71 @@
     }
 
     .invoice-header {
-        background:#4d4d4d;
-        color:white;
-
         font-weight:bold;
+
+        [class*="col"] {
+            border:solid 1px black;
+        }
     }
 
     .invoice-header, .invoice-item, .invoice-summary {
         padding:1px 5px;
     }
+}
+
+.meta-info {
+    font-size:12px;
+}
+
+header {
+    font-size:10px;
+    height:25mm;
+    border:none!important;
+
+    .logo {
+        max-width: 100mm;
+        padding:2mm;
+    }
+
+    h1 {
+        margin:10px 0 0 0;
+        font-size: 35px;
+        font-weight:bold;
+    }
+
+    .col-xs-6 {
+        width: 100mm;
+    }
+
+    padding-bottom:5mm;
+
+    .borderless td, .borderless th {
+        border: none!important;
+    }
+}
+
+.box {
+    padding:1mm;
+    border:solid black 1px;
+    background:#ccc;
+
+    font-size:10px;
+}
+
+hr {
+    border: 0;
+    width: 100%;
+    height:1mm;
+    background-color:black;
+}
+
+.bottom {
+    text-align: center;
+    font-size:12px;
+    padding-bottom:0;
+}
+
+#footer {
+    padding:1mm;
+    text-align:center;
 }
