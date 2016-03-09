@@ -154,6 +154,16 @@
                 <?=\CoreShop\Tool::formatPrice($this->cart->getSubtotal())?>
             </td>
         </tr>
+        <?php if($discount > 0) { ?>
+            <tr>
+                <td class="text-right">
+                    <strong><?=$this->translate("Discount")?>:</strong>
+                </td>
+                <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-discount">
+                    -<?=\CoreShop\Tool::formatPrice($discount)?>
+                </td>
+            </tr>
+        <?php } ?>
         <?php if($shipping > 0) { ?>
             <tr>
                 <td class="text-right">
@@ -182,16 +192,6 @@
                 <?=\CoreShop\Tool::formatPrice($this->cart->getTotalTax())?>
             </td>
         </tr>
-        <?php if($discount > 0) { ?>
-            <tr>
-                <td class="text-right">
-                    <strong><?=$this->translate("Discount")?>:</strong>
-                </td>
-                <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-discount">
-                    -<?=\CoreShop\Tool::formatPrice($discount)?>
-                </td>
-            </tr>
-        <?php } ?>
         <tr>
             <td class="text-right">
                 <strong><?=$this->translate("Total ")?>:</strong>
