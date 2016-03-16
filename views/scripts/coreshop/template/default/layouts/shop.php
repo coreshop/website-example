@@ -137,6 +137,12 @@
 
                         <div class="pull-right">
 
+                            <div class="btn-group">
+                                <a class="btn btn-link" href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_wishlist")?>">
+                                    <?=$this->translate("Wishlist")?>
+                                </a>
+                            </div>
+
                             <!-- Currency Starts -->
                             <div class="btn-group">
                                 <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">

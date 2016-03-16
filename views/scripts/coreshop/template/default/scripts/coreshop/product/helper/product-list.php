@@ -24,7 +24,7 @@
                     <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice())?></span>
                 </div>
                 <div class="cart-button button-group">
-                    <button type="button" title="" class="btn btn-wishlist" data-original-title="Wishlist">
+                    <button type="button" title="" class="btn btn-wishlist" data-original-title="Wishlist" data-id="<?=$this->product->getId()?>">
                         <i class="fa fa-heart"></i>
                     </button>
                     <button type="button" title="" class="btn btn-compare" data-original-title="Compare" data-id="<?=$this->product->getId()?>">

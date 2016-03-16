@@ -27,7 +27,7 @@
                     <!--<span class="price-old">$249.50</span>-->
                 </div>
                 <div class="cart-button button-group">
-                    <button type="button" title="Wishlist" class="btn btn-wishlist">
+                    <button type="button" title="Wishlist" class="btn btn-wishlist" data-id="<?=$this->product->getId()?>">
                         <i class="fa fa-heart"></i>
                     </button>
                     <button type="button" title="Compare" class="btn btn-compare" data-id="<?=$this->product->getId()?>">
