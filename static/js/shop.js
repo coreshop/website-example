@@ -56,7 +56,6 @@ $(document).ready(function(){
             var $el = $(ev.target),
                 product_id = $el.data("id");
             shop.addToCompareList( product_id, $el );
-
         });
 
         $('.btn-compare-remove').on('click', function( ev ) {
@@ -64,7 +63,19 @@ $(document).ready(function(){
             var $el = $(ev.target),
                 product_id = $el.data("id");
             shop.removeFromCompareList( product_id, $el );
+        });
 
+        $('.btn-wishlist').on('click', function(ev) {
+            var $el = $(ev.target),
+                product_id = $el.data("id");
+            shop.addToWishList( product_id, $el );
+
+        });
+
+        $('.btn-wishlist-remove').on('click', function( ev ) {
+            var $el = $(ev.target),
+                product_id = $el.data("id");
+            shop.removeFromWishList( product_id, $el );
         });
 
         shop.initChangeAddress();
@@ -228,6 +239,56 @@ $(document).ready(function(){
                         if(callback)
                             callback();
 
+                    }
+                }
+            }
+        });
+    };
+
+    shop.addToWishList = function(product_id, sender, extraData, callback)
+    {
+        var data = $.extend({product : product_id}, extraData ? extraData : {});
+
+        $.ajax({
+            url : '/' + coreshop_language + '/wishlist/add',
+            data : data,
+            dataType: 'json',
+            success : function(result,status,xhr) {
+                if(status == "success")
+                {
+                    if(result.success)
+                    {
+                        shop.showMessage('Product successfully added to Whishlist.');
+
+                        if(callback)
+                            callback();
+
+                    } else {
+                        shop.showMessage( result.message );
+                    }
+                }
+            }
+        });
+    };
+
+    shop.removeFromWishList = function(product_id, sender, extraData, callback)
+    {
+        var data = $.extend({product : product_id}, extraData ? extraData : {});
+
+        $.ajax({
+            url : '/' + coreshop_language + '/wishlist/remove',
+            data : data,
+            dataType: 'json',
+            success : function(result,status,xhr) {
+                if(status == "success")
+                {
+                    if(result.success)
+                    {
+                        sender.closest('.whishlist-block').remove();
+                        window.location.reload();
+
+                        if(callback)
+                            callback();
                     }
                 }
             }
