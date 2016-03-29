@@ -133,13 +133,13 @@ $postValue = function ($name) {
                                 <div class="col-sm-9">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                            <input type="radio" name="newsletterActive" id="newsletterActiveYes" value="1" checked>
                                             <?=$this->translate("Subscribe")?>
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1">
+                                            <input type="radio" name="newsletterActive" id="newsletterActiveNo" value="0">
                                             <?=$this->translate("Unsubscribe")?>
                                         </label>
                                     </div>
