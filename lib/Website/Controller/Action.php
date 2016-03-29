@@ -26,5 +26,7 @@ class Action extends Frontend {
 
         $this->view->language = (string) $locale;
         $this->language = (string) $locale;
+
+        $this->view->headTitle()->setSeparator(" " . ("|") . " ");
     }
 }
