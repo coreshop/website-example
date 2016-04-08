@@ -10767,7 +10767,7 @@ body {
   background: #fff;
 }
 .invoice-table table.items {
-  height: 150mm;
+  height: 120mm;
   margin-bottom: 0;
 }
 .invoice-table table.items td, .invoice-table table.items th {

@@ -48,7 +48,7 @@
             $payment = $this->order->getPaymentFee();
             $taxes = $this->order->getTaxRates();
 
-            $rowspan = 6 + count($taxes);
+            $rowspan = 7 + count($taxes);
 
             if($shipping == 0)
                 $rowspan--;
@@ -91,16 +91,24 @@
                         </td>
                     </tr>
                 <?php } ?>
-                <?php foreach($taxes as $rate => $tax) { ?>
+                <?php foreach($taxes as $name => $tax) { ?>
                     <tr>
                         <td class="col-xs-2 no-border">
-                            <strong><?=$this->translate("Tax")?> (<?=$rate?>%)</strong>
+                            <strong><?=$this->translate("Tax")?> (<?=$name?>)</strong>
                         </td>
                         <td class="col-xs-2 text-right">
                             <?=\CoreShop\Tool::formatPrice($tax)?>
                         </td>
                     </tr>
                 <?php } ?>
+                <tr>
+                    <td class="col-xs-2 no-border">
+                        <strong><?=$this->translate("Total Tax")?>:</strong>
+                    </td>
+                    <td class="col-xs-2 text-right">
+                        <?=\CoreShop\Tool::formatPrice($this->order->getTotalTax())?>
+                    </td>
+                </tr>
                 <?php if($discount > 0) { ?>
                     <tr>
                         <td class="col-xs-2 no-border">
