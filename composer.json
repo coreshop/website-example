@@ -1,6 +1,6 @@
 {
   "name": "coreshop/demo",
-  "type": "coreshop-website",
+  "type": "pimcore-website-component",
   "license": "GPLv3",
   "description": "Demo Website for CoreShop",
   "keywords": ["pimcore", "coreshop", "pimcore-onlineshop", "onlineshop", "ecommerce", "coreshop-website"],
@@ -10,5 +10,10 @@
     "email": "dominik@pfaffenbauer.at",
     "homepage": "http://www.pfaffenbauer.at/",
     "role": "Developer"
-  }]
+  }],
+  "require": {
+    "pimcore/installer-website-component": ">=1",
+    "coreshop/core-shop" : "dev-master"
+  },
+   "minimum-stability": "dev"
 }
