@@ -1,1 +1,6 @@
-*
+/*
+!/website/
+/website/models
+/website/var
+.sass-cache
+.idea
