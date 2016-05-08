@@ -32,7 +32,7 @@
                         <?=\CoreShop\Tool::formatPrice($order->getTotal())?>
                     </td>
                     <td>
-                        <?php if($order->getOrderState() instanceof CoreShop\Model\OrderState) { ?>
+                        <?php if($order->getOrderState() instanceof \CoreShop\Model\Order\State) { ?>
                             <?=$order->getOrderState()->getName()?>
                         <?php } ?>
                     </td>

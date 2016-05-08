@@ -73,7 +73,7 @@
             </tr>
         <?php } ?>
 
-            <?php if($this->cart->getPriceRule() instanceof \CoreShop\Model\PriceRule && $this->cart->getPriceRule()->getDiscount() > 0) { ?>
+            <?php if($this->cart->getPriceRule() instanceof \CoreShop\Model\Cart\PriceRule && $this->cart->getPriceRule()->getDiscount() > 0) { ?>
             <tr>
                 <td colspan="2" class="text-center">
                     <?=$this->cart->getPriceRule()->getName()?>
@@ -131,7 +131,7 @@
                     <button type="submit" name="submitAddDiscount" class="btn btn-black"><span>OK</span></button>
                 </form>
                 <?php
-                $highlightPriceRules = \CoreShop\Model\PriceRule::getHighlightItems();
+                $highlightPriceRules = \CoreShop\Model\Cart\PriceRule::getHighlightItems();
 
                 if(count($highlightPriceRules) > 0)
                 {

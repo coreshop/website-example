@@ -9,7 +9,7 @@ use Pimcore\Controller\Action\Frontend;
 class Action extends Frontend {
 	
 	public function init () {
-        Plugin::getEventManager()->attach("actionHook.country", function() {
+        \Pimcore::getEventManager()->attach("coreshop.actionHook.country", function() {
             return function() {
                 return Country::getById(3);
             };
