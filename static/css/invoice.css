@@ -9653,6 +9653,10 @@ hr {
   color: #808080;
   text-decoration: line-through;
 }
+.product-col .price span.price-savings {
+  font-size: 18px;
+  color: #808080;
+}
 .product-col .cart-button {
   padding-top: 10px;
 }
@@ -10016,6 +10020,10 @@ hr {
   color: #808080;
   text-decoration: line-through;
 }
+.side-products-list .price span.price-savings {
+  font-size: 14px;
+  color: #808080;
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .side-products-list h5, .side-products-list .price {
     float: none;
@@ -10127,6 +10135,10 @@ hr {
   font-size: 18px;
   color: #212121;
   text-decoration: line-through;
+}
+.product-info .product-details .price-savings {
+  font-size: 18px;
+  color: #212121;
 }
 .product-info .product-details .options h3 {
   margin-bottom: 20px;

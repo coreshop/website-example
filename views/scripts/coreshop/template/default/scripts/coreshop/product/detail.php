@@ -72,7 +72,10 @@
                         <div class="price">
                             <span class="price-head"><?=$this->translate("Price")?> :</span>
                             <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice());?></span>
-
+                            <?php if($this->product->getPrice() < $this->product->getRetailPrice()) { ?>
+                                <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getRetailPrice())?></span>
+                                <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(($this->product->getRetailPrice()/100) * $this->product->getPrice(), 0)?>%)</span>
+                            <?php } ?>
                         </div>
                         <div class="tax">
                             <?=sprintf($this->translate("incl. %s%% Tax"), $this->product->getTaxRate())?>

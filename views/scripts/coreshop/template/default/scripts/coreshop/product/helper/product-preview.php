@@ -26,6 +26,10 @@
         <?php if($this->product->getAvailableForOrder()) { ?>
             <div class="price">
                 <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice())?></span>
+                <?php if($this->product->getPrice() < $this->product->getRetailPrice()) { ?>
+                    <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getRetailPrice())?></span>
+                    <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(($this->product->getRetailPrice()/100) * $this->product->getPrice(), 0)?>%)</span>
+                <?php } ?>
             </div>
             <?php if(!\CoreShop\Config::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
                 <div class="cart-button">

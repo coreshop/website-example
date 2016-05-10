@@ -650,6 +650,10 @@ hr {
                 color: #808080;
                 text-decoration: line-through;
             }
+            &.price-savings {
+                font-size: 18px;
+                color: #808080;
+            }
         }
     }
     .cart-button {
@@ -1033,6 +1037,10 @@ hr {
                 color: #808080;
                 text-decoration: line-through;
             }
+            &.price-savings {
+                font-size: 14px;
+                color: #808080;
+            }
         }
     }
 
@@ -1165,6 +1173,10 @@ hr {
             font-size: 18px;
             color: #212121;
             text-decoration: line-through;
+        }
+        .price-savings {
+            font-size: 18px;
+            color: #212121;
         }
         .options {
             h3 {
