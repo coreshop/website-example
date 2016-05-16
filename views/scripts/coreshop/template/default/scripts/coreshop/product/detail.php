@@ -119,14 +119,87 @@
                 </div>
             </div>
 
-            <?php if(strlen($this->product->getDescription()) > 0) {?>
-                <div class="product-info-box">
-                    <h4 class="heading"><?=$this->translate("Description")?></h4>
-                    <div class="content panel-smart">
-                        <?=$this->product->getDescription()?>
+            <div class="tabs-panel panel-smart">
+                <!-- Nav Tabs Starts -->
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab-description"><?=$this->translate("Description")?></a>
+                    </li>
+                    <li>
+                        <a href="#tab-contact"><?=$this->translate("Contact")?></a>
+                    </li>
+                </ul>
+
+                <div class="tab-content clearfix">
+                    <div class="tab-pane active" id="tab-description">
+                        <?php
+                            echo strlen($this->product->getDescription()) > 0 ? $this->product->getDescription() : $this->translate("Sorry, but there is no description available");
+                        ?>
+                    </div>
+
+                    <div class="tab-pane" id="tab-contact">
+                        <?php if($this->success === false) { ?>
+                            <div class="alert alert-danger"><?=$this->error?></div>
+                        <?php } ?>
+
+                        <?php if($this->success === true) { ?>
+                            <div class="alert alert-success"><?=$this->translate("Your message has been sent to our team.")?></div>
+                        <?php } ?>
+
+                        <?php if($this->success === false || is_null($this->success)) { ?>
+                            <?php
+                            $postValue = function ($name) {
+                                if (isset($this->params[$name])) {
+                                    return $this->params[$name];
+                                }
+
+                                return null;
+                            };
+                            ?>
+
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form" method="post">
+                                    <div class="form-group">
+                                        <label for="contact" class="col-sm-2 control-label">
+                                            <?=$this->translate("Subject")?>
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <select name="contact" class="form-control" id="contact">
+                                                <?php foreach($this->contacts as $contact) { ?>
+                                                    <option value="<?=$contact->getId()?>" <?=$postValue("contact") === $contact->getId() ? 'selected="selected"' : "" ?> ><?=$contact->getName()?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="col-sm-2 control-label">
+                                            <?=$this->translate("Email")?>
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="<?=$this->translate("Email")?>" value="<?=$postValue('email')?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message" class="col-sm-2 control-label">
+                                            <?=$this->translate("Message")?>
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <textarea name="message" id="message" class="form-control" rows="5" placeholder="<?=$this->translate("Message")?>"><?=$postValue("message")?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" id="button-review" class="btn btn-main">
+                                                <?=$this->translate("Submit")?>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
-            <?php } ?>
+            </div>
 
             <?php  $variants = $this->product->getVariantDifferences( $this->language ); ?>
 

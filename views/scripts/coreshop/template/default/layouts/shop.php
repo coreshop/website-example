@@ -127,6 +127,14 @@
                                         </a>
                                     </li>
                                     <?php } ?>
+                                    <li>
+                                        <a href="<?=$this->url(array("lang" => $this->language, "act" => "contact"), "coreshop_message")?>">
+                                            <i class="fa fa-home hidden-lg hidden-md" title="<?=$this->translate("Contact")?>"></i>
+                                            <span class="hidden-sm hidden-xs">
+                                                <?=$this->translate("Contact")?>
+                                            </span>
+                                        </a>
+                                    </li>
                                 <?php } ?>
                             </ul>
                         </div>
