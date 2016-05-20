@@ -125,6 +125,11 @@
                     <li class="active">
                         <a href="#tab-description"><?=$this->translate("Description")?></a>
                     </li>
+                    <?php if(count($this->similarProducts) > 0) { ?>
+                    <li>
+                        <a href="#tab-similar"><?=$this->translate("Similar Products")?></a>
+                    </li>
+                    <?php }?>
                     <li>
                         <a href="#tab-contact"><?=$this->translate("Contact")?></a>
                     </li>
@@ -136,6 +141,18 @@
                             echo strlen($this->product->getDescription()) > 0 ? $this->product->getDescription() : $this->translate("Sorry, but there is no description available");
                         ?>
                     </div>
+
+                    <?php if(count($this->similarProducts) > 0) { ?>
+                    <div class="tab-pane" id="tab-similar">
+                        <div class="row">
+                        <?php
+                            foreach($this->similarProducts as $product) {
+                                echo $this->template("product/helper/product-list.php", array("product" => $product));
+                            }
+                        ?>
+                        </div>
+                    </div>
+                    <?php } ?>
 
                     <div class="tab-pane" id="tab-contact">
                         <?php if($this->success === false) { ?>

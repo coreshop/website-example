@@ -1,3 +1,4 @@
+<?php if(count($this->currentValues) > 0) { ?>
 <div class="list-group">
     <div class="list-group-item">
         <?=$this->translate($this->label)?>
@@ -17,3 +18,4 @@
         </div>
     </div>
 </div>
+<?php } ?>

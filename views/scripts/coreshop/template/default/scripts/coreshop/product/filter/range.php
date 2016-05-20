@@ -1,3 +1,4 @@
+<?php if(count($this->values) > 0) { ?>
 <div class="list-group">
     <div class="list-group-item">
         <?=$this->translate($this->label)?>
@@ -28,5 +29,5 @@
         </div>
 
     </div>
-
 </div>
+<?php } ?>

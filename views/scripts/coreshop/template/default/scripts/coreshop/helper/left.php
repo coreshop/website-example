@@ -4,24 +4,31 @@
 
     <?=$this->template("coreshop/helper/left/categories.php");?>
 
-    <?php if($this->filter instanceof CoreShop\Model\Product\Filter) { ?>
-<br/><br/>
-    <form class="form" action="<?=$this->url(array("lang" => $this->language, "category" => $this->category->getId()), "coreshop_list")?>" method="get">
+    <?php if($this->filter instanceof CoreShop\Model\Product\Filter) {
 
-        <?php if(is_array($this->filter->getFilters())) {
-                foreach($this->filter->getFilters() as $filter) {
-                    echo $filter->render($this->filter, $this->list, $this->currentFilter);
-                }
+        $filters = "";
+
+        if(is_array($this->filter->getFilters())) {
+            foreach($this->filter->getFilters() as $filter) {
+                $filters .= $filter->render($this->filter, $this->list, $this->currentFilter);
             }
+        }
 
         ?>
 
-        <div class="list-group-item">
-            <button type="submit" class="btn btn-main"><?=$this->translate("Filter")?></button>
-        </div>
+        <?php if(strlen($filters) > 0) { ?>
+            <br/><br/>
+            <?php echo $filters; ?>
 
-    </form>
+            <form class="form" action="<?=$this->url(array("lang" => $this->language, "category" => $this->category->getId()), "coreshop_list")?>" method="get">
 
+                <div class="list-group-item">
+                    <button type="submit" class="btn btn-main"><?=$this->translate("Filter")?></button>
+                </div>
+
+            </form>
+
+        <?php } ?>
     <?php } ?>
 
 <?php /*
