@@ -51,21 +51,48 @@
                         <hr />
                     <?php } ?>
 
-                    <?php if($this->product->getQuantity() > 0) { ?>
-                        <div class="quantity">
-                            <?=sprintf($this->translate("%s Items"), $this->product->getQuantity())?>
-                        </div>
-                        <div class="quantity-info">
-                            <?=$this->translate("In Stock")?>
-                        </div>
-                    <?php } else if($this->product->isAvailableWhenOutOfStock()) { //Out of stock but available for backorder ?>
-                        <div class="quantity-info backorder">
-                            <?=$this->translate("Out of Stock, but already on back order.")?>
-                        </div>
-                    <?php } else { ?>
-                        <div class="quantity-info out-of-stock">
-                            <?=$this->translate("Out of Stock")?>
-                        </div>
+                    <ul class="list-unstyled manufacturer">
+                        <?php if($this->product->getManufacturer() instanceof \CoreShop\Model\Manufacturer) { ?>
+                        <li>
+                            <span><?=$this->translate("Brand")?>:</span> <?=$this->product->getManufacturer()->getName()?>
+                        </li>
+                        <?php }?>
+                        <?php if($this->product->getEan()) { ?>
+                            <li><span><?=$this->translate("Model")?>:</span> <?=$this->product->getEan()?></li>
+                        <?php }?>
+                        <li>
+                            <span>Availability:</span>
+                            <?php if($this->product->getQuantity() > 0) { ?>
+                                <strong class="label label-success"> <?=$this->translate("In Stock")?></strong>
+                            <?php } else if($this->product->isAvailableWhenOutOfStock()) { ?>
+                                <div class="label label-warning">
+                                    <?=$this->translate("Out of Stock, but already on back order.")?>
+                                </div>
+                            <?php } else { ?>
+                                <div class="label label-danger">
+                                    <?=$this->translate("Out of Stock")?>
+                                </div>
+                            <?php } ?>
+                        </li>
+                    </ul>
+                    <hr/>
+
+                    <?php  $variants = $this->product->getVariantDifferences( $this->language ); ?>
+
+                    <?php if(!empty($variants)) {
+                        foreach($variants as $variant) {  ?>
+                            <h4><?=$variant['variantName']?></h4>
+                            <div class="form-group">
+                                <select name="variant" class="form-control selectpicker btn-white">
+
+                                    <?php foreach($variant['variantValues'] as $variantValue) { ?>
+                                        <?php $href = $this->url(array("lang" => $this->language, "product" => $variantValue['productId'], "name" => $variantValue['productName']), "coreshop_detail");?>
+                                        <option data-href="<?=$href?>" value="<?=$variantValue['productId']?>" <?=$variantValue['selected'] ? "selected" : ""?>><?=$this->translate($variantValue['variantName'])?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        <?php } ?>
+                        <hr/>
                     <?php } ?>
 
                     <?php if($this->product->getAvailableForOrder()) { ?>
@@ -217,41 +244,6 @@
                     </div>
                 </div>
             </div>
-
-            <?php  $variants = $this->product->getVariantDifferences( $this->language ); ?>
-
-            <?php if( !empty( $variants ) ) { ?>
-
-                <?php foreach($variants as $variant) {  ?>
-
-                    <h4><?=$variant['variantName']?></h4>
-
-                    <div class="col-xs-12">
-
-                        <div class="form-group">
-
-                            <select name="variant" class="selectpicker btn-white">
-
-                                <?php foreach($variant['variantValues'] as $variantValue) { ?>
-
-                                    <?php $href = $this->url(array("lang" => $this->language, "product" => $variantValue['productId'], "name" => $variantValue['productName']), "coreshop_detail");?>
-                                    <option data-href="<?=$href?>" value="<?=$variantValue['productId']?>" <?=$variantValue['selected'] ? "selected" : ""?>><?=$this->translate($variantValue['variantName'])?></option>
-
-                                <?php } ?>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-                <?php } ?>
-
-            <?php } ?>
-
-            <?=\CoreShop\Plugin::hook("product-detail-bottom", array("product" => $this->product))?>
-
-
         </div>
     </div>
 </div>
