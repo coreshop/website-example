@@ -107,7 +107,7 @@ $(document).ready(function(){
         var data = $.extend({product : product_id, amount : amount}, extraData ? extraData : {});
         
         $.ajax({
-            url : '/' + coreshop_language + '/cart/add',
+            url : '/' + coreshop_language + '/shop/cart/add',
             data : data,
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -145,7 +145,7 @@ $(document).ready(function(){
     shop.removeFromCart = function(cartItem, callback)
     {
         $.ajax({
-            url : '/' + coreshop_language + '/cart/remove',
+            url : '/' + coreshop_language + '/shop/cart/remove',
             data : {cartItem : cartItem},
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -166,7 +166,7 @@ $(document).ready(function(){
     shop.modifyCartItem = function(cartItem, amount, callback)
     {
         $.ajax({
-            url : '/' + coreshop_language + '/cart/modify',
+            url : '/' + coreshop_language + '/shop/cart/modify',
             data : {cartItem : cartItem, amount:amount},
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -197,7 +197,7 @@ $(document).ready(function(){
         var data = $.extend({product : product_id}, extraData ? extraData : {});
 
         $.ajax({
-            url : '/' + coreshop_language + '/compare/add',
+            url : '/' + coreshop_language + '/shop/compare/add',
             data : data,
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -225,7 +225,7 @@ $(document).ready(function(){
         var data = $.extend({product : product_id}, extraData ? extraData : {});
 
         $.ajax({
-            url : '/' + coreshop_language + '/compare/remove',
+            url : '/' + coreshop_language + '/shop/compare/remove',
             data : data,
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -250,7 +250,7 @@ $(document).ready(function(){
         var data = $.extend({product : product_id}, extraData ? extraData : {});
 
         $.ajax({
-            url : '/' + coreshop_language + '/wishlist/add',
+            url : '/' + coreshop_language + '/shop/wishlist/add',
             data : data,
             dataType: 'json',
             success : function(result,status,xhr) {
@@ -276,7 +276,7 @@ $(document).ready(function(){
         var data = $.extend({product : product_id}, extraData ? extraData : {});
 
         $.ajax({
-            url : '/' + coreshop_language + '/wishlist/remove',
+            url : '/' + coreshop_language + '/shop/wishlist/remove',
             data : data,
             dataType: 'json',
             success : function(result,status,xhr) {
