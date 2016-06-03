@@ -771,5 +771,21 @@
             }
         }
 
+        table.table-bordered {
+            border:1px solid #ccc;
+        }
+
+        table.table-bordered tr td{
+            border:1px solid #ccc;
+            padding:5px;
+        }
+
+        table.table-bordered thead td{
+            font-weight:bold;
+        }
+
+        table.table-bordered tbody tr:nth-child(2n+1) td {
+            background:#eee;
+        }
     </style>
 </head>
