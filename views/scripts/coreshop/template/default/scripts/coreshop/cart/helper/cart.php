@@ -76,7 +76,7 @@
             <?php if($this->cart->getPriceRule() instanceof \CoreShop\Model\Cart\PriceRule && $this->cart->getPriceRule()->getDiscount() > 0) { ?>
             <tr>
                 <td colspan="2" class="text-center">
-                    <?=$this->cart->getPriceRule()->getName()?>
+                    <?=$this->cart->getPriceRule()->getLabel() ? $this->cart->getPriceRule()->getLabel() : $this->cart->getPriceRule()->getName()?>
                 </td>
                 <td class="text-center">
 
