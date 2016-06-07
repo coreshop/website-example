@@ -99,9 +99,9 @@
                         <div class="price">
                             <span class="price-head"><?=$this->translate("Price")?> :</span>
                             <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice());?></span>
-                            <?php if($this->product->getPrice() < $this->product->getRetailPrice()) { ?>
-                                <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getRetailPrice())?></span>
-                                <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(($this->product->getRetailPrice()/100) * $this->product->getPrice(), 0)?>%)</span>
+                            <?php if($this->product->getPrice() != $this->product->getRetailPriceWithTax()) { ?>
+                                <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())?></span>
+                                <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getRetailPriceWithTax()) * ($this->product->getRetailPriceWithTax() - $this->product->getPrice()), 0)?>%)</span>
                             <?php } ?>
                         </div>
                         <div class="tax">
@@ -116,6 +116,31 @@
                             <?php } ?>
                         </div>
                         <hr/>
+
+                        <?php if(count($this->product->getValidSpecificPriceRules()) > 0) { ?>
+                            <div class="price-rules">
+                                <ul>
+                                    <?php foreach($this->product->getValidSpecificPriceRules() as $rule) { ?>
+                                        <?php foreach($rule->getActions() as $action) { ?>
+                                            <li>
+                                                <?php
+                                                    if($action instanceof \CoreShop\Model\Product\PriceRule\Action\DiscountAmount) {
+                                                        echo $this->translate(sprintf("You will get a discount of %s.", \CoreShop\Tool::formatPrice($action->getAmount())));
+                                                    }
+                                                    else if($action instanceof \CoreShop\Model\Product\PriceRule\Action\DiscountPercent) {
+                                                        echo $this->translate(sprintf("You will get a discount of %s%%.", $action->getPercent()));
+                                                    }
+                                                    else if($action instanceof \CoreShop\Model\Product\PriceRule\Action\NewPrice) {
+                                                        echo $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop\Tool::formatPrice($action->getNewPrice()), \CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())));
+                                                    }
+                                                ?>
+                                            </li>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                            <hr/>
+                        <?php } ?>
 
                         <div class="options">
                             <?php if(!\CoreShop\Config::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
