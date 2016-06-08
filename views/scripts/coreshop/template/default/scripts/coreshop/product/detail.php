@@ -124,13 +124,13 @@
                                         <?php foreach($rule->getActions() as $action) { ?>
                                             <li>
                                                 <?php
-                                                    if($action instanceof \CoreShop\Model\Product\PriceRule\Action\DiscountAmount) {
+                                                    if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountAmount) {
                                                         echo $this->translate(sprintf("You will get a discount of %s.", \CoreShop\Tool::formatPrice($action->getAmount())));
                                                     }
-                                                    else if($action instanceof \CoreShop\Model\Product\PriceRule\Action\DiscountPercent) {
+                                                    else if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountPercent) {
                                                         echo $this->translate(sprintf("You will get a discount of %s%%.", $action->getPercent()));
                                                     }
-                                                    else if($action instanceof \CoreShop\Model\Product\PriceRule\Action\NewPrice) {
+                                                    else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
                                                         echo $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop\Tool::formatPrice($action->getNewPrice()), \CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())));
                                                     }
                                                 ?>
