@@ -9638,6 +9638,16 @@ hr {
 .shopping-cart-table tbody > tr > td a:hover {
   color: #252a2f;
 }
+.shopping-cart-table tbody > tr > td .price-old {
+  text-decoration: line-through;
+  font-size: 12px;
+  margin-right: 5px;
+}
+.shopping-cart-table tbody > tr > td .price-rules {
+  font-size: 14px;
+  text-transform: none;
+  text-align: left;
+}
 
 /* Compare Page Styles Starts */
 .compare-table {

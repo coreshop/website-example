@@ -142,6 +142,45 @@
                             <hr/>
                         <?php } ?>
 
+                        <?php foreach(\CoreShop\Model\Product\SpecificPrice::getSpecificPrices($this->product) as $specificPrice) {
+                            $conditions = [];
+
+                            foreach($specificPrice->getConditions() as $condition) {
+                                if($condition instanceof \CoreShop\Model\PriceRule\Condition\Amount) {
+                                    foreach($specificPrice->getActions() as $action) {
+                                        if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountAmount) {
+                                            $discount = \CoreShop\Tool::formatPrice($action->getAmount());
+
+                                            $conditions[] = $this->translate(sprintf("Buy %s and get a discount of %s.", $condition->getMinAmount(), \CoreShop\Tool::formatPrice($action->getAmount())));
+                                        }
+                                        else if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountPercent) {
+                                            $discount = \CoreShop\Tool::formatPrice($action->getPercent());
+
+                                            $conditions[] = $this->translate(sprintf("Buy %s and get a discount of %s%%.", $condition->getMinAmount(), $action->getPercent()));
+                                        }
+                                        else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
+                                            $conditions[] = $this->translate(sprintf("Buy %s and you will get a total new price, per product, of %s instead of %s.", $condition->getMinAmount(), \CoreShop\Tool::formatPrice($action->getNewPrice()), \CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())));
+                                        }
+
+                                    }
+                                }
+                            }
+
+                            if(count($conditions) > 0) {
+                                ?>
+                                <div class="price-rules">
+                                    <ul>
+                                        <?php
+                                            foreach($conditions as $condition) {
+                                                echo "<li>" . $condition . "</li>";
+                                            }
+                                        ?>
+                                    </ul>
+                                </div>
+                                <?php
+                            }
+                        } ?>
+
                         <div class="options">
                             <?php if(!\CoreShop\Config::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
                                 <div class="form-group">

@@ -43,6 +43,26 @@
                 </td>
                 <td class="text-center">
                     <a href="<?=$href?>"><?=$item->getProduct()->getName()?></a> <?php if($item->getIsGiftItem()) { ?> <br/><span><?=$this->translate("Gift Item")?></span> <?php } ?>
+
+                    <?php if(count($item->product->getValidSpecificPriceRules()) > 0) { ?>
+                        <div class="price-rules">
+                        <?php foreach($item->product->getValidSpecificPriceRules() as $rule) { ?>
+                            <?php foreach($rule->getActions() as $action) { ?>
+                                <?php
+                                    if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountAmount) {
+                                        echo "<br/>" . $this->translate(sprintf("You will get a discount of %s.", \CoreShop\Tool::formatPrice($action->getAmount())));
+                                    }
+                                    else if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountPercent) {
+                                        echo "<br/>" . $this->translate(sprintf("You will get a discount of %s%%.", $action->getPercent()));
+                                    }
+                                    else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
+                                        echo "<br/>" . $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop\Tool::formatPrice($action->getNewPrice()), \CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())));
+                                    }
+                                ?>
+                            <?php } ?>
+                        <?php } ?>
+                        </div>
+                    <?php } ?>
                 </td>
                 <td class="text-center">
                     <?php if($item->getIsGiftItem() || !$this->edit) { ?>
@@ -54,7 +74,16 @@
                     <?php } ?>
                 </td>
                 <td class="text-right cart-item-price">
-                    <?=\CoreShop\Tool::formatPrice($item->getProduct()->getPrice())?>
+                    <?php
+                        $price = $item->getProduct()->getPrice();
+                        $retailPrice = $item->getProduct()->getRetailPriceWithTax();
+
+                        if($retailPrice != $price) {
+                            ?><span class="price-old"><?=\CoreShop\Tool::formatPrice($retailPrice)?></span><?php
+                        }
+
+                        echo \CoreShop\Tool::formatPrice($price)
+                    ?>
                 </td>
                 <td class="text-right cart-item-total-price">
                     <?=\CoreShop\Tool::formatPrice($item->getAmount() * $item->getProduct()->getPrice())?>

@@ -752,6 +752,18 @@ hr {
         a:hover {
             color: #252a2f;
         }
+        
+        .price-old {
+            text-decoration: line-through;
+            font-size:12px;
+            margin-right:5px;
+        }
+        
+        .price-rules {
+            font-size:14px;
+            text-transform: none;
+            text-align: left;
+        }
     }
 }
 
