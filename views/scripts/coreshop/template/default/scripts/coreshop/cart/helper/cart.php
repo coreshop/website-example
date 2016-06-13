@@ -56,7 +56,7 @@
                                         echo "<br/>" . $this->translate(sprintf("You will get a discount of %s%%.", $action->getPercent()));
                                     }
                                     else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
-                                        echo "<br/>" . $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop\Tool::formatPrice($action->getNewPrice()), \CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())));
+                                        echo "<br/>" . $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop\Tool::formatPrice($action->getPriceWithTax($item->getProduct())), \CoreShop\Tool::formatPrice($item->getProduct()->getRetailPriceWithTax())));
                                     }
                                 ?>
                             <?php } ?>
