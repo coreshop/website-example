@@ -99,13 +99,13 @@
                         <div class="price">
                             <span class="price-head"><?=$this->translate("Price")?> :</span>
                             <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice());?></span>
-                            <?php if($this->product->getPrice() != $this->product->getRetailPriceWithTax()) { ?>
-                                <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())?></span>
-                                <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getRetailPriceWithTax()) * ($this->product->getRetailPriceWithTax() - $this->product->getPrice()), 0)?>%)</span>
+                            <?php if($this->product->getPrice() != $this->product->getRetailPrice(true)) { ?>
+                                <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getRetailPrice(true))?></span>
+                                <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getRetailPrice(true)) * ($this->product->getRetailPrice(true) - $this->product->getPrice()), 0)?>%)</span>
                             <?php } ?>
                         </div>
                         <div class="tax">
-                            <?=sprintf($this->translate("incl. %s%% Tax"), $this->product->getTaxRate())?>
+                            <?=sprintf($this->translate("incl. %s%% Tax"), $this->product->getTaxRate())?> (<?=CoreShop\Tool::formatPrice($this->product->getTaxAmount())?>)
                         </div>
 
                         <div class="shipping">
@@ -161,7 +161,7 @@
                                             $conditions[] = $this->translate(sprintf("Buy %s and get a discount of %s%%.", $condition->getMinQuantity(), $action->getPercent()));
                                         }
                                         else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
-                                            $conditions[] = $this->translate(sprintf("Buy %s and you will get a total new price, per product, of %s instead of %s.", $condition->getMinQuantity(), \CoreShop\Tool::formatPrice($action->getPriceWithTax($this->product)), \CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())));
+                                            $conditions[] = $this->translate(sprintf("Buy %s and you will get a total new price, per product, of %s instead of %s.", $condition->getMinQuantity(), \CoreShop\Tool::formatPrice($action->getPriceWithTax($this->product)), \CoreShop\Tool::formatPrice($this->product->getRetailPrice(true))));
                                         }
 
                                     }

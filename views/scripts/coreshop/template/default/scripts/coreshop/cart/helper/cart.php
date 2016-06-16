@@ -76,7 +76,7 @@
                 <td class="text-right cart-item-price">
                     <?php
                         $price = $item->getProduct()->getPrice();
-                        $retailPrice = $item->getProduct()->getRetailPriceWithTax();
+                        $retailPrice = $item->getProduct()->getRetailPrice(true);
 
                         if($retailPrice != $price) {
                             ?><span class="price-old"><?=\CoreShop\Tool::formatPrice($retailPrice)?></span><?php
