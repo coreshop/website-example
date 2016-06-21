@@ -99,9 +99,9 @@
                         <div class="price">
                             <span class="price-head"><?=$this->translate("Price")?> :</span>
                             <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice());?></span>
-                            <?php if($this->product->getPrice() != $this->product->getRetailPrice(true)) { ?>
-                                <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getRetailPrice(true))?></span>
-                                <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getRetailPrice(true)) * ($this->product->getRetailPrice(true) - $this->product->getPrice()), 0)?>%)</span>
+                            <?php if($this->product->getDiscount() > 0) { ?>
+                                <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getSalesPrice(true))?></span>
+                                <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop\Tool::formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
                             <?php } ?>
                         </div>
                         <div class="tax">
@@ -144,7 +144,7 @@
                         <?php } ?>
                         */ ?>
 
-                        <?php foreach(\CoreShop\Model\Product\SpecificPrice::getSpecificPrices($this->product) as $specificPrice) {
+                        <?php foreach($this->product->getSpecificPrices() as $specificPrice) {
                             $conditions = [];
 
                             foreach($specificPrice->getConditions() as $condition) {
@@ -153,12 +153,12 @@
                                         if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountAmount) {
                                             $discount = \CoreShop\Tool::formatPrice($action->getAmount());
 
-                                            $conditions[] = $this->translate(sprintf("Buy %s and get a discount of %s.", $condition->getMinQuantity(), \CoreShop\Tool::formatPrice($action->getAmount())));
+                                            $conditions[] = $this->translate(sprintf("Buy %s and get a discount of %s per Product.", $condition->getMinQuantity(), \CoreShop\Tool::formatPrice($action->getAmount())));
                                         }
                                         else if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountPercent) {
                                             $discount = \CoreShop\Tool::formatPrice($action->getPercent());
 
-                                            $conditions[] = $this->translate(sprintf("Buy %s and get a discount of %s%%.", $condition->getMinQuantity(), $action->getPercent()));
+                                            $conditions[] = $this->translate(sprintf("Buy %s and get a discount of %s%% per Product.", $condition->getMinQuantity(), $action->getPercent()));
                                         }
                                         else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
                                             $conditions[] = $this->translate(sprintf("Buy %s and you will get a total new price, per product, of %s instead of %s.", $condition->getMinQuantity(), \CoreShop\Tool::formatPrice($action->getPriceWithTax($this->product)), \CoreShop\Tool::formatPrice($this->product->getRetailPrice(true))));

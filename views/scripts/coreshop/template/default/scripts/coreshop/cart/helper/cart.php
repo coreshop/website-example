@@ -50,10 +50,10 @@
                             <?php foreach($rule->getActions() as $action) { ?>
                                 <?php
                                     if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountAmount) {
-                                        echo "<br/>" . $this->translate(sprintf("You will get a discount of %s.", \CoreShop\Tool::formatPrice($action->getAmount())));
+                                        echo "<br/>" . $this->translate(sprintf("You will get a discount of %s per Product.", \CoreShop\Tool::formatPrice($action->getAmount())));
                                     }
                                     else if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountPercent) {
-                                        echo "<br/>" . $this->translate(sprintf("You will get a discount of %s%%.", $action->getPercent()));
+                                        echo "<br/>" . $this->translate(sprintf("You will get a discount of %s%% per Product.", $action->getPercent()));
                                     }
                                     else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
                                         echo "<br/>" . $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop\Tool::formatPrice($action->getPriceWithTax($item->getProduct())), \CoreShop\Tool::formatPrice($item->getProduct()->getRetailPriceWithTax())));

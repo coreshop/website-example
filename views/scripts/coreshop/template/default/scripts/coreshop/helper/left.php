@@ -5,7 +5,9 @@
     <?=$this->template("coreshop/helper/left/categories.php");?>
 
     <?php if($this->filter instanceof CoreShop\Model\Product\Filter) {
-
+        ?>
+        <form class="form" action="<?=$this->url(array("lang" => $this->language, "category" => $this->category->getId()), "coreshop_list")?>" method="get">
+        <?php
         $filters = "";
 
         if(is_array($this->filter->getFilters())) {
@@ -20,7 +22,7 @@
             <br/><br/>
             <?php echo $filters; ?>
 
-            <form class="form" action="<?=$this->url(array("lang" => $this->language, "category" => $this->category->getId()), "coreshop_list")?>" method="get">
+
 
                 <div class="list-group-item">
                     <button type="submit" class="btn btn-main"><?=$this->translate("Filter")?></button>

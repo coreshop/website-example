@@ -24,9 +24,9 @@
             <?php if($this->product->getAvailableForOrder()) { ?>
                 <div class="price">
                     <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice())?></span>
-                    <?php if($this->product->getPrice() < $this->product->getRetailPrice()) { ?>
-                        <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getRetailPrice())?></span>
-                        <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(($this->product->getRetailPrice()/100) * $this->product->getPrice(), 0)?>%)</span>
+                    <?php if($this->product->getDiscount() > 0) { ?>
+                        <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getSalesPrice(true))?></span>
+                        <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop\Tool::formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
                     <?php } ?>
                 </div>
                 <div class="cart-button button-group">
