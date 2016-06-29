@@ -13,9 +13,8 @@
     <?php echo $this->headTitle($this->document->getProperty("title"))?>
 
     <!-- Google Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Oswald:400,700,300" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400" rel="stylesheet" type="text/css">
 
     <!-- CSS Files -->
     <link href="/website/static/css/owl.carousel.css" rel="stylesheet">
@@ -209,7 +208,10 @@
                 <!-- Logo Starts -->
                     <div class="col-md-6">
                         <div id="logo">
-                            <a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><img src="/website/static/images/logo.png" title="Spice Shoppe" alt="Spice Shoppe" class="img-responsive" /></a>
+                            <a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>">
+                                <img src="/website/static/images/logo.png" title="Spice Shoppe" alt="CoreShop" class="img-responsive" />
+                                Core<span class="black">Shop</span>
+                            </a>
                         </div>
                     </div>
                 <!-- Logo Starts -->
