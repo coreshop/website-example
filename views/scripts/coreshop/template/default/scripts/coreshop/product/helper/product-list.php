@@ -35,7 +35,7 @@
                         <i class="fa fa-bar-chart-o"></i>
                     </button>
 
-                    <?php if(!\CoreShop\Config::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
+                    <?php if(!\CoreShop\Model\Configuration::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
                         <button type="button" class="btn btn-cart" data-id="<?=$this->product->getId()?>" data-img="#<?=$uniqid?>">
                             Add to cart
                             <i class="fa fa-shopping-cart"></i>

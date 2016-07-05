@@ -13,7 +13,7 @@
         </div>
         <!-- Information Links Ends -->
         <!-- My Account Links Starts -->
-        <?php if(!\CoreShop\Config::isCatalogMode()) { ?>
+        <?php if(!\CoreShop\Model\Configuration::isCatalogMode()) { ?>
             <div class="col-md-2 col-sm-6">
                 <h5><?=$this->translate("My Account")?></h5>
                 <ul>

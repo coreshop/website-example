@@ -78,7 +78,7 @@
             </div>
         </div>
     </section>
-    <?php if(\CoreShop\Config::isGuestCheckoutActivated()) { ?>
+    <?php if(\CoreShop\Model\Configuration::isGuestCheckoutActivated()) { ?>
         <!-- Login Form Section Ends -->
         <?php
         $class = Pimcore\Model\Object\ClassDefinition::getByName("CoreShopUser");

@@ -74,7 +74,7 @@
                                         </span>
                                     </a>
                                 </li>
-                                <?php if(!\CoreShop\Config::isCatalogMode()) { ?>
+                                <?php if(!\CoreShop\Model\Configuration::isCatalogMode()) { ?>
                                     <?php if($this->session->user instanceof \CoreShop\Model\User && !$this->session->user->getIsGuest()) { ?>
                                         <li>
                                             <a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>">
@@ -223,7 +223,7 @@
                 <!-- Logo Starts -->
                 <!-- Shopping Cart Starts -->
                     <div class="col-md-3">
-                        <?php if(!\CoreShop\Config::isCatalogMode()) { ?>
+                        <?php if(!\CoreShop\Model\Configuration::isCatalogMode()) { ?>
                             <?=$this->template("coreshop/cart/helper/minicart.php") ?>
                         <?php } ?>
                     </div>

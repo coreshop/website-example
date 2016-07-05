@@ -31,7 +31,7 @@
                     <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop\Tool::formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
                 <?php } ?>
             </div>
-            <?php if(!\CoreShop\Config::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
+            <?php if(!\CoreShop\Model\Configuration::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
                 <div class="cart-button">
                     <button type="button" class="btn btn-cart" data-id="<?=$this->product->getId()?>" data-img="<?=$uniqid ?>">
                         <?=$this->translate("Add to cart")?>

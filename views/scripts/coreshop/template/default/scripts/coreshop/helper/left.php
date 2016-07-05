@@ -1,7 +1,5 @@
 <!-- Sidebar Starts -->
 <div class="col-md-3">
-    <?=\CoreShop\Plugin::hook("product-left-column")?>
-
     <?=$this->template("coreshop/helper/left/categories.php");?>
 
     <?php if($this->filter instanceof CoreShop\Model\Product\Filter) {
