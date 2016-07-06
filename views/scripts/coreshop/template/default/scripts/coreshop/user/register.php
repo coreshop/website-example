@@ -191,3 +191,115 @@ $postValue = function ($name) {
         </div>
     </div>
 </div>
+
+<?php
+
+//Create Javascript rules for client-side validation
+$mandatoryFields = \CoreShop\Model\User::getMandatoryFields();
+$addressMandatoryFields = \CoreShop\Model\User\Address::getMandatoryFields();
+
+$bootstrapValidator = [
+    'email' => [
+        'container' => '[data-for=email]',
+        'validators' => [
+            'notEmpty' => [
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Email is required')
+            ],
+            'emailAddress' => [
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Email is invalid')
+            ],
+            'identical' => [
+                'field' => 'reemail',
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Email hast to be equal')
+            ]
+        ]
+    ],
+    'reemail' => [
+        'container' => '[data-for=reemail]',
+        'validators' => [
+            'notEmpty' => [
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Email is required')
+            ],
+            'emailAddress' => [
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Email is invalid')
+            ],
+            'identical' => [
+                'field' => 'email',
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Email hast to be equal')
+            ]
+        ]
+    ],
+    'password' => [
+        'container' => '[data-for=password]',
+        'validators' => [
+            'notEmpty' => [
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Password is required')
+            ],
+            'different' => [
+                'field' => 'username',
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Password and Username must be different')
+            ],
+            'stringLength' => [
+                'min' => 8,
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Password must be at least 8 characters')
+            ],
+            'identical' => [
+                'field' => 'repassword',
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Passwords has to be equal')
+            ]
+        ]
+    ],
+    'repassword' => [
+        'container' => '[data-for=repassword]',
+        'validators' => [
+            'notEmpty' => [
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Password is required')
+            ],
+            'different' => [
+                'field' => 'username',
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Password and Username must be different')
+            ],
+            'stringLength' => [
+                'min' => 8,
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Password must be at least 8 characters')
+            ],
+            'identical' => [
+                'field' => 'password',
+                'message' => '<i class="glyphicon glyphicon-remove-circle"></i> ' . $this->translate('Passwords has to be equal')
+            ]
+        ]
+    ]
+];
+foreach($mandatoryFields as $field) {
+    if(!array_key_exists($field->getName(), $bootstrapValidator)) {
+        $bootstrapValidator[$field->getName()] = [
+            'container' => '[data-for='.$field->getName().']',
+            'validators' => [
+                'notEmpty' => [
+                    'message' => '<i class="glyphicon glyphicon-remove-circle"></i> '.sprintf($this->translate("%s is required"), $field->getTitle())
+                ]
+            ]
+        ];
+    }
+}
+
+foreach($addressMandatoryFields as $field) {
+    if(!array_key_exists('address_' . $field->getName(), $bootstrapValidator)) {
+        $bootstrapValidator['address_' . $field->getName()] = [
+            'container' => '[data-for=address_'.$field->getName().']',
+            'validators' => [
+                'notEmpty' => [
+                    'message' => '<i class="glyphicon glyphicon-remove-circle"></i> '.sprintf($this->translate("%s is required"), $field->getTitle())
+                ]
+            ]
+        ];
+    }
+}
+
+
+?>
+
+<script type="text/javascript">
+    var fieldsToValidate = <?=\Zend_Json::encode($bootstrapValidator)?>;
+</script>
+

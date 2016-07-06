@@ -6,7 +6,7 @@ $(document).ready(function(){
 });
 
 (function(shop, $, undefined) {
-    
+
     shop.init = function() {
         $('.btn-cart').click(function(){
             var amountField = $(this).data("amount");
@@ -110,7 +110,7 @@ $(document).ready(function(){
             url : '/' + coreshop_language + '/shop/cart/add',
             data : data,
             dataType: 'json',
-            success : function(result,status,xhr) {
+            success : function(result,status) {
                 if(status == "success")
                 {
                     if(result.success)
@@ -297,14 +297,16 @@ $(document).ready(function(){
 
     shop.initRegisterForm = function()
     {
-        $('#shop-register-form').bootstrapValidator({
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok-circle',
-                invalid: 'glyphicon glyphicon-remove-circle',
-            },
-            excluded: ':disabled',
-            fields: shop.fieldsForRegister()
-        });
+        if(fieldsToValidate !== undefined) {
+            $('#shop-register-form').bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok-circle',
+                    invalid: 'glyphicon glyphicon-remove-circle',
+                },
+                excluded: ':disabled',
+                fields: fieldsToValidate
+            });
+        }
     };
 
     shop.showMessage = function( message, type ) {
@@ -329,213 +331,6 @@ $(document).ready(function(){
 
         $('#coreshop-bt-message').find('.modal').modal();
 
-    };
-
-    shop.fieldsForRegister = function()
-    {
-        return $.extend({
-            email: {
-                container: '[data-for=email]',
-                validators: {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Email is required'
-                    },
-                    emailAddress: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Email is invalid'
-                    },
-                    identical: {
-                        field: 'reemail',
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Email hast to be equal'
-                    }
-                }
-            },
-            reemail: 
-            {
-                container: '[data-for=reemail]',
-                validators: 
-                {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Email is required'
-                    },
-                    emailAddress: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Email is invalid'
-                    },
-                    identical: 
-                    {
-                        field: 'email',
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Email has to be equal'
-                    }
-                }
-            },
-            password: 
-            {
-                container: '[data-for=password]',
-                validators: 
-                {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Password is required'
-                    },
-                    different: {
-                        field: 'username',
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Password and Username must be different'
-                    },
-                    stringLength: {
-                        min: 8,
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Password must be at least 8 characters'
-                    },
-                    identical: {
-                        field: 'repassword',
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Passwords has to be equal'
-                    }
-                }
-            },
-            repassword: {
-                container: '[data-for=repassword]',
-                validators: 
-                {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Password is required'
-                    },
-                    different: {
-                        field: 'username',
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Password and Username must be different'
-                    },
-                    stringLength: {
-                        min: 8,
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Password must be at least 8 characters'
-                    },
-                    identical: {
-                        field: 'password',
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Passwords has to be equal'
-                    }
-                }
-            },
-        
-            firstname: 
-            {
-                container: '[data-for=firstname]',
-                validators: {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Firstname is required'
-                    }
-                }
-            },
-            lastname : 
-            {
-                container: '[data-for=lastname]',
-                validators : 
-                {
-                    notEmpty: 
-                    {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Lastname is required'
-                    }
-                }
-            },
-        
-            gender: 
-            {
-                container: '[data-for=gender]',
-                validators: 
-                {
-                    notEmpty: 
-                    {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Gender is required'
-                    }
-                }
-            },
-        }, shop.fieldsForAddress());
-    };
-    
-    shop.fieldsForAddress = function() {
-        return {
-            address_firstname: 
-            {
-                container: '[data-for=adress_firstname]',
-                validators: {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Firstname is required'
-                    }
-                }
-            },
-            
-            address_lastname : 
-            {
-                container: '[data-for=adress_lastname]',
-                validators : 
-                {
-                    notEmpty: 
-                    {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Lastname is required'
-                    }
-                }
-            },
-            
-            address_street : 
-            {
-                container: '[data-for=address_street]',
-                validators : 
-                {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Street is required'
-                    }
-                }
-            },
-          
-            address_nr : 
-            {
-                container: '[data-for=address_number]',
-                validators : {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Number is required'
-                    }
-                }
-            },
-          
-            address_zip : 
-            {
-                container: '[data-for=address_zip]',
-                validators : 
-                {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> ZIP is required'
-                    },
-                    regexp: {
-                        regexp: /^\d{4,}$/,
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> ZIP has to be a number'
-                    }
-                }
-            },
-          
-            address_city : 
-            {
-                container: '[data-for=address_city]',
-                validators : {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> City is required'
-                    }
-                }
-            },
-          
-            address_country : 
-            {
-                container: '[data-for=address_country]',
-                validators : {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Country is required'
-                    }
-                }
-            },
-
-            address_name:
-            {
-                container: '[data-for=address_name]',
-                validators : {
-                    notEmpty: {
-                        message: '<i class="glyphicon glyphicon-remove-circle"></i> Name is required'
-                    }
-                }
-            }
-        };
     };
     
     shop.initChangeAddress = function()

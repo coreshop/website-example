@@ -53,15 +53,39 @@
                                     </button>
                                 </div>
                             </div>
-                            <!-- Password Area Ends -->
                         </form>
-                        <!-- Registration Form Starts -->
                     </div>
                 </div>
-                <!-- Registration Block Ends -->
             </div>
         </div>
     </section>
-    <!-- Registration Section Ends -->
 </div>
-<!-- Main Container Ends -->
+
+
+<?php
+
+//Create Javascript rules for client-side validation
+$addressMandatoryFields = \CoreShop\Model\User\Address::getMandatoryFields();
+
+$bootstrapValidator = [];
+
+foreach($addressMandatoryFields as $field) {
+    if(!array_key_exists('address_' . $field->getName(), $bootstrapValidator)) {
+        $bootstrapValidator['address_' . $field->getName()] = [
+            'container' => '[data-for=address_'.$field->getName().']',
+            'validators' => [
+                'notEmpty' => [
+                    'message' => '<i class="glyphicon glyphicon-remove-circle"></i> '.sprintf($this->translate("%s is required"), $field->getTitle())
+                ]
+            ]
+        ];
+    }
+}
+
+
+?>
+
+<script type="text/javascript">
+    var fieldsToValidate = <?=\Zend_Json::encode($bootstrapValidator)?>;
+</script>
+
