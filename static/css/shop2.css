@@ -9072,11 +9072,11 @@ hr {
 }
 .header-links li a:hover, .header-links li a:focus {
   background: none;
-  color: #72d279;
+  color: #0099cc;
 }
 .header-links li.active a {
   background: none;
-  color: #72d279;
+  color: #0099cc;
 }
 @media (min-width: 1200px) {
   .header-links .tooltip {
@@ -9109,7 +9109,7 @@ hr {
   margin: 4px 0 0 0;
 }
 .header-top .open .btn-link {
-  color: #72d279;
+  color: #0099cc;
 }
 .header-top .btn-link i.fa {
   margin-left: 5px;
@@ -9138,6 +9138,13 @@ hr {
   font-weight: bold;
 }
 #logo a .black {
+  color: black;
+}
+#logo a:hover {
+  text-decoration: none;
+  color: #0099cc;
+}
+#logo a:hover .black {
   color: black;
 }
 #logo .img-responsive {

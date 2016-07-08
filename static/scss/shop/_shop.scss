@@ -156,12 +156,12 @@ hr {
             padding: 12px 15px 12px 0;
             &:hover, &:focus {
                 background: none;
-                color: #72d279;
+                color: $main-color;
             }
         }
         &.active a {
             background: none;
-            color: #72d279;
+            color: $main-color;
         }
     }
 
@@ -203,7 +203,7 @@ hr {
         margin: 4px 0 0 0;
     }
     .open .btn-link {
-        color: #72d279;
+        color: $main-color;
     }
     .btn-link i.fa {
         margin-left: 5px;
@@ -235,6 +235,15 @@ hr {
 
         .black {
             color:black;
+        }
+        
+        &:hover {
+            text-decoration: none;
+            color:$main-color;
+
+            .black {
+                color:black;
+            }
         }
     }
     .img-responsive {
