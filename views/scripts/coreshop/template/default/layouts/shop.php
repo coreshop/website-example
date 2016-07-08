@@ -18,7 +18,11 @@
 
     <!-- CSS Files -->
     <link href="/website/static/css/owl.carousel.css" rel="stylesheet">
-    <link href="/website/static/css/shop.css" rel="stylesheet">
+    <?php if(\CoreShop\Model\Shop::getShop()->getId() === \CoreShop\Model\Shop::getDefaultShop()->getId()) { ?>
+        <link href="/website/static/css/shop.css" rel="stylesheet">
+    <?php } else { ?>
+        <link href="/website/static/css/shop2.css" rel="stylesheet">
+    <?php } ?>
 
     <!--[if lt IE 9]>
         <script src="/website/static/js/ie8-responsive-file-warning.js"></script>

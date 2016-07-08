@@ -9,12 +9,6 @@ use Pimcore\Controller\Action\Frontend;
 class Action extends Frontend {
 	
 	public function init () {
-        \Pimcore::getEventManager()->attach("coreshop.actionHook.country", function() {
-            return function() {
-                return Country::getById(3);
-            };
-        });
-
         parent::init();
         
 		if(\Zend_Registry::isRegistered("Zend_Locale")) {

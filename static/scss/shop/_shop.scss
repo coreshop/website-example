@@ -7,7 +7,7 @@ body {
 /* Standard Styles Starts */
 
 a {
-    color: #5cb672;
+    color: $main-color;
     &:hover {
         color: #252a2f;
     }
@@ -105,12 +105,12 @@ hr {
 .btn-black {
     background-color: #303030;
     &:hover, &:focus, &:active, &.active {
-        background-color: #5cb672;
+        background-color: $main-color;
     }
 }
 
 .btn-main {
-    background-color: #5cb672;
+    background-color: $main-color;
     &:hover, &:focus, &:active, &.active {
         background-color: #3e9144;
     }
@@ -258,7 +258,7 @@ hr {
     .input-group {
         .form-control {
             background: none;
-            border: solid #5cb672;
+            border: solid $main-color;
             border-width: 1px 0 1px 1px;
             color: #878a8c;
             -webkit-border-radius: 0;
@@ -270,9 +270,9 @@ hr {
         }
         .btn {
             background: none;
-            border: solid #5cb672;
+            border: solid $main-color;
             border-width: 1px 1px 1px 0;
-            color: #5cb672;
+            color: $main-color;
             height: 46px;
             -webkit-border-radius: 0;
             -moz-border-radius: 0;
@@ -291,7 +291,7 @@ hr {
     .btn {
         color: #383838;
         background: none;
-        border: 1px solid #5cb672;
+        border: 1px solid $main-color;
         text-align: left;
         padding: 10px 15px;
         margin: 12px 0 0 0;
@@ -303,7 +303,7 @@ hr {
         -moz-box-shadow: none;
         box-shadow: none;
         .fa-shopping-cart {
-            color: #5cb672;
+            color: $main-color;
             line-height: none;
             font-size: 22px;
             margin-right: 10px;
@@ -318,7 +318,7 @@ hr {
             font-size: 16px;
             text-transform: uppercase;
             &#cart-overview-total {
-                color: #5cb672;
+                color: $main-color;
                 padding: 0 8px 0 5px;
 
                 @media (min-width: 992px) and (max-width: 1199px) {
@@ -327,7 +327,7 @@ hr {
             }
         }
         i.fa-caret-down {
-            color: #5cb672;
+            color: $main-color;
             margin-left: 5px;
 
             @media (min-width: 992px) and (max-width: 1199px) {
@@ -382,11 +382,11 @@ hr {
             font-size: 12px;
             text-decoration: none;
             &:hover {
-                background: #5cb672;
+                background: $main-color;
                 color: #fff;
             }
             + a {
-                background: #5cb672;
+                background: $main-color;
                 color: #fff;
                 &:hover {
                     background: #fff;
@@ -412,7 +412,7 @@ hr {
                 padding: 2px 8px;
             }
             td a {
-                color: #5cb672;
+                color: $main-color;
                 &:hover {
                     color: #fff;
                 }
@@ -424,7 +424,7 @@ hr {
 /* Main Menu Styles Starts */
 
 #main-menu {
-    background: #5cb672;
+    background: $main-color;
     &.navbar {
         margin: 0;
         padding: 0;
@@ -680,12 +680,12 @@ hr {
         margin-right: 3px;
     }
     .btn-wishlist:hover, .btn-compare:hover {
-        background: #5cb672;
+        background: $main-color;
     }
     .btn-cart {
-        background: #5cb672;
+        background: $main-color;
         &:hover .fa {
-            background: #5cb672;
+            background: $main-color;
         }
         padding: 0 0 0 15px;
         font-size: 18px;
@@ -801,7 +801,7 @@ hr {
         text-align: center;
     }
     .rating .fa-star {
-        color: #5cb672;
+        color: $main-color;
     }
 }
 
@@ -860,7 +860,7 @@ hr {
             margin-bottom: 5px;
         }
         &.total {
-            color: #5cb672;
+            color: $main-color;
             font-size: 18px;
             dt, dd {
                 margin-bottom: 0;
@@ -998,7 +998,7 @@ hr {
             font-size: 24px;
             margin-right: 6px;
             &.active {
-                color: #5cb672;
+                color: $main-color;
             }
         }
     }
@@ -1035,7 +1035,7 @@ hr {
         a {
             color: #252a2f;
             &:hover {
-                color: #5cb672;
+                color: $main-color;
             }
         }
     }
@@ -1050,7 +1050,7 @@ hr {
         float: left;
         span {
             &.price-new {
-                color: #5cb672;
+                color: $main-color;
                 font-size: 18px;
                 padding-right: 5px;
             }
@@ -1153,7 +1153,7 @@ hr {
         }
 
         .quantity-info {
-            background:#5cb672;
+            background:$main-color;
             color:white;
             padding:5px;
             display:inline-block;
@@ -1187,7 +1187,7 @@ hr {
             text-transform: uppercase;
         }
         .price-new {
-            color: #5cb672;
+            color: $main-color;
             font-size: 24px;
             padding-right: 5px;
         }
@@ -1219,10 +1219,10 @@ hr {
             margin-right: 3px;
         }
         .btn-wishlist:hover, .btn-compare:hover {
-            background: #5cb672;
+            background: $main-color;
         }
         .btn-cart {
-            background: #5cb672;
+            background: $main-color;
             font-size: 14px;
             color: #fff;
             text-transform: uppercase;
@@ -1242,12 +1242,12 @@ hr {
     .heading {
         padding: 13px 20px;
         font-size: 18px;
-        color: #5cb672;
+        color: $main-color;
         text-transform: uppercase;
         background: #fff;
         border-top: 1px solid #e8e8e8;
         border-right: 1px solid #e8e8e8;
-        border-bottom: 4px solid #5cb672;
+        border-bottom: 4px solid $main-color;
         border-left: 1px solid #e8e8e8;
     }
     .content {
@@ -1266,11 +1266,11 @@ hr {
     .nav-tabs {
         text-transform: uppercase;
         font-size: 16px;
-        border-bottom: 4px solid #5cb672;
+        border-bottom: 4px solid $main-color;
         > li {
             margin-bottom: 0;
             > a {
-                color: #5cb672;
+                color: $main-color;
                 margin: 0;
                 -webkit-border-radius: 0;
                 -moz-border-radius: 0;
@@ -1305,10 +1305,10 @@ hr {
                     border: none;
                 }
             }
-            background: #5cb672;
+            background: $main-color;
             color: #fff;
             > a {
-                background: #5cb672;
+                background: $main-color;
                 color: #fff;
             }
         }
@@ -1366,8 +1366,8 @@ hr {
         }
         .active > {
             a, span, a:hover, span:hover, a:focus, span:focus {
-                background: #5cb672;
-                border-color: #5cb672;
+                background: $main-color;
+                border-color: $main-color;
             }
         }
     }
@@ -1433,7 +1433,7 @@ hr {
             padding: 5px 0 4px;
             margin: 0 0 0 4px;
             &:hover {
-                background: #5cb672;
+                background: $main-color;
             }
             a .fa {
                 color: #fff;
@@ -1452,7 +1452,7 @@ hr {
     padding: 30px;
     .special-heading {
         font-size: 100px;
-        color: #5cb672;
+        color: $main-color;
         margin-top: 0;
         margin-bottom: 30px;
     }
@@ -1497,7 +1497,7 @@ hr {
 
 .list-group.categories a.list-group-item {
     &:hover, &:focus, &.active {
-        background-color: #5cb672;
+        background-color: $main-color;
         border-color:white;
     }
     &:hover, &:focus, &:hover .fa, &:focus .fa, &.active .fa {
@@ -1529,7 +1529,7 @@ hr {
 .list-group-item .fa {
     font-size: 12px;
     padding-right: 6px;
-    color: #5cb672;
+    color: $main-color;
 }
 
 .filter-group {
@@ -1558,7 +1558,7 @@ hr {
         margin-top: 20px;
     }
     .fa {
-        color: #5cb672;
+        color: $main-color;
         padding: 5px 10px 0 0;
         font-size: 18px;
     }
@@ -1635,9 +1635,9 @@ hr {
     font-size: 13px;
     color: #fff;
     a {
-        color: #5cb672;
+        color: $main-color;
         &:hover {
-            color: #5cb672;
+            color: $main-color;
         }
     }
     p {
