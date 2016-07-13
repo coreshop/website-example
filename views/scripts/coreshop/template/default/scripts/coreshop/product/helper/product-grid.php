@@ -30,16 +30,16 @@
                     <?php } ?>
                 </div>
                 <div class="cart-button button-group">
-                    <button type="button" title="Wishlist" class="btn btn-wishlist" data-id="<?=$this->product->getId()?>">
+                    <button type="button" title="<?=$this->t("wishlist")?>" class="btn btn-wishlist" data-id="<?=$this->product->getId()?>">
                         <i class="fa fa-heart"></i>
                     </button>
-                    <button type="button" title="Compare" class="btn btn-compare" data-id="<?=$this->product->getId()?>">
+                    <button type="button" title="<?=$this->t("compare")?>" class="btn btn-compare" data-id="<?=$this->product->getId()?>">
                         <i class="fa fa-bar-chart-o"></i>
                     </button>
 
-                    <?php if(!\CoreShop\Model\Configuration::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
+                    <?php if(!\CoreShop\Config::isCatalogMode() && ($this->product->isAvailableWhenOutOfStock() || $this->product->getQuantity() > 0)) { ?>
                     <button type="button" class="btn btn-cart" data-id="<?=$this->product->getId()?>" data-img="#product-image-<?=$this->product->getId()?>">
-                        Add to cart
+                        <?=$this->t("add to cart")?>
                         <i class="fa fa-shopping-cart"></i>
                     </button>
                     <?php } ?>
