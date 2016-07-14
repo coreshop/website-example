@@ -1,9 +1,5 @@
 <?php
-$categoriesHref = $this->multihref("categories");
-
-if($this->editmode) {
-    echo $categoriesHref;
-}
+$categories = \CoreShop\Model\Category::getFirstLevel();
 
 ?>
 
@@ -22,7 +18,6 @@ if($this->editmode) {
         <div class="collapse navbar-collapse navbar-cat-collapse">
             <ul class="nav navbar-nav">
                 <?php
-                $categories = $categoriesHref->getElements();
 
                 foreach($categories as $cat) {
                     $dropdown = count($cat->getChildCategories()) > 0;

@@ -8930,7 +8930,7 @@ body {
 
 /* Standard Styles Starts */
 a {
-  color: #5cb672;
+  color: #0099cc;
 }
 a:hover {
   color: #252a2f;
@@ -9024,11 +9024,11 @@ hr {
   background-color: #303030;
 }
 .btn-black:hover, .btn-black:focus, .btn-black:active, .btn-black.active {
-  background-color: #5cb672;
+  background-color: #0099cc;
 }
 
 .btn-main {
-  background-color: #5cb672;
+  background-color: #0099cc;
 }
 .btn-main:hover, .btn-main:focus, .btn-main:active, .btn-main.active {
   background-color: #3e9144;
@@ -9072,11 +9072,11 @@ hr {
 }
 .header-links li a:hover, .header-links li a:focus {
   background: none;
-  color: #5cb672;
+  color: #0099cc;
 }
 .header-links li.active a {
   background: none;
-  color: #5cb672;
+  color: #0099cc;
 }
 @media (min-width: 1200px) {
   .header-links .tooltip {
@@ -9109,7 +9109,7 @@ hr {
   margin: 4px 0 0 0;
 }
 .header-top .open .btn-link {
-  color: #5cb672;
+  color: #0099cc;
 }
 .header-top .btn-link i.fa {
   margin-left: 5px;
@@ -9142,7 +9142,7 @@ hr {
 }
 #logo a:hover {
   text-decoration: none;
-  color: #5cb672;
+  color: #0099cc;
 }
 #logo a:hover .black {
   color: black;
@@ -9169,7 +9169,7 @@ hr {
 }
 #search .input-group .form-control {
   background: none;
-  border: solid #5cb672;
+  border: solid #0099cc;
   border-width: 1px 0 1px 1px;
   color: #878a8c;
   -webkit-border-radius: 0;
@@ -9181,9 +9181,9 @@ hr {
 }
 #search .input-group .btn {
   background: none;
-  border: solid #5cb672;
+  border: solid #0099cc;
   border-width: 1px 1px 1px 0;
-  color: #5cb672;
+  color: #0099cc;
   height: 46px;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -9197,7 +9197,7 @@ hr {
 #cart .btn {
   color: #383838;
   background: none;
-  border: 1px solid #5cb672;
+  border: 1px solid #0099cc;
   text-align: left;
   padding: 10px 15px;
   margin: 12px 0 0 0;
@@ -9210,7 +9210,7 @@ hr {
   box-shadow: none;
 }
 #cart .btn .fa-shopping-cart {
-  color: #5cb672;
+  color: #0099cc;
   line-height: none;
   font-size: 22px;
   margin-right: 10px;
@@ -9227,7 +9227,7 @@ hr {
   text-transform: uppercase;
 }
 #cart .btn span#cart-overview-total {
-  color: #5cb672;
+  color: #0099cc;
   padding: 0 8px 0 5px;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -9236,7 +9236,7 @@ hr {
   }
 }
 #cart .btn i.fa-caret-down {
-  color: #5cb672;
+  color: #0099cc;
   margin-left: 5px;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -9293,11 +9293,11 @@ hr {
   color: #252a2f;
 }
 #cart .btn-block1 a:hover {
-  background: #5cb672;
+  background: #0099cc;
   color: #fff;
 }
 #cart .btn-block1 a + a {
-  background: #5cb672;
+  background: #0099cc;
   color: #fff;
 }
 #cart .btn-block1 a + a:hover {
@@ -9315,7 +9315,7 @@ hr {
   padding: 2px 8px;
 }
 #cart .dropdown-menu table td a {
-  color: #5cb672;
+  color: #0099cc;
 }
 #cart .dropdown-menu table td a:hover {
   color: #fff;
@@ -9323,7 +9323,7 @@ hr {
 
 /* Main Menu Styles Starts */
 #main-menu {
-  background: #5cb672;
+  background: #0099cc;
 }
 #main-menu.navbar {
   margin: 0;
@@ -9573,10 +9573,10 @@ hr {
   margin-right: 3px;
 }
 .product-col .btn-wishlist:hover, .product-col .btn-compare:hover {
-  background: #5cb672;
+  background: #0099cc;
 }
 .product-col .btn-cart {
-  background: #5cb672;
+  background: #0099cc;
   padding: 0 0 0 15px;
   font-size: 18px;
   color: #fff;
@@ -9584,7 +9584,7 @@ hr {
   border: none;
 }
 .product-col .btn-cart:hover .fa {
-  background: #5cb672;
+  background: #0099cc;
 }
 .product-col .btn-cart .fa {
   margin-left: 10px;
@@ -9689,7 +9689,7 @@ hr {
   text-align: center;
 }
 .compare-table .rating .fa-star {
-  color: #5cb672;
+  color: #0099cc;
 }
 
 /* Login & Registration Section Styles Starts */
@@ -9744,7 +9744,7 @@ hr {
   margin-bottom: 5px;
 }
 .registration-area .dl-horizontal.total {
-  color: #5cb672;
+  color: #0099cc;
   font-size: 18px;
 }
 .registration-area .dl-horizontal.total dt, .registration-area .dl-horizontal.total dd {
@@ -9874,7 +9874,7 @@ hr {
   margin-right: 6px;
 }
 .product-filter .display a.active {
-  color: #5cb672;
+  color: #0099cc;
 }
 .product-filter .control-label {
   padding-top: 5px;
@@ -9910,7 +9910,7 @@ hr {
   color: #252a2f;
 }
 .side-products-list h5 a:hover {
-  color: #5cb672;
+  color: #0099cc;
 }
 .side-products-list img {
   margin-right: 15px;
@@ -9923,7 +9923,7 @@ hr {
   float: left;
 }
 .side-products-list .price span.price-new {
-  color: #5cb672;
+  color: #0099cc;
   font-size: 18px;
   padding-right: 5px;
 }
@@ -10010,7 +10010,7 @@ hr {
   margin-right: 10px;
 }
 .product-info .product-details .quantity-info {
-  background: #5cb672;
+  background: #0099cc;
   color: white;
   padding: 5px;
   display: inline-block;
@@ -10039,7 +10039,7 @@ hr {
   text-transform: uppercase;
 }
 .product-info .product-details .price-new {
-  color: #5cb672;
+  color: #0099cc;
   font-size: 24px;
   padding-right: 5px;
 }
@@ -10069,10 +10069,10 @@ hr {
   margin-right: 3px;
 }
 .product-info .product-details .btn-wishlist:hover, .product-info .product-details .btn-compare:hover {
-  background: #5cb672;
+  background: #0099cc;
 }
 .product-info .product-details .btn-cart {
-  background: #5cb672;
+  background: #0099cc;
   font-size: 14px;
   color: #fff;
   text-transform: uppercase;
@@ -10091,12 +10091,12 @@ hr {
 .product-info-box .heading {
   padding: 13px 20px;
   font-size: 18px;
-  color: #5cb672;
+  color: #0099cc;
   text-transform: uppercase;
   background: #fff;
   border-top: 1px solid #e8e8e8;
   border-right: 1px solid #e8e8e8;
-  border-bottom: 4px solid #5cb672;
+  border-bottom: 4px solid #0099cc;
   border-left: 1px solid #e8e8e8;
 }
 .product-info-box .content {
@@ -10114,13 +10114,13 @@ hr {
 .tabs-panel .nav-tabs {
   text-transform: uppercase;
   font-size: 16px;
-  border-bottom: 4px solid #5cb672;
+  border-bottom: 4px solid #0099cc;
 }
 .tabs-panel .nav-tabs > li {
   margin-bottom: 0;
 }
 .tabs-panel .nav-tabs > li > a {
-  color: #5cb672;
+  color: #0099cc;
   margin: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -10144,7 +10144,7 @@ hr {
   border: none;
 }
 .tabs-panel .nav-tabs > li.active {
-  background: #5cb672;
+  background: #0099cc;
   color: #fff;
 }
 .tabs-panel .nav-tabs > li.active > a {
@@ -10154,7 +10154,7 @@ hr {
   border: none;
 }
 .tabs-panel .nav-tabs > li.active > a {
-  background: #5cb672;
+  background: #0099cc;
   color: #fff;
 }
 .tabs-panel .nav-tabs > li > a:hover {
@@ -10202,8 +10202,8 @@ hr {
   border-radius: 0;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  background: #5cb672;
-  border-color: #5cb672;
+  background: #0099cc;
+  border-color: #0099cc;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .pagination {
@@ -10273,7 +10273,7 @@ hr {
   margin: 0 0 0 4px;
 }
 .page-box .sm-links li:hover {
-  background: #5cb672;
+  background: #0099cc;
 }
 .page-box .sm-links li a .fa {
   color: #fff;
@@ -10289,7 +10289,7 @@ hr {
 }
 .content-box .special-heading {
   font-size: 100px;
-  color: #5cb672;
+  color: #0099cc;
   margin-top: 0;
   margin-bottom: 30px;
 }
@@ -10330,7 +10330,7 @@ hr {
 }
 
 .list-group.categories a.list-group-item:hover, .list-group.categories a.list-group-item:focus, .list-group.categories a.list-group-item.active {
-  background-color: #5cb672;
+  background-color: #0099cc;
   border-color: white;
 }
 .list-group.categories a.list-group-item:hover, .list-group.categories a.list-group-item:focus, .list-group.categories a.list-group-item:hover .fa, .list-group.categories a.list-group-item:focus .fa, .list-group.categories a.list-group-item.active .fa {
@@ -10353,7 +10353,7 @@ hr {
 .list-group-item .fa {
   font-size: 12px;
   padding-right: 6px;
-  color: #5cb672;
+  color: #0099cc;
 }
 
 .filter-group {
@@ -10379,7 +10379,7 @@ hr {
   margin-top: 20px;
 }
 .contact-details li .fa {
-  color: #5cb672;
+  color: #0099cc;
   padding: 5px 10px 0 0;
   font-size: 18px;
 }
@@ -10451,10 +10451,10 @@ hr {
   color: #fff;
 }
 .copyright a {
-  color: #5cb672;
+  color: #0099cc;
 }
 .copyright a:hover {
-  color: #5cb672;
+  color: #0099cc;
 }
 .copyright p {
   padding-top: 4px;

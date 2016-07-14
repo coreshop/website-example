@@ -18,7 +18,11 @@
 
     <!-- CSS Files -->
     <link href="/website/static/css/owl.carousel.css" rel="stylesheet">
-    <link href="/website/static/css/shop.css" rel="stylesheet">
+    <?php if(\CoreShop\Model\Shop::getShop()->getId() === \CoreShop\Model\Shop::getDefaultShop()->getId()) { ?>
+        <link href="/website/static/css/shop.css" rel="stylesheet">
+    <?php } else { ?>
+        <link href="/website/static/css/shop2.css" rel="stylesheet">
+    <?php } ?>
 
     <!--[if lt IE 9]>
         <script src="/website/static/js/ie8-responsive-file-warning.js"></script>
@@ -215,7 +219,11 @@
                     <div class="col-md-6">
                         <div id="logo">
                             <a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>">
-                                <img src="/website/static/images/logo.png" title="Spice Shoppe" alt="CoreShop" class="img-responsive" />
+                                <?php if(\CoreShop\Model\Shop::getShop()->getId() === \CoreShop\Model\Shop::getDefaultShop()->getId()) { ?>
+                                    <img src="/website/static/images/logo.png" title="CoreShop" alt="CoreShop" class="img-responsive" />
+                                <?php } else { ?>
+                                    <img src="/website/static/images/logo_blue.png" title="CoreShop" alt="CoreShop" class="img-responsive" />
+                                <?php } ?>
                                 Core<span class="black">Shop</span>
                             </a>
                         </div>
