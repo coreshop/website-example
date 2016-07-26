@@ -12,7 +12,7 @@
  * @license    http://www.coreshop.org/license     GNU General Public License version 3 (GPLv3)
  */
 
-require(CORESHOP_PATH . "/controllers/CheckoutController.php");
+\CoreShop\Tool::loadController("Checkout");
 
 /*
  * Example of how to overwrite a CoreShop Controller
