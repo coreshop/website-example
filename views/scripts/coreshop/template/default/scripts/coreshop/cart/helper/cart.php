@@ -105,7 +105,7 @@
             <?php if($this->cart->getPriceRule() instanceof \CoreShop\Model\Cart\PriceRule && $this->cart->getPriceRule()->getDiscount() > 0) { ?>
             <tr>
                 <td colspan="2" class="text-center">
-                    <?=$this->cart->getPriceRule()->getLabel() ? $this->cart->getPriceRule()->getLabel() : $this->cart->getPriceRule()->getName()?>
+                    <?=$this->cart->getPriceRule()->getLabel() ? $this->cart->getPriceRule()->getLabel() : $this->cart->getPriceRule()->getName()?> <?=$this->cart->getVoucher() ? '(' . $this->cart->getVoucher() . ')' : '' ?>
                 </td>
                 <td class="text-center">
 
@@ -147,7 +147,7 @@
         ?>
         <tr>
             <td colspan="3" rowspan="<?=$rowspan?>">
-                <form class="form-inline" role="form" method="post" action="<?=$this->url(array("lang" => $this->language, "act" => "pricerule"), "coreshop_cart")?>">
+                <form class="form-inline" role="form" method="post" action="<?=$this->url(array("lang" => $this->language, "act" => "pricerule"), "coreshop_cart", true)?>">
                     <?php if(!$this->edit) { ?>
                         <input type="hidden" name="redirect" value="<?=$this->url(array("act" => "payment"), "coreshop_checkout")?>" />
                     <?php } ?>
