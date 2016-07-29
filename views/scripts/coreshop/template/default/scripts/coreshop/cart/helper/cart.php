@@ -101,30 +101,33 @@
                 <?php } ?>
             </tr>
         <?php } ?>
-
-            <?php if($this->cart->getPriceRule() instanceof \CoreShop\Model\Cart\PriceRule && $this->cart->getPriceRule()->getDiscount() > 0) { ?>
-            <tr>
-                <td colspan="2" class="text-center">
-                    <?=$this->cart->getPriceRule()->getLabel() ? $this->cart->getPriceRule()->getLabel() : $this->cart->getPriceRule()->getName()?> <?=$this->cart->getVoucher() ? '(' . $this->cart->getVoucher() . ')' : '' ?>
-                </td>
-                <td class="text-center">
-
-                </td>
-                <td class="text-right">
-                    -<?=\CoreShop\Tool::formatPrice($this->cart->getPriceRule()->getDiscount())?>
-                </td>
-                <td class="text-right">
-                    -<?=\CoreShop\Tool::formatPrice($this->cart->getPriceRule()->getDiscount())?>
-                </td>
-                <?php if($this->edit) { ?>
-                    <td colspan="1" class="text-left cart-sub-total">
-                        <a title="<?=$this->translate("Remove")?>" class="btn btn-default tool-tip removeFromCart" href="<?=$this->url(array("act" => "removepricerule"), "coreshop_cart")?>">
-                            <i class="fa fa-times-circle"></i>
-                        </a>
+        <?php foreach($this->cart->getPriceRules() as $rule) {
+            if($rule->getPriceRule() instanceof \CoreShop\Model\Cart\PriceRule && $rule->getPriceRule()->getDiscount() > 0) {
+                ?>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <?=$rule->getPriceRule()->getLabel() ? $rule->getPriceRule()->getLabel() : $rule->getPriceRule()->getName()?> <?=$rule->getVoucherCode() ? '(' . $rule->getVoucherCode() . ')' : '' ?>
                     </td>
-                <?php } ?>
-            </tr>
-        <?php } ?>
+                    <td class="text-center">
+
+                    </td>
+                    <td class="text-right">
+                        -<?=\CoreShop\Tool::formatPrice($rule->getPriceRule()->getDiscount())?>
+                    </td>
+                    <td class="text-right">
+                        -<?=\CoreShop\Tool::formatPrice($rule->getPriceRule()->getDiscount())?>
+                    </td>
+                    <?php if($this->edit) { ?>
+                        <td colspan="1" class="text-left cart-sub-total">
+                            <a title="<?=$this->translate("Remove")?>" class="btn btn-default tool-tip removeFromCart" href="<?=$this->url(array("act" => "removepricerule", "id" => $rule->getPriceRule()->getId()), "coreshop_cart")?>">
+                                <i class="fa fa-times-circle"></i>
+                            </a>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <?php
+            }
+        } ?>
         </tbody>
         <tfoot>
         <?php
