@@ -77,7 +77,10 @@
                     </ul>
                     <hr/>
 
-                    <?php  $variants = $this->product->getVariantDifferences( $this->language ); ?>
+                    <?php
+                        $variants = $this->product->getVariantDifferences( $this->language, 'classificationstore', 'classificationStore' ); //Use this for classification store
+                        //$variants = $this->product->getVariantDifferences( $this->language ); //Use this for bricks
+                    ?>
 
                     <?php if(!empty($variants)) {
                         foreach($variants as $variant) {  ?>
