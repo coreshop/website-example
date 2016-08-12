@@ -1,0 +1,22 @@
+
+/* Shopping Cart Page Styles Starts */
+
+.shopping-cart-table {
+    margin-top:30px;
+    background:#fff;
+    text-transform:uppercase;
+
+    thead > tr > td{
+        font-size:15px;
+        font-weight:600;
+        border-bottom:none;
+    }
+
+    tbody > tr > td{
+        font-size:16px;
+
+        a:hover{
+            color:#252a2f;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+/* Compare Page Styles Starts */
+
+.compare-table{
+    margin-top:30px;
+    background:#fff;
+    text-transform:uppercase;
+
+    thead{
+        background:#f9f9f9;
+
+        > tr > td{
+            font-size:15px;
+            font-weight:600;
+            border-bottom:none;
+        }
+    }
+
+    tbody > tr > td{
+        font-size:14px;
+
+        a:hover{
+            color:#252a2f;
+        }
+    }
+
+    td{
+        text-align:center;
+    }
+
+    .rating .fa-star{
+        color:$color-main;
+    }
+}

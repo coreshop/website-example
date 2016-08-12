@@ -1,0 +1,16 @@
+.cat-intro{
+    padding-top:10px;
+
+    .img-thumbnail{
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+    }
+
+    .cat-body{
+        color:$color-secondary;
+        font-size:13px;
+        padding-left:5px;
+        text-align:justify;
+    }
+}

@@ -1,0 +1,10 @@
+/* Contact Details Box Styles Starts */
+
+.contact-details li + li{
+    margin-top:20px;
+}
+.contact-details li .fa{
+    color:$color-main;
+    padding:5px 10px 0 0;
+    font-size:18px;
+}

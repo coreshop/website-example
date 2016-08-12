@@ -1,0 +1,16 @@
+.payment-options {
+    .payment-option {
+
+        border:solid 1px #ccc;
+        padding:20px 0;
+
+        .payment-option-radio, .payment-option-image, .payment-option-text {
+            border-right:solid 1px #ccc;
+
+        }
+
+        .payment-option-radio, .payment-option-image, .payment-option-text, .payment-option-price {
+            vertical-align: middle;
+        }
+    }
+}

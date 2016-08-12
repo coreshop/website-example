@@ -1,0 +1,16 @@
+.delivery-options {
+    .delivery-option {
+
+        border:solid 1px #ccc;
+        padding:20px 0;
+
+        .delivery-option-radio, .delivery-option-image, .delivery-option-text {
+            border-right:solid 1px #ccc;
+
+        }
+
+        .delivery-option-radio, .delivery-option-image, .delivery-option-text, .delivery-option-price {
+            vertical-align: middle;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+
+/* Login & Registration Section Styles Starts */
+
+.login-area{
+    padding-top:30px
+}
+.registration-area{
+    padding-top:20px;
+
+    .inner{
+        margin-top:30px;
+        margin-bottom:20px;
+    }
+
+    .control-label{
+        color:$color-secondary;
+        font-weight:600;
+    }
+
+    .form-control, .btn{
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+    }
+
+    .dl-horizontal {
+        dt {
+            font-weight: normal;
+        }
+
+        dd {
+            font-weight: bold;
+        }
+
+        dt, dd {
+            margin-bottom: 5px;
+        }
+
+        &.total {
+            color: $color-main;
+            font-size: 18px;
+
+            dt, dd {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.panel-smart{
+    padding:20px;
+    background:#fff;
+    border:1px solid $color-border-main;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+
+    .panel-heading{
+        padding:5px 0 15px 0;
+        color:#252a2f;
+        border-bottom:1px solid $color-border-secondary;
+    }
+
+    h3.panel-title{
+        font-size:24px;
+    }
+
+    .panel-body{
+        padding:20px 0 0;
+    }
+}

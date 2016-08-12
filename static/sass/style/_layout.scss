@@ -1,0 +1,128 @@
+body{
+    background:#fff;
+    color:#252a2f;
+    font:14px/22px 'Roboto Condensed', sans-serif;
+}
+
+.demo-banner {
+    padding:10px 0;
+    background: lightgrey;
+    color:red;
+    font-weight:bold;
+    font-size:25px;
+    text-align: center;
+}
+
+/* Standard Styles Starts */
+
+a{
+    color:$color-main;
+
+    &:hover{
+        color:#252a2f;
+    }
+
+    &:focus{
+        outline:none;
+    }
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family:'Roboto Condensed', sans-serif;
+    color: #252a2f;
+}
+h1{
+    font-size:38px;
+}
+h2{
+    font-size:32px;
+}
+h3{
+    font-size:26px;
+}
+h4{
+    font-size:20px;
+}
+h5{
+    font-size:18px;
+}
+h6{
+    font-size:14px;
+}
+.main-heading{
+    font-size:30px;
+
+    span{
+        font-size:18px;
+        color:#878a8c;
+    }
+}
+
+.main-heading2{
+    font-size:24px;
+}
+.sub-heading{
+    font-size:24px;
+    padding:10px 0;
+}
+
+.main-heading,
+.main-heading2,
+.sub-heading{
+    text-transform:uppercase;
+}
+
+.header-top li,
+.header-top .btn-link,
+#main-menu.navbar,
+#search .input-group .form-control,
+#cart .btn,
+.dropdown-menu,
+.product-head,
+.product-col .caption h4,
+.product-col .price,
+.product-col .btn-cart,
+.breadcrumb,
+.side-heading,
+.list-group-item,
+.product-filter,
+.pagination,
+.product-info .product-details,
+.tabs-panel .nav-tabs{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+hr{
+    border-color:#8c8f92;
+}
+
+#main-container{
+    margin-bottom:35px;
+}
+#main-container-home{
+    margin-bottom:0;
+}
+
+.product-col .description,
+.footer-links li {
+    font-family: 'Open Sans', sans-serif;
+}
+#main-menu.navbar {
+    font-family: 'Oswald', sans-serif;
+}
+.product-col .btn-cart {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+
+@import "layout/header";
+@import "layout/cart";
+@import "layout/main-nav";
+@import "layout/breadcrump";
+@import "layout/tabs";
+@import "layout/pagination";
+@import "layout/boxes";
+@import "layout/footer";

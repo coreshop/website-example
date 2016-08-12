@@ -1,0 +1,20 @@
+$grid-gutter-width: 10px;
+$icon-font-path: "../fonts/";
+$color-main: #0099cc;
+
+@import "compass/css3"; 
+@import "compass/utilities";
+
+@import "./style/variables";
+@import "./bootstrap";
+@import "./font-awesome/font-awesome";
+
+@import "./style/buttons";
+@import "./style/layout";
+@import "./style/bricks";
+@import "./style/products";
+@import "./style/cart";
+@import "./style/compare";
+@import "./style/forms";
+@import "./style/typo";
+@import "./style/checkout";

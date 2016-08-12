@@ -1,0 +1,15 @@
+/* Content Box Styles Starts */
+
+.content-box{
+    border:1px solid $color-border-main;
+    background:#fff;
+    margin-top:20px;
+    padding:30px;
+
+    .special-heading{
+        font-size:100px;
+        color:$color-main;
+        margin-top:0;
+        margin-bottom:30px;
+    }
+}

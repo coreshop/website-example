@@ -1,0 +1,35 @@
+.product-filter{
+    margin:30px 0;
+    padding:8px 0;
+    border:solid $color-border-main;
+    border-width:1px 0;
+
+    .display{
+        padding-top:5px;
+        padding-left:10px;
+
+        a{
+            color:$color-light-black;
+            font-size:24px;
+            margin-right:6px;
+
+            &.active{
+                color:$color-main;
+            }
+        }
+    }
+
+    .control-label{
+        padding-top:5px;
+        font-size:18px;
+        font-weight:normal;
+    }
+
+    .form-control{
+        height:30px;
+        padding:3px 6px;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+    }
+}

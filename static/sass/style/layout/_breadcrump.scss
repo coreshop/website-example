@@ -1,0 +1,26 @@
+
+/* Breadcrumb Styles Starts */
+
+.breadcrumb{
+    text-transform:uppercase;
+    padding:10px 18px;
+    border:1px solid $color-border-main;
+    background:#fff;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+
+    li{
+        color:#878a8c;
+        font-size:13px;
+    }
+
+    + li:before{
+        content:"\00BB";
+        color:#878a8c;
+    }
+
+    a{
+        color:#252a2f;
+    }
+}

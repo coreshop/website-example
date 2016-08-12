@@ -1,0 +1,81 @@
+
+/* Main Menu Styles Starts */
+
+#main-menu {
+    background:$color-main;
+
+    &.navbar {
+        margin:0;
+        padding:0;
+        border:none;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+    }
+
+    .navbar-nav {
+        li {
+            a{
+                color:#fff;
+            }
+        }
+
+
+        > li > a:hover,
+        > li > a:focus,
+        > li.open a {
+            background:$color-sideheadline-background;
+            color:#fff;
+        }
+    }
+
+    .dropdown-menu{
+        background:$color-sideheadline-background;
+        border:none;
+        padding:0;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+
+        li {
+            a {
+                color:#fff;
+                font-size:15px;
+                padding-top:6px;
+                padding-bottom:6px;
+                font-weight:normal;
+            }
+
+            &:hover a {
+                background:$color-sideheadline-background-light;
+                text-decoration:none;
+            }
+        }
+    }
+
+    .dropdown-inner {
+        display:table;
+        padding-bottom:10px;
+
+        ul {
+            display:table-cell;
+        }
+
+        .dropdown-header{
+            font-size:15px;
+            text-transform:uppercase;
+            color:#fff;
+            padding:15px 0 10px 15px;
+        }
+
+        li a {
+            min-width:160px;
+            display:block;
+            padding:3px 20px;
+            clear:both;
+        }
+    }
+}

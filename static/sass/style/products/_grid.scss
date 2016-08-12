@@ -1,0 +1,117 @@
+
+/* Products Box Styles Starts */
+
+.products-list {
+    margin-bottom:15px;
+}
+
+.product-head {
+    padding: 14px 20px;
+    margin:0 0 20px;
+    font-size:24px;
+    background:#252a2f;
+    color:#fff;
+    text-transform:uppercase;
+}
+
+.product-col {
+    padding:15px 15px 10px;
+    margin-bottom:20px;
+    background:#fff;
+    border:1px solid $color-border-main;
+
+    .caption {
+        padding: 20px 0;
+    }
+
+    h4 {
+        font-size:18px;
+        text-transform:uppercase;
+    }
+
+    .description {
+        padding:5px 0;
+        font-size:12px;
+        line-height:18px;
+        text-align:justify;
+        color:$color-secondary;
+    }
+
+    .price {
+        padding:10px 0;
+
+        .price-tax {
+            font-size:14px;
+            color:$color-lighter-black;
+            text-transform:uppercase;
+        }
+
+        span {
+            &.price-new{
+                color: $color-light-black;
+                font-size:24px;
+                padding-right:5px;
+            }
+
+            &.price-old{
+                font-size:18px;
+                color:#808080;
+                text-decoration:line-through;
+            }
+        }
+    }
+
+    .cart-button {
+        padding-top:10px;
+
+        .btn {
+            -webkit-border-radius:0;
+            -moz-border-radius:0;
+            border-radius:0;
+        }
+
+        &.button-group .btn-cart{
+            padding:5px 12px;
+            font-size:17px;
+
+            .fa {
+                margin-left:0;
+                padding:0;
+                background:none;
+            }
+        }
+    }
+
+    .cart-button
+    .btn-wishlist,
+    .btn-compare {
+        color:#fff;
+        background:$color-button-background;
+        margin-right:3px;
+    }
+
+    .btn-wishlist:hover,
+    .btn-compare:hover,
+    .btn-cart,
+    .btn-cart:hover .fa {
+        background:$color-main;
+    }
+
+    .btn-cart{
+        padding:0 0 0 15px;
+        font-size:18px;
+        color:#fff;
+        text-transform:uppercase;
+        border:none;
+
+        .fa{
+            margin-left:10px;
+            padding:10px;
+            background:$color-button-background;
+        }
+
+        &:hover {
+            background:$color-button-background;
+        }
+    }
+}

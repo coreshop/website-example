@@ -1,0 +1,74 @@
+
+/* Tabs Styles Starts */
+
+.tabs-panel{
+    margin-top:20px;
+
+    &.panel-smart{
+        padding:0;
+    }
+
+    .nav-tabs{
+        text-transform:uppercase;
+        font-size:16px;
+        border-bottom:4px solid $color-main;
+
+        > li{
+            margin-bottom:0;
+
+            > a{
+                color:$color-main;
+                margin:0;
+
+                &:hover{
+                    background:#fff;
+                }
+            }
+
+            &.active, &.active > a {
+                background:$color-main;
+                color:#fff;
+            }
+        }
+    }
+
+    .nav-tabs > li > a, .btn, .form-control{
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+    }
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus,
+    .nav > li > a:hover,
+    .nav > li > a:focus{
+        background:none;
+    }
+
+    .nav-tabs > li > a,
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li > a:hover{
+        border:none;
+    }
+
+    .tab-content{
+        padding:20px;
+        font-size:13px;
+    }
+
+    label.control-label{
+        text-transform:uppercase;
+        font-weight:normal;
+
+        &.ratings{
+            padding-top:1px;
+        }
+    }
+
+    .btn{
+        margin-left:-10px;
+    }
+}

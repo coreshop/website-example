@@ -1,0 +1,12 @@
+.product-col {
+    &.list {
+        .image{
+            padding:20px 30px 10px 0;
+            float:left;
+        }
+
+        .description{
+            padding-right:20px;
+        }
+    }
+}

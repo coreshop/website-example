@@ -1,0 +1,17 @@
+$color-main: #5cb672;
+$color-main-dark: shade($color-main, 20);
+$color-main-light: tint($color-main, 40);
+
+$color-secondary-dark:#232323;
+$color-secondary: #8b8b8b;
+$color-secondary-light: #f5f5f5;
+
+$color-light-black: #2f353b;
+$color-lighter-black: #212121;
+
+$color-border-main: #e8e8e8;
+$color-border-secondary: #929497;
+
+$color-button-background: #303030;
+$color-sideheadline-background:#383838;
+$color-sideheadline-background-light : tint($color-sideheadline-background, 10);

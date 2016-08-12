@@ -1,0 +1,127 @@
+
+/* Cart Style Starts */
+#cart {
+    .btn{
+        color:#383838;
+        background:none;
+        border:1px solid $color-main;
+        text-align:left;
+        padding:10px 15px;
+        margin:12px 0 0 0;
+        font-size:14px;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+        -webkit-box-shadow:none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+
+        .fa-shopping-cart {
+            color:$color-main;
+            font-size:22px;
+            margin-right:10px;
+            vertical-align: top;
+        }
+
+        span {
+            color:#252a2f;
+            font-size:16px;
+            text-transform:uppercase;
+
+            &#cart-total{
+                color:$color-main;
+                padding:0 8px 0 5px;
+            }
+        }
+
+        i.fa-caret-down{
+            color:$color-main;
+            margin-left:5px;
+        }
+    }
+
+    .dropdown-menu {
+        min-width: 100%;
+        margin-top:10px;
+        background:$color-sideheadline-background;
+        color:#fff;
+        border:none;
+        z-index: 1001;
+        padding:5px;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+
+        table {
+            margin-bottom: 10px;
+
+            td {
+                background:none;
+                border:none;
+
+                &.hcart td {
+                    border-bottom:1px solid $color-border-main;
+                }
+
+                a {
+                    color:$color-main;
+
+                    &:hover{
+                        color:#fff;
+                    }
+                }
+            }
+
+            &.total{
+                td {
+                    padding:2px 8px;
+                }
+            }
+        }
+
+        li {
+            > div {
+                min-width: 427px;
+                padding: 0 10px;
+            }
+            p {
+                margin: 20px 0;
+            }
+        }
+    }
+
+    .open > .dropdown-menu{
+        display:block;
+    }
+
+    .btn-block1 {
+        padding:20px 0 0;
+
+        a {
+            padding:8px 12px;
+            margin-left:10px;
+            text-transform:uppercase;
+            font-size:12px;
+            text-decoration:none;
+
+            &:hover, + a{
+                background:$color-main;
+                color:#fff;
+            }
+        }
+
+        a, a + a:hover{
+            background:#fff;
+            color:#252a2f;
+        }
+    }
+}
+
+.line-bottom{
+    border-bottom:1px solid $color-border-secondary;
+}
+
+.line-top,
+.btn-block1{
+    border-top:1px solid $color-border-secondary;
+}
