@@ -1,17 +1,17 @@
-$color-main: #5cb672;
-$color-main-dark: shade($color-main, 20);
-$color-main-light: tint($color-main, 40);
+$color-main: #5cb672!default;
+$color-main-dark: shade($color-main, 20)!default;
+$color-main-light: tint($color-main, 40)!default;
 
-$color-secondary-dark:#232323;
-$color-secondary: #8b8b8b;
-$color-secondary-light: #f5f5f5;
+$color-secondary-dark:#232323!default;
+$color-secondary: #8b8b8b!default;
+$color-secondary-light: #f5f5f5!default;
 
-$color-light-black: #2f353b;
-$color-lighter-black: #212121;
+$color-light-black: #2f353b!default;
+$color-lighter-black: #212121!default;
 
-$color-border-main: #e8e8e8;
-$color-border-secondary: #929497;
+$color-border-main: #e8e8e8!default;
+$color-border-secondary: #929497!default;
 
-$color-button-background: #303030;
-$color-sideheadline-background:#383838;
-$color-sideheadline-background-light : tint($color-sideheadline-background, 10);
+$color-button-background: #303030!default;
+$color-sideheadline-background:#383838!default;
+$color-sideheadline-background-light : tint($color-sideheadline-background, 10)!default;
