@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($this->session->user->getOrders() as $order) { ?>
+                <?php foreach(\CoreShop\Tool::getUser()->getOrders() as $order) { ?>
                 <tr>
                     <td><?=$order->getOrderNumber()?></td>
                     <td>

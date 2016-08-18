@@ -14,7 +14,7 @@
 
     <section class="addresses-area">
         <div class="row">
-            <?php foreach($this->session->user->getAddresses() as $address) { ?>
+            <?php foreach(\CoreShop\Tool::getUser()->getAddresses() as $address) { ?>
             <div class="col-xs-6">
                 <div class="panel panel-smart">
                     <div class="panel-heading">

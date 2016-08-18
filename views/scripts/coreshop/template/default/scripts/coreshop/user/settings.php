@@ -9,9 +9,9 @@ $postValue = function ($name) {
 
     $methodName = "get" . ucfirst($name);
 
-    if(method_exists($this->session->user, $methodName))
+    if(method_exists(\CoreShop\Tool::getUser(), $methodName))
     {
-        return $this->session->user->$methodName();
+        return \CoreShop\Tool::getUser()->$methodName();
     }
 
     return;

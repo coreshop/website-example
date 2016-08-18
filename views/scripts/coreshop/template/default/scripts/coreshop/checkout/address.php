@@ -3,7 +3,7 @@
     <?=$this->partial("coreshop/helper/order-steps.php", array("step" => 3));?>
     
     <?php
-        $addresses = $this->session->user->getAddresses();
+        $addresses = \CoreShop\Tool::getUser()->getAddresses();
     ?>
     
     <?php foreach($addresses as $address) { ?>
@@ -63,7 +63,7 @@
                                 </h4>
                             </div>
                             <div class="panel-body panel-delivery-address">
-                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => $this->session->user->getAddresses()->get(0)))?>
+                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => \CoreShop\Tool::getUser()->get(0)))?>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                 </h4>
                             </div>
                             <div class="panel-body panel-billing-address">
-                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => $this->session->user->getAddresses()->get(0)))?>
+                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => \CoreShop\Tool::getUser()->get(0)))?>
                             </div>
                         </div>
 

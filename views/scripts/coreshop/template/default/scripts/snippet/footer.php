@@ -17,7 +17,7 @@
             <div class="col-md-2 col-sm-6">
                 <h5><?=$this->translate("My Account")?></h5>
                 <ul>
-                    <?php if($this->session->user instanceof \CoreShop\Model\User) { ?>
+                    <?php if(\CoreShop\Tool::getUser() instanceof \CoreShop\Model\User) { ?>
                         <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>"><?=$this->translate("My Account")?></a></li>
                         <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "orders"), "coreshop_user")?>"><?=$this->translate("My orders")?></a></li>
                         <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")?>"><?=$this->translate("My addresses")?></a></li>
