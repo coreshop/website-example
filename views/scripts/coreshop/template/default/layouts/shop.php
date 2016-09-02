@@ -79,7 +79,7 @@
                                     </a>
                                 </li>
                                 <?php if(!\CoreShop\Model\Configuration::isCatalogMode()) { ?>
-                                    <?php if(\CoreShop\Tool::getUser() instanceof \CoreShop\Model\User && !\CoreShop\Tool::getUser()->getIsGuest()) { ?>
+                                    <?php if(\CoreShop::getTools()->getUser() instanceof \CoreShop\Model\User && !\CoreShop::getTools()->getUser()->getIsGuest()) { ?>
                                         <li>
                                             <a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>">
                                                 <i class="fa fa-user hidden-lg hidden-md" title="<?=$this->translate("My Account")?>"></i>

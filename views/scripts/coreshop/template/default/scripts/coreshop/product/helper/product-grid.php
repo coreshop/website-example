@@ -23,10 +23,10 @@
             </div>
             <?php if($this->product->getAvailableForOrder()) { ?>
                 <div class="price">
-                    <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice())?></span>
+                    <span class="price-new"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice())?></span>
                     <?php if($this->product->getDiscount() > 0) { ?>
-                        <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getSalesPrice(true))?></span>
-                        <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop\Tool::formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
+                        <span class="price-old"><?=\CoreShop::getTools()->formatPrice($this->product->getSalesPrice(true))?></span>
+                        <span class="price-savings">(<?=\CoreShop::getTools()->numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop::getTools()->formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
                     <?php } ?>
                 </div>
                 <div class="cart-button button-group">

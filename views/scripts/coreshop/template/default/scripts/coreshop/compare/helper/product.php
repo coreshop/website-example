@@ -30,7 +30,7 @@
             <?php if($this->product->getAvailableForOrder()) { ?>
                 <tr>
                     <td>Price</td>
-                    <td align="right"><?=\CoreShop\Tool::formatPrice($this->product->getPrice())?></td>
+                    <td align="right"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice())?></td>
                 </tr>
             <?php } ?>
 

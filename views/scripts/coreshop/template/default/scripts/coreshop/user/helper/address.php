@@ -18,7 +18,7 @@ $postValue = function ($name) {
     return "";
 };
 
-$country = $this->address instanceof \CoreShop\Model\User\Address && $this->address->getCountry() instanceof \CoreShop\Model\Country ? $this->address->getCountry() : \CoreShop\Tool::getCountry();
+$country = $this->address instanceof \CoreShop\Model\User\Address && $this->address->getCountry() instanceof \CoreShop\Model\Country ? $this->address->getCountry() : \CoreShop::getTools()->getCountry();
 $fields = $country->getAddressFields();
 ?>
 

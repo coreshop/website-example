@@ -12,7 +12,7 @@
  * @license    http://www.coreshop.org/license     GNU General Public License version 3 (GPLv3)
  */
 
-\CoreShop\Tool::loadController("Cart");
+\CoreShop::getTools()->loadController("Cart");
 
 /*
  * Example of how to overwrite a CoreShop Controller

@@ -22,14 +22,14 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach(\CoreShop\Tool::getUser()->getOrders() as $order) { ?>
+                <?php foreach(\CoreShop::getTools()->getUser()->getOrders() as $order) { ?>
                 <tr>
                     <td><?=$order->getOrderNumber()?></td>
                     <td>
                         <?=$order->getOrderDate()->get('d.m.Y')?>
                     </td>
                     <td>
-                        <?=\CoreShop\Tool::formatPrice($order->getTotal())?>
+                        <?=\CoreShop::getTools()->formatPrice($order->getTotal())?>
                     </td>
                     <td>
                         <?php if($order->getOrderState() instanceof \CoreShop\Model\Order\State) { ?>

@@ -101,10 +101,10 @@
                     <?php if($this->product->getAvailableForOrder()) { ?>
                         <div class="price">
                             <span class="price-head"><?=$this->translate("Price")?> :</span>
-                            <span class="price-new"><?=\CoreShop\Tool::formatPrice($this->product->getPrice());?></span>
+                            <span class="price-new"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice());?></span>
                             <?php if($this->product->getDiscount() > 0) { ?>
-                                <span class="price-old"><?=\CoreShop\Tool::formatPrice($this->product->getSalesPrice(true))?></span>
-                                <span class="price-savings">(<?=\CoreShop\Tool::numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop\Tool::formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
+                                <span class="price-old"><?=\CoreShop::getTools()->formatPrice($this->product->getSalesPrice(true))?></span>
+                                <span class="price-savings">(<?=\CoreShop::getTools()->numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop::getTools()->formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
                             <?php } ?>
                         </div>
                         <div class="tax">
@@ -113,7 +113,7 @@
 
                         <div class="shipping">
                             <?php if($this->product->getCheapestDeliveryPrice() > 0) { ?>
-                                <?=sprintf($this->translate("Shipping from %s"), \CoreShop\Tool::formatPrice($this->product->getCheapestDeliveryPrice()))?>
+                                <?=sprintf($this->translate("Shipping from %s"), \CoreShop::getTools()->formatPrice($this->product->getCheapestDeliveryPrice()))?>
                             <?php } else { ?>
                                 <?=$this->translate("Free Shipping")?>
                             <?php } ?>
@@ -129,13 +129,13 @@
                                             <li>
                                                 <?php
                                                     if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountAmount) {
-                                                        echo $this->translate(sprintf("You will get a discount of %s.", \CoreShop\Tool::formatPrice($action->getAmount())));
+                                                        echo $this->translate(sprintf("You will get a discount of %s.", \CoreShop::getTools()->formatPrice($action->getAmount())));
                                                     }
                                                     else if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountPercent) {
                                                         echo $this->translate(sprintf("You will get a discount of %s%%.", $action->getPercent()));
                                                     }
                                                     else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
-                                                        echo $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop\Tool::formatPrice($action->getNewPrice()), \CoreShop\Tool::formatPrice($this->product->getRetailPriceWithTax())));
+                                                        echo $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop::getTools()->formatPrice($action->getNewPrice()), \CoreShop::getTools()->formatPrice($this->product->getRetailPriceWithTax())));
                                                     }
                                                 ?>
                                             </li>
