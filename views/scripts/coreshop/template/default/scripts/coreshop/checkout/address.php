@@ -63,7 +63,7 @@
                                 </h4>
                             </div>
                             <div class="panel-body panel-delivery-address">
-                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => \CoreShop::getTools()->getUser()->get(0)))?>
+                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => \CoreShop::getTools()->getUser()->getAddresses()->get(0)))?>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                 </h4>
                             </div>
                             <div class="panel-body panel-billing-address">
-                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => \CoreShop::getTools()->getUser()->get(0)))?>
+                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => \CoreShop::getTools()->getUser()->getAddresses()->get(0)))?>
                             </div>
                         </div>
 
