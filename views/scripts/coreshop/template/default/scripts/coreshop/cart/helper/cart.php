@@ -56,7 +56,7 @@
                                         echo "<br/>" . $this->translate(sprintf("You will get a discount of %s%% per Product.", $action->getPercent()));
                                     }
                                     else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
-                                        echo "<br/>" . $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop::getTools()->formatPrice($action->getPriceWithTax($item->getProduct())), \CoreShop::getTools()->formatPrice($item->getProduct()->getRetailPriceWithTax())));
+                                        echo "<br/>" . $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop::getTools()->formatPrice($action->getPriceWithTax($item->getProduct())), \CoreShop::getTools()->formatPrice($item->getProductRetailPriceWithTax())));
                                     }
                                 ?>
                             <?php } ?>
@@ -75,8 +75,8 @@
                 </td>
                 <td class="text-right cart-item-price">
                     <?php
-                        $price = $item->getProduct()->getPrice();
-                        $retailPrice = $item->getProduct()->getSalesPrice(true);
+                        $price = $item->getProductPrice();
+                        $retailPrice = $item->getProductSalesPrice(true);
 
                         if($retailPrice != $price) {
                             ?><span class="price-old"><?=\CoreShop::getTools()->formatPrice($retailPrice)?></span><?php
@@ -86,7 +86,7 @@
                     ?>
                 </td>
                 <td class="text-right cart-item-total-price">
-                    <?=\CoreShop::getTools()->formatPrice($item->getAmount() * $item->getProduct()->getPrice())?>
+                    <?=\CoreShop::getTools()->formatPrice($item->getTotal())?>
                 </td>
                 <?php if($this->edit) { ?>
                     <td class="text-center">

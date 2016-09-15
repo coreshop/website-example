@@ -36,10 +36,10 @@
                     <?php } ?>
                 </td>
                 <td class="text-right cart-item-price">
-                    <?=\CoreShop::getTools()->formatPrice($item->getProduct()->getPrice())?>
+                    <?=\CoreShop::getTools()->formatPrice($item->getProductPrice())?>
                 </td>
                 <td class="text-right cart-item-total-price">
-                    <?=\CoreShop::getTools()->formatPrice($item->getAmount() * $item->getProduct()->getPrice())?>
+                    <?=\CoreShop::getTools()->formatPrice($item->getTotal())?>
                 </td>
             </tr>
         <?php } ?>
