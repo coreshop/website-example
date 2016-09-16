@@ -13,14 +13,14 @@
                     ?>
                     <tr>
                         <td class="text-center">
-                            <a href="<?=$this->url(array("lang" => $this->language, "name" => $product->getName(), "product" => $product->getId()), "coreshop_detail", false, false)?>">
+                            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => $product->getName(), "product" => $product->getId()), "coreshop_detail", false, false)?>">
                                 <?php if($product->getImage() instanceof \Pimcore\Model\Asset\Image) {
                                     echo $product->getImage()->getThumbnail("coreshop_productCartPreview")->getHtml(array("class" => "img-thumbnail img-responsive", "title" => $product->getName(), "alt" => $product->getName()));
                                 } ?>
                             </a>
                         </td>
                         <td class="text-left">
-                            <a href="<?=$this->url(array("lang" => $this->language, "name" => $product->getName(), "product" => $product->getId()), "coreshop_detail", false, false)?>">
+                            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => $product->getName(), "product" => $product->getId()), "coreshop_detail", false, false)?>">
                                 <?=$product->getName()?>
                             </a>
                         </td>
@@ -51,10 +51,10 @@
                 </tbody>
             </table>
             <p class="text-right btn-block1">
-                <a href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart", false, false)?>">
+                <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart", false, false)?>">
                     <?=$this->translate("View Cart")?>
                 </a>
-                <a href="<?=$this->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout", false, false)?>">
+                <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout", false, false)?>">
                     <?=$this->translate("Checkout")?>
                 </a>
             </p>

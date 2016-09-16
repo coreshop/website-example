@@ -6,13 +6,13 @@
         <div class="col-md-9">
 
             <ol class="breadcrumb">
-                <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
+                <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
                 <?php if(count($this->product->getCategories()) > 0) { ?>
                     <?php foreach($this->product->getCategories()[0]->getHierarchy() as $cat) { ?>
-                        <li><a href="<?=$this->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($cat->getName()), "category" => $cat->getId()), "coreshop_list", true)?>"><?=$cat->getName()?></a></li>
+                        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($cat->getName()), "category" => $cat->getId()), "coreshop_list", true)?>"><?=$cat->getName()?></a></li>
                     <?php } ?>
                 <?php } ?>
-                <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "name" => $this->product->getName(), "product" => $this->product->getId()), "coreshop_detail", true)?>"><?=$this->product->getName()?></a></li>
+                <li class="active"><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => $this->product->getName(), "product" => $this->product->getId()), "coreshop_detail", true)?>"><?=$this->product->getName()?></a></li>
             </ol>
 
 
@@ -89,7 +89,7 @@
                                 <select name="variant" class="form-control selectpicker btn-white">
 
                                     <?php foreach($variant['variantValues'] as $variantValue) { ?>
-                                        <?php $href = $this->url(array("lang" => $this->language, "product" => $variantValue['productId'], "name" => $variantValue['productName']), "coreshop_detail");?>
+                                        <?php $href = \CoreShop::getTools()->url(array("lang" => $this->language, "product" => $variantValue['productId'], "name" => $variantValue['productName']), "coreshop_detail");?>
                                         <option data-href="<?=$href?>" value="<?=$variantValue['productId']?>" <?=$variantValue['selected'] ? "selected" : ""?>><?=$this->translate($variantValue['variantName'])?></option>
                                     <?php } ?>
                                 </select>

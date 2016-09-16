@@ -1,8 +1,8 @@
 <div id="main-container" class="container">
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
-        <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_wishlist")?>"><?=$this->translate("Wishlist")?></a></li>
+        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
+        <li class="active"><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "list"), "coreshop_wishlist")?>"><?=$this->translate("Wishlist")?></a></li>
     </ol>
 
     <!-- Breadcrumb Ends -->
@@ -34,7 +34,7 @@
                 <?php foreach($this->products as $product) { ?>
 
                     <?php
-                        $href = $this->url(array("lang" => $this->language, "product" => $product->getId(), "name" => $product->getName()), "coreshop_detail");
+                        $href = \CoreShop::getTools()->url(array("lang" => $this->language, "product" => $product->getId(), "name" => $product->getName()), "coreshop_detail");
                     ?>
                     <tr class="whishlist-item">
                         <td class="text-center">

@@ -71,7 +71,7 @@
 
                             <ul class="nav navbar-nav pull-left">
                                 <li>
-                                    <a href="<?=$this->url(array("lang" => $this->language), "coreshop_index")?>">
+                                    <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index")?>">
                                         <i class="fa fa-home hidden-lg hidden-md" title="<?=$this->translate("Home")?>"></i>
                                         <span class="hidden-sm hidden-xs">
                                             <?=$this->translate("Home")?>
@@ -81,7 +81,7 @@
                                 <?php if(!\CoreShop\Model\Configuration::isCatalogMode()) { ?>
                                     <?php if(\CoreShop::getTools()->getUser() instanceof \CoreShop\Model\User && !\CoreShop::getTools()->getUser()->getIsGuest()) { ?>
                                         <li>
-                                            <a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>">
+                                            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>">
                                                 <i class="fa fa-user hidden-lg hidden-md" title="<?=$this->translate("My Account")?>"></i>
                                                 <span class="hidden-sm hidden-xs">
                                                     <?=$this->translate("My Account")?>
@@ -89,7 +89,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart")?>">
+                                            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart")?>">
                                                 <i class="fa fa-shopping-cart hidden-lg hidden-md" title="<?=$this->translate("Shopping Cart")?>"></i>
                                                 <span class="hidden-sm hidden-xs">
                                                     <?=$this->translate("Shopping Cart")?>
@@ -97,7 +97,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?=$this->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout")?>">
+                                            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout")?>">
                                                 <i class="fa fa-crosshairs hidden-lg hidden-md" title="<?=$this->translate("Checkout")?>"></i>
                                                 <span class="hidden-sm hidden-xs">
                                                     <?=$this->translate("Checkout")?>
@@ -105,7 +105,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?=$this->url(array("lang" => $this->language, "act" => "logout"), "coreshop_user")?>">
+                                            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "logout"), "coreshop_user")?>">
                                                 <i class="fa fa-crosshairs hidden-lg hidden-md" title="<?=$this->translate("Logout")?>"></i>
                                                 <span class="hidden-sm hidden-xs">
                                                     <?=$this->translate("Logout")?>
@@ -114,7 +114,7 @@
                                         </li>
                                     <?php } else { ?>
                                     <li>
-                                        <a href="<?=$this->url(array("lang" => $this->language, "act" => "register"), "coreshop_user")?>">
+                                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "register"), "coreshop_user")?>">
                                             <i class="fa fa-unlock hidden-lg hidden-md" title="Register"></i>
                                             <span class="hidden-sm hidden-xs">
                                                 <?=$this->translate("Register")?>
@@ -122,7 +122,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?=$this->url(array("lang" => $this->language, "act" => "login"), "coreshop_user")?>">
+                                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "login"), "coreshop_user")?>">
                                             <i class="fa fa-lock hidden-lg hidden-md" title="Login"></i>
                                             <span class="hidden-sm hidden-xs">
                                                 <?=$this->translate("Login")?>
@@ -131,7 +131,7 @@
                                     </li>
                                     <?php } ?>
                                     <li>
-                                        <a href="<?=$this->url(array("lang" => $this->language, "act" => "contact"), "coreshop_message")?>">
+                                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "contact"), "coreshop_message")?>">
                                             <i class="fa fa-home hidden-lg hidden-md" title="<?=$this->translate("Contact")?>"></i>
                                             <span class="hidden-sm hidden-xs">
                                                 <?=$this->translate("Contact")?>
@@ -149,13 +149,13 @@
                         <div class="pull-right">
 
                             <div class="btn-group">
-                                <a class="btn btn-link" href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_compare")?>">
+                                <a class="btn btn-link" href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "list"), "coreshop_compare")?>">
                                     <?=$this->translate("Compare")?>
                                 </a>
                             </div>
 
                             <div class="btn-group">
-                                <a class="btn btn-link" href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_wishlist")?>">
+                                <a class="btn btn-link" href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "list"), "coreshop_wishlist")?>">
                                     <?=$this->translate("Wishlist")?>
                                 </a>
                             </div>
@@ -168,7 +168,7 @@
                                 </button>
                                 <ul class="pull-right dropdown-menu">
                                     <?php foreach(\CoreShop\Model\Currency::getAvailable() as $currency) { ?>
-                                    <li><a tabindex="-1" href="<?=$this->url(array("lang" => $this->language, "currency" => $currency->getId(), "redirect" => $this->url()), "coreshop_change_currency")?>"><?=$currency->getName()?></a></li>
+                                    <li><a tabindex="-1" href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "currency" => $currency->getId(), "redirect" => \CoreShop::getTools()->url()), "coreshop_change_currency")?>"><?=$currency->getName()?></a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
@@ -182,10 +182,10 @@
                                 </button>
                                 <ul class="pull-right dropdown-menu">
                                     <li>
-                                        <a tabindex="-1" href="<?=$this->url(array("lang" => "en"), "coreshop_index", true)?>"><?=$this->translate("English")?></a>
+                                        <a tabindex="-1" href="<?=\CoreShop::getTools()->url(array("lang" => "en"), "coreshop_index", true)?>"><?=$this->translate("English")?></a>
                                     </li>
                                     <li>
-                                        <a tabindex="-1" href="<?=$this->url(array("lang" => "de"), "coreshop_index", true)?>"><?=$this->translate("German")?></a>
+                                        <a tabindex="-1" href="<?=\CoreShop::getTools()->url(array("lang" => "de"), "coreshop_index", true)?>"><?=$this->translate("German")?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -203,7 +203,7 @@
                 <div class="row">
                 <!-- Search Starts -->
                     <div class="col-md-3">
-                        <form id="search" method="get" action="<?=$this->url(array("lang" => $this->language), "coreshop_search", true)?>">
+                        <form id="search" method="get" action="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_search", true)?>">
                             <div class="input-group">
                               <input type="text" name="text" class="form-control input-lg" placeholder="<?=$this->translate("Search")?>">
                               <span class="input-group-btn">
@@ -218,7 +218,7 @@
                 <!-- Logo Starts -->
                     <div class="col-md-6">
                         <div id="logo">
-                            <a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>">
+                            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index", true)?>">
                                 <?php if(\CoreShop\Model\Shop::getShop()->getId() === \CoreShop\Model\Shop::getDefaultShop()->getId()) { ?>
                                     <img src="/website/static/images/logo.png" title="CoreShop" alt="CoreShop" class="img-responsive" />
                                 <?php } else { ?>

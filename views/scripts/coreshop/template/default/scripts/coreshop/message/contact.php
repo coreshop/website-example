@@ -11,8 +11,8 @@
 <div id="main-container" class="container">
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
-        <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language), "coreshop_message", true)?>"><?=$this->translate("Contact")?></a></li>
+        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
+        <li class="active"><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_message", true)?>"><?=$this->translate("Contact")?></a></li>
     </ol>
 
 

@@ -5,7 +5,7 @@
         <div class="col-md-9">
             <!-- Breadcrumb Starts -->
             <ol class="breadcrumb">
-                <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
+                <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
                 <li class="active"><?=$this->translate("Search")?></li>
             </ol>
             <!-- Breadcrumb Ends -->

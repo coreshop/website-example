@@ -5,14 +5,14 @@
         <div class="col-sm-6 pagination-block">
             <ul class="pagination">
                 <?php if (isset($this->previous)) { ?>
-                    <li><a href="<?= substr($this->url(array('page' => $this->first)), 1); ?>">«</a></li>
+                    <li><a href="<?= substr(\CoreShop::getTools()->url(array('page' => $this->first)), 1); ?>">«</a></li>
                 <?php } ?>
                 <?php foreach ($this->pagesInRange as $page) { ?>
-                    <li class="<?=$page == $this->current ? "active" : ""?>"><a href="<?= substr($this->url(array('page' => $page)), 1); ?>"><?=$page?></a></li>
+                    <li class="<?=$page == $this->current ? "active" : ""?>"><a href="<?= substr(\CoreShop::getTools()->url(array('page' => $page)), 1); ?>"><?=$page?></a></li>
                 <?php } ?>
 
                 <?php if (isset($this->next)) { ?>
-                    <li><a href="<?= substr($this->url(array('page' => $this->last)), 1); ?>">»</a></li>
+                    <li><a href="<?= substr(\CoreShop::getTools()->url(array('page' => $this->last)), 1); ?>">»</a></li>
                 <?php } ?>
             </ul>
         </div>

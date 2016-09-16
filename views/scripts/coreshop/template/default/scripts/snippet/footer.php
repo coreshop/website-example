@@ -18,14 +18,14 @@
                 <h5><?=$this->translate("My Account")?></h5>
                 <ul>
                     <?php if(\CoreShop::getTools()->getUser() instanceof \CoreShop\Model\User) { ?>
-                        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>"><?=$this->translate("My Account")?></a></li>
-                        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "orders"), "coreshop_user")?>"><?=$this->translate("My orders")?></a></li>
-                        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")?>"><?=$this->translate("My addresses")?></a></li>
-                        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "settings"), "coreshop_user")?>"><?=$this->translate("My personal info")?></a></li>
+                        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>"><?=$this->translate("My Account")?></a></li>
+                        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "orders"), "coreshop_user")?>"><?=$this->translate("My orders")?></a></li>
+                        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")?>"><?=$this->translate("My addresses")?></a></li>
+                        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "settings"), "coreshop_user")?>"><?=$this->translate("My personal info")?></a></li>
                     <?php } else { ?>
-                        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "register"), "coreshop_user")?>"><?=$this->translate("Register")?></a></li>
-                        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "login"), "coreshop_user")?>"><?=$this->translate("Login")?></a></li>
-                        <li><a href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_compare")?>"><?=$this->translate("Product Compare")?></a></li>
+                        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "register"), "coreshop_user")?>"><?=$this->translate("Register")?></a></li>
+                        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "login"), "coreshop_user")?>"><?=$this->translate("Login")?></a></li>
+                        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "list"), "coreshop_compare")?>"><?=$this->translate("Product Compare")?></a></li>
                     <?php } ?>
                 </ul>
             </div>

@@ -4,7 +4,7 @@
 
     <?php if($this->filter instanceof CoreShop\Model\Product\Filter) {
         ?>
-        <form class="form" action="<?=$this->url(array("lang" => $this->language, "category" => $this->category->getId()), "coreshop_list")?>" method="get">
+        <form class="form" action="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "category" => $this->category->getId()), "coreshop_list")?>" method="get">
         <?php
         $filters = "";
 

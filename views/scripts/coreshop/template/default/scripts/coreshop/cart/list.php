@@ -1,8 +1,8 @@
 <div id="main-container" class="container">
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
-        <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart")?>"><?=$this->translate("Shopping Cart")?></a></li>
+        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
+        <li class="active"><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart")?>"><?=$this->translate("Shopping Cart")?></a></li>
     </ol>
 
     <?=$this->partial("coreshop/helper/order-steps.php", array("step" => 1));?>
@@ -22,11 +22,11 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <a href="<?=$this->url(array("lang" => $this->language), "coreshop_index")?>" class="btn btn-default pull-left">
+            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index")?>" class="btn btn-default pull-left">
                 <span class="hidden-xs">Continue Shopping</span>
                 <span class="visible-xs">Continue</span>
             </a>
-            <a href="<?=$this->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout")?>" class="btn btn-default pull-right">
+            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout")?>" class="btn btn-default pull-right">
                 Checkout
             </a>
         </div>

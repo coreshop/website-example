@@ -1,10 +1,10 @@
 <div id="main-container" class="container">
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
-        <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>"><?=$this->translate("My Profile")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")?>"><?=$this->translate("Adresses")?></a></li>
-        <li class="active"><a href="<?=$this->url(array("lang" => $this->language, "act" => "address"), "coreshop_user")?>"><?=$this->translate("Add a new address")?></a></li>
+        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
+        <li class="active"><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "profile"), "coreshop_user")?>"><?=$this->translate("My Profile")?></a></li>
+        <li class="active"><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")?>"><?=$this->translate("Adresses")?></a></li>
+        <li class="active"><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "address"), "coreshop_user")?>"><?=$this->translate("Add a new address")?></a></li>
     </ol>
 
     <!-- Breadcrumb Ends -->
@@ -31,7 +31,7 @@
                     <div class="panel-body">
                         <!-- Registration Form Starts -->
 
-                        <form role="form" action="<?=$this->url(array("lang" => $this->language, "act" => "address"), "coreshop_user")?>" class="form-horizontal" role="form" id="shop-register-form" method="post">
+                        <form role="form" action="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "address"), "coreshop_user")?>" class="form-horizontal" role="form" id="shop-register-form" method="post">
         
                             <?php if($this->redirect) { ?>
                             <input type="hidden" name="_redirect" value="<?=$this->redirect?>" />

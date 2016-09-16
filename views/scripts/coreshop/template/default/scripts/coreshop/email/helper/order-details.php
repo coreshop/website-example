@@ -20,7 +20,7 @@
         <tbody>
         <?php foreach($this->cart->getItems() as $item) { ?>
             <?php
-                $href = $this->url(array("lang" => $this->language, "product" => $item->getProduct()->getId(), "name" => $item->getProduct()->getName()), "coreshop_detail");
+                $href = \CoreShop::getTools()->url(array("lang" => $this->language, "product" => $item->getProduct()->getId(), "name" => $item->getProduct()->getName()), "coreshop_detail");
             ?>
             <tr class="shopping-cart-item shopping-cart-item-<?=$item->getId()?>">
                 <td class="text-center">

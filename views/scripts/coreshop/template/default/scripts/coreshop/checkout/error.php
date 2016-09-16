@@ -1,8 +1,8 @@
 <div id="main-container" class="container">
     <!-- Breadcrumb Starts -->
     <ol class="breadcrumb">
-        <li><a href="<?=$this->url(array("lang" => $this->language), "coreshop_index")?>"><?=$this->translate("Home")?></a></li>
-        <li><a href="<?=$this->url(array("lang" => $this->langauge, "act" => "index"), "coreshop_checkout")?>"><?=$this->translate("Checkout")?></a></li>
+        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index")?>"><?=$this->translate("Home")?></a></li>
+        <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->langauge, "act" => "index"), "coreshop_checkout")?>"><?=$this->translate("Checkout")?></a></li>
         <li class="active"><?=$this->translate("Error")?></li>
     </ol>
     <!-- Breadcrumb Ends -->
@@ -19,7 +19,7 @@
         </h5>
         <br>
         <p>
-            <a href="<?=$this->url(array(), "coreshop_index", true)?>" class="btn btn-black text-uppercase"><?=$this->translate("Back to Home")?></a>
+            <a href="<?=\CoreShop::getTools()->url(array(), "coreshop_index", true)?>" class="btn btn-black text-uppercase"><?=$this->translate("Back to Home")?></a>
         </p>
     </div>
     <!-- Content Ends -->

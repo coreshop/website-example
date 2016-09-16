@@ -29,7 +29,7 @@
         <?php foreach($this->cart->getItems() as $item) { ?>
 
             <?php
-            $href = $this->url(array("lang" => $this->language, "product" => $item->getProduct()->getId(), "name" => $item->getProduct()->getName()), "coreshop_detail");
+            $href = \CoreShop::getTools()->url(array("lang" => $this->language, "product" => $item->getProduct()->getId(), "name" => $item->getProduct()->getName()), "coreshop_detail");
             ?>
             <tr class="shopping-cart-item shopping-cart-item-<?=$item->getId()?>">
                 <td class="text-center">
@@ -119,7 +119,7 @@
                     </td>
                     <?php if($this->edit) { ?>
                         <td colspan="1" class="text-left cart-sub-total">
-                            <a title="<?=$this->translate("Remove")?>" class="btn btn-default tool-tip removeFromCart" href="<?=$this->url(array("act" => "removepricerule", "id" => $rule->getPriceRule()->getId()), "coreshop_cart")?>">
+                            <a title="<?=$this->translate("Remove")?>" class="btn btn-default tool-tip removeFromCart" href="<?=\CoreShop::getTools()->url(array("act" => "removepricerule", "id" => $rule->getPriceRule()->getId()), "coreshop_cart")?>">
                                 <i class="fa fa-times-circle"></i>
                             </a>
                         </td>
@@ -150,9 +150,9 @@
         ?>
         <tr>
             <td colspan="3" rowspan="<?=$rowspan?>">
-                <form class="form-inline" role="form" method="post" action="<?=$this->url(array("lang" => $this->language, "act" => "pricerule"), "coreshop_cart", true)?>">
+                <form class="form-inline" role="form" method="post" action="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "pricerule"), "coreshop_cart", true)?>">
                     <?php if(!$this->edit) { ?>
-                        <input type="hidden" name="redirect" value="<?=$this->url(array("act" => "payment"), "coreshop_checkout")?>" />
+                        <input type="hidden" name="redirect" value="<?=\CoreShop::getTools()->url(array("act" => "payment"), "coreshop_checkout")?>" />
                     <?php } ?>
                     <div class="form-group">
                         <h4><?=$this->translate("Voucher")?></h4>
