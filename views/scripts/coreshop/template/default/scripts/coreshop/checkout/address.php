@@ -7,7 +7,7 @@
     ?>
     
     <?php foreach($addresses as $address) { ?>
-        <div class="hidden" id="address-<?=preg_replace('/[^a-zA-Z0-9]/', '', $address->getName())?>">
+        <div class="hidden" id="address-<?=$address->getId()?>">
             <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => $address))?>
         </div>
     <?php } ?>
@@ -24,7 +24,7 @@
                             <label for="shippingAddress"><?=$this->translate("Choose a shipping address")?>:</label>
                             <select class="form-control" id="shipping-address" name="shipping-address">
                                 <?php foreach ($addresses as $address) { ?>
-                                    <option data-value="<?=preg_replace('/[^a-zA-Z0-9]/', '', $address->getName())?>" value="<?=$address->getName()?>"><?=$address->getName()?></option>
+                                    <option data-value="<?=$address->getId()?>" value="<?=$address->getId()?>"><?=$address->getName()?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <select class="form-control" id="billing-address" name="billing-address">
                                 <?php foreach ($addresses as $address) { ?>
-                                    <option data-value="<?=preg_replace('/[^a-zA-Z0-9]/', '', $address->getName())?>" value="<?=$address->getName()?>"><?=$address->getName()?></option>
+                                    <option data-value="<?=$address->getId()?>" value="<?=$address->getId()?>"><?=$address->getName()?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -63,7 +63,7 @@
                                 </h4>
                             </div>
                             <div class="panel-body panel-delivery-address">
-                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => \CoreShop::getTools()->getUser()->getAddresses()->get(0)))?>
+                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => reset(\CoreShop::getTools()->getUser()->getAddresses())))?>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                 </h4>
                             </div>
                             <div class="panel-body panel-billing-address">
-                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => \CoreShop::getTools()->getUser()->getAddresses()->get(0)))?>
+                                <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => reset(\CoreShop::getTools()->getUser()->getAddresses())))?>
                             </div>
                         </div>
 

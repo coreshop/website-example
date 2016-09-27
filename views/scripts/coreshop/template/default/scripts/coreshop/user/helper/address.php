@@ -4,7 +4,7 @@ $postValue = function ($name) {
         return $_POST[$name];
     }
 
-    if($this->address instanceof \Pimcore\Model\Object\Fieldcollection\Data\CoreShopUserAddress)
+    if($this->address instanceof \CoreShop\Model\User\Address)
     {
         $method = "get" . ucfirst($name);
 

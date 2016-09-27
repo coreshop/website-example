@@ -70,8 +70,8 @@ $addressMandatoryFields = \CoreShop\Model\User\Address::getMandatoryFields();
 $bootstrapValidator = [];
 
 foreach($addressMandatoryFields as $field) {
-    if(!array_key_exists('address_' . $field->getName(), $bootstrapValidator)) {
-        $bootstrapValidator['address_' . $field->getName()] = [
+    if(!array_key_exists('address_' . $field->getId(), $bootstrapValidator)) {
+        $bootstrapValidator['address_' . $field->getId()] = [
             'container' => '[data-for=address_'.$field->getName().']',
             'validators' => [
                 'notEmpty' => [

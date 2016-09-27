@@ -23,10 +23,10 @@
                     <div class="panel-body">
                         <?=$this->partial("coreshop/checkout/helper/address.php", array("address" => $address)); ?>
                         <br/>
-                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "address" => $address->getName(), "act" => "address"), "coreshop_user")?>" class="btn btn-default">
+                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "address" => $address->getId(), "act" => "address"), "coreshop_user")?>" class="btn btn-default">
                             <?=$this->translate("Edit");?>
                         </a>
-                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "address" => $address->getName(), "act" => "deleteaddress"), "coreshop_user")?>" class="btn btn-default">
+                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "address" => $address->getId(), "act" => "deleteaddress"), "coreshop_user")?>" class="btn btn-default">
                             <?=$this->translate("Delete");?>
                         </a>
                     </div>
