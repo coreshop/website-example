@@ -1,7 +1,7 @@
 <?php
 
-$this->billingAddress = $this->order->getCustomerBillingAddress();
-$this->shippingAddress = $this->order->getCustomerShippingAddress();
+$this->billingAddress = $this->order->getBillingAddress();
+$this->shippingAddress = $this->order->getShippingAddress();
 $this->billingAndShippingEqual = $this->order->isShippingAndBillingAddressEqual();
 
 if(!$this->billingAddress || !$this->shippingAddress) {
