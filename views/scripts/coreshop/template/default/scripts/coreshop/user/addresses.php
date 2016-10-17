@@ -26,7 +26,7 @@
                         <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "address" => $address->getId(), "act" => "address"), "coreshop_user")?>" class="btn btn-default">
                             <?=$this->translate("Edit");?>
                         </a>
-                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "address" => $address->getId(), "act" => "deleteaddress"), "coreshop_user")?>" class="btn btn-default">
+                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "address" => $address->getId(), "act" => "address-delete"), "coreshop_user")?>" class="btn btn-default">
                             <?=$this->translate("Delete");?>
                         </a>
                     </div>
