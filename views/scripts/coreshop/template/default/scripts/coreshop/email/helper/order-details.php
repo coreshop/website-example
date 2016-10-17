@@ -15,10 +15,11 @@
             <td class="text-center">
                 <?=$this->translate("Total")?>
             </td>
+            <td></td>
         </tr>
         </thead>
         <tbody>
-        <?php foreach($this->cart->getItems() as $item) { ?>
+        <?php foreach($this->order->getItems() as $item) { ?>
             <?php
                 $href = \CoreShop::getTools()->url(array("lang" => $this->language, "product" => $item->getProduct()->getId(), "name" => $item->getProduct()->getName()), "coreshop_detail");
             ?>
@@ -36,17 +37,22 @@
                     <?php } ?>
                 </td>
                 <td class="text-right cart-item-price">
-                    <?=\CoreShop::getTools()->formatPrice($item->getProductPrice())?>
+                    <?=\CoreShop::getTools()->formatPrice($item->getPrice())?>
                 </td>
                 <td class="text-right cart-item-total-price">
                     <?=\CoreShop::getTools()->formatPrice($item->getTotal())?>
+                </td>
+                <td>
+                    <?php if($item->getIsVirtualProduct() && $this->order->getIsPayed()) { ?>
+                        <a class="btn btn-success" href="<?=CoreShop::getTools()->url(["lang" => $this->language, "id" => $item->getId(), "act" => "download-virtual-product"], "coreshop_user");?>"><?=$this->translate("Download")?></a>
+                    <?php } ?>
                 </td>
             </tr>
         <?php } ?>
 
         <?php if($this->cart->getPriceRule() instanceof \CoreShop\Model\Cart\PriceRule && $this->cart->getPriceRule()->getDiscount() > 0) { ?>
             <tr>
-                <td colspan="2" class="text-center">
+                <td colspan="3" class="text-center">
                     <?=$this->cart->getPriceRule()->getName()?>
                 </td>
                 <td class="text-center">
@@ -82,7 +88,7 @@
         ?>
         <?php if($discount > 0) { ?>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
                 <td class="text-right">
                     <strong><?=$this->translate("Discount")?>:</strong>
                 </td>
@@ -93,7 +99,7 @@
         <?php } ?>
         <?php if($shipping > 0) { ?>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
                 <td class="text-right">
                     <strong><?=$this->translate("Shipping")?>:</strong>
                 </td>
@@ -104,7 +110,7 @@
         <?php } ?>
         <?php if($payment > 0) { ?>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
                 <td class="text-right">
                     <strong><?=$this->translate("Payment Fee")?>:</strong>
                 </td>
@@ -115,7 +121,7 @@
         <?php } ?>
         <?php foreach($taxes as $tax) { ?>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
                 <td class="text-right cart-tax-detail">
                     <strong><?=$this->translate(sprintf("Tax (%s)", $tax['tax']->getName()))?>:</strong>
                 </td>
@@ -125,7 +131,7 @@
             </tr>
         <?php } ?>
         <tr>
-            <td colspan="2">&nbsp;</td>
+            <td colspan="3">&nbsp;</td>
             <td class="text-right">
                 <strong><?=$this->translate("Total Tax")?>:</strong>
             </td>
@@ -134,9 +140,9 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">&nbsp;</td>
+            <td colspan="3">&nbsp;</td>
             <td class="text-right">
-                <strong><?=$this->translate("Total ")?>:</strong>
+                <strong><?=$this->translate("Total")?>:</strong>
             </td>
             <td class="text-right cart-total-price">
                 <?=\CoreShop::getTools()->formatPrice($this->cart->getTotal())?>
