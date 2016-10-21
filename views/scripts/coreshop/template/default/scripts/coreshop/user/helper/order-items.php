@@ -6,6 +6,7 @@
             <td class="text-center">
                 <?=$this->translate("Product Details")?>
             </td>
+            <td></td>
             <td class="text-center">
                 <?=$this->translate("Quantity")?>
             </td>
@@ -33,6 +34,9 @@
                         <a href="<?= $href ?>"><?= $item->getProductName() ?></a> <?php if ($item->getIsGiftItem()) { ?>
                             <br/><span><?= $this->translate("Gift Item") ?></span> <?php } ?>
 
+
+                    </td>
+                    <td>
                         <?php if ($item->getIsVirtualProduct() && $this->order->getIsPayed()) { ?>
                             <a class="btn btn-success"
                                href="<?= CoreShop::getTools()->url(["lang" => $this->language, "id" => $item->getId(), "act" => "download-virtual-product"], "coreshop_user"); ?>"><?= $this->translate("Download") ?></a>
@@ -102,7 +106,7 @@
         ?>
         <?php if($discount > 0) { ?>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
                 <td class="text-right">
                     <strong><?=$this->translate("Discount")?>:</strong>
                 </td>
@@ -113,7 +117,7 @@
         <?php } ?>
         <?php if($shipping > 0) { ?>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
                 <td class="text-right">
                     <strong><?=$this->translate("Shipping")?>:</strong>
                 </td>
@@ -124,7 +128,7 @@
         <?php } ?>
         <?php if($payment > 0) { ?>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
                 <td class="text-right">
                     <strong><?=$this->translate("Payment Fee")?>:</strong>
                 </td>
@@ -137,7 +141,7 @@
                 foreach ($taxes->getItems() as $tax) {
                     if ($tax instanceof \CoreShop\Model\Order\Tax) { ?>
                         <tr>
-                            <td colspan="2">&nbsp;</td>
+                            <td colspan="3">&nbsp;</td>
                             <td class="text-right cart-tax-detail">
                                 <strong><?= $this->translate(sprintf("Tax (%s)", $tax->getName())) ?>:</strong>
                             </td>
@@ -150,7 +154,7 @@
             }
         } ?>
         <tr>
-            <td colspan="2">&nbsp;</td>
+            <td colspan="3">&nbsp;</td>
             <td class="text-right">
                 <strong><?=$this->translate("Total Tax")?>:</strong>
             </td>
@@ -159,7 +163,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">&nbsp;</td>
+            <td colspan="3">&nbsp;</td>
             <td class="text-right">
                 <strong><?=$this->translate("Total")?>:</strong>
             </td>
