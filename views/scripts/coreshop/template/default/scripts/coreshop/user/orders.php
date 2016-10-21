@@ -19,6 +19,7 @@
                     <td><?=$this->translate("Date")?></td>
                     <td><?=$this->translate("Total")?></td>
                     <td><?=$this->translate("State")?></td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,9 @@
                         <?php if($order->getOrderState() instanceof \CoreShop\Model\Order\State) { ?>
                             <?=$order->getOrderState()->getName()?>
                         <?php } ?>
+                    </td>
+                    <td>
+                        <a class="btn btn-green" href="<?=\CoreShop::getTools()->url(array("act" => "order-detail", "id" => $order->getId()), "coreshop_user", true)?>"><?=$this->translate("Show Detail")?></a>
                     </td>
                 </tr>
                 <?php } ?>

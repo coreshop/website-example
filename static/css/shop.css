@@ -10257,6 +10257,26 @@ hr {
   color: #5cb672;
 }
 
+.order-table {
+  margin-top: 30px;
+  background: #fff;
+  text-transform: uppercase;
+}
+.order-table thead {
+  background: #f9f9f9;
+}
+.order-table thead > tr > td {
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: none;
+}
+.order-table tbody > tr > td {
+  font-size: 14px;
+}
+.order-table tbody > tr > td a:hover {
+  color: #252a2f;
+}
+
 /* Login & Registration Section Styles Starts */
 .login-area {
   padding-top: 30px;
