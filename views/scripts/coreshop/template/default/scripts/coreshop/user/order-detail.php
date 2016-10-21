@@ -84,7 +84,70 @@
 
     <?=$this->template("user/helper/order-items.php");?>
 
+
     <div class="messaging">
+        <?php if(is_array($this->order->getCustomerThreads())) { ?>
+            <div class="panel panel-smart">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <?=$this->translate("Messages")?>
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive order-table">
+                        <table class="table table-bordered" style="width:100%;">
+                            <thead>
+                            <tr>
+                                <td width="10%">
+                                    <?=$this->translate("From")?>
+                                </td>
+                                <td>
+                                    <?=$this->translate("Message")?>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($this->order->getCustomerThreads() as $thread) {
+                                foreach($thread->getMessages() as $message) {
+                                    if($message instanceof \CoreShop\Model\Messaging\Message) { ?>
+                                    <tr>
+                                        <td>
+                                            <strong>
+                                            <?php
+                                                if($message->getAdminUserId()) {
+                                                    $user = \Pimcore\Model\User::getById($message->getAdminUserId());
+
+                                                    if($user instanceof \Pimcore\Model\User) {
+                                                        echo $user->getFirstname() . " " . $user->getLastname();
+                                                    }
+                                                }
+                                                else {
+                                                    echo $thread->getUser()->getFirstname() . " " . $thread->getUser()->getLastname();
+                                                }
+                                            ?>
+                                            </strong>
+                                            <br/>
+
+                                            <?php
+                                                $date = new \Pimcore\Date();
+                                                $date->setTimestamp($message->getCreationDate());
+                                                echo $date->get("d.M.Y");
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?=$message->getMessage()?>
+                                        </td>
+                                    </tr>
+                                <?php }
+                                }
+                            } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
         <div class="panel panel-smart">
             <div class="panel-heading">
                 <h4 class="panel-title">
