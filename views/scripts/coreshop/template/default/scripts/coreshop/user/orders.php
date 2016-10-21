@@ -20,6 +20,7 @@
                     <td><?=$this->translate("Total")?></td>
                     <td><?=$this->translate("State")?></td>
                     <td></td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +39,10 @@
                         <?php } ?>
                     </td>
                     <td>
-                        <a class="btn btn-green" href="<?=\CoreShop::getTools()->url(array("act" => "order-detail", "id" => $order->getId()), "coreshop_user", true)?>"><?=$this->translate("Show Detail")?></a>
+                        <a class="btn btn-black" href="<?=\CoreShop::getTools()->url(array("act" => "order-detail", "id" => $order->getId()), "coreshop_user", true)?>"><?=$this->translate("Show Detail")?></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-green" href="<?=\CoreShop::getTools()->url(array("act" => "order-reorder", "id" => $order->getId()), "coreshop_user", true)?>"><?=$this->translate("Reorder")?></a>
                     </td>
                 </tr>
                 <?php } ?>
