@@ -10,6 +10,14 @@
     </h2>
 
     <?php
+        if($this->error) {
+            ?>
+            <div class="alert alert-danger">
+                <?=$this->error?>
+            </div>
+            <?php
+        }
+
         if($this->order instanceof \CoreShop\Model\Order) {
             echo $this->template("user/helper/order-detail.php");
         }
