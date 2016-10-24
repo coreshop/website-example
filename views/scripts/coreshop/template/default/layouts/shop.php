@@ -260,17 +260,18 @@
         var coreshop_language = "<?=$this->language?>";
 
     </script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
-<script src="/website/static/vendor/jquery-1.11.1.min.js"></script>
-<script src="/website/static/vendor/jquery-migrate-1.2.1.min.js"></script>
-<script src="/website/static/vendor/bootstrap.min.js"></script>
-<script src="/website/static/vendor/bootstrap-hover-dropdown.min.js"></script>
-<script src="/website/static/vendor/bootstrapvalidator/bootstrapValidator.min.js"></script>
-<script src="/website/static/vendor/jquery.magnific-popup.min.js"></script>
-<script src="/website/static/vendor/owl.carousel.min.js"></script>
-<script src="/website/static/vendor/purl.js"></script>
-<script src="/website/static/js/shop.js"></script>
-<script src="/website/static/js/map.js"></script>
-<script src="/website/static/js/custom.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+    <script src="/website/static/vendor/jquery-1.11.1.min.js"></script>
+    <script src="/website/static/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/website/static/vendor/bootstrap.min.js"></script>
+    <script src="/website/static/vendor/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/website/static/vendor/bootstrapvalidator/bootstrapValidator.min.js"></script>
+    <script src="/website/static/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="/website/static/vendor/owl.carousel.min.js"></script>
+    <script src="/website/static/vendor/bootstrap-slider.min.js"></script>
+    <script src="/website/static/vendor/purl.js"></script>
+    <script src="/website/static/js/shop.js"></script>
+    <script src="/website/static/js/map.js"></script>
+    <script src="/website/static/js/custom.js"></script>
 </body>
 </html>

@@ -1,4 +1,9 @@
 <?php if(count($this->values) > 0) { ?>
+
+    <?php
+        $maxValue = ceil($this->maxValue);
+        $minValue = ceil($this->minValue);
+    ?>
 <div class="list-group">
     <div class="list-group-item">
         <?=$this->translate($this->label)?>
@@ -8,22 +13,16 @@
         <div class="filter-group">
 
             <div class="row">
-                <div class="col-xs-12 col-sm-6">
-
-                    <label>From: </label>
-                    <select class="form-control" name="<?=$this->fieldname?>-min">
-                        <?php foreach($this->values as $value) { ?>
-                            <option value="<?=$value['value']?>" <?=$this->currentValueMin === $value['value'] ? 'selected="selected"' : ''?>><?=$this->translate($value['value'] ? $value['value'] : $this->translate('no selection'))?></option>
-                        <?php } ?>
-                    </select>
+                <div class="col-xs-3">
+                    <strong><?=CoreShop::getTools()->formatPrice($minValue)?></strong>
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                    <label>To: </label>
-                    <select class="form-control" name="<?=$this->fieldname?>-max">
-                        <?php foreach($this->values as $value) { ?>
-                            <option value="<?=$value['value']?>" <?=$this->currentValueMax === $value['value'] ? 'selected="selected"' : ''?>><?=$this->translate($value['value'] ? $value['value'] : $this->translate('no selection'))?></option>
-                        <?php } ?>
-                    </select>
+
+                <div class="col-xs-6">
+                    <input title="<?=$this->translate($this->label)?>" type="text" name="<?=$this->fieldname?>" class="range-slider span2" value="" data-slider-min="<?=$minValue?>" data-slider-max="<?=$maxValue?>" data-slider-step="5" data-slider-value="[<?=$this->currentValueMin?>,<?=$this->currentValueMax?>]"/>
+                </div>
+
+                <div class="col-xs-3">
+                    <strong><?=CoreShop::getTools()->formatPrice($maxValue)?></strong>
                 </div>
             </div>
         </div>

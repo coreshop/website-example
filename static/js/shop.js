@@ -83,7 +83,9 @@ $(document).ready(function(){
 
         $(document.body).append( $('<div/>', {'id' : 'coreshop-bt-message'}) );
 
-
+        $('.range-slider').slider({
+            range : true
+        });
     };
 
     shop.addCartEventListeners = function()

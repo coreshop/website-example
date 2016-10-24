@@ -5,7 +5,7 @@
     </div>
 
     <div class="list-group-item">
-        <div class="filter-group">
+        <div class="filter-group filter-group-checkbox">
 
             <?php foreach($this->currentValues as $boolName => $boolValue) {  ?>
 
