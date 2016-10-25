@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="col-md-2 text-right">
-                        <label class="control-label">Sort</label>
+                        <label class="control-label"><?=$this->translate("Sort")?></label>
                     </div>
                     <div class="col-md-3 text-right">
                         <?php
@@ -90,12 +90,13 @@
                         </select>
                     </div>
                     <div class="col-md-1 text-right">
-                        <label class="control-label">Show</label>
+                        <label class="control-label"><?=$this->translate("Show")?></label>
                     </div>
                     <div class="col-md-2 text-right">
                         <select class="form-control site-reload" name="perPage">
-                            <option value="10" <?=$this->perPage == 12 ? "selected" : ""?>>12</option>
-                            <option value="24" <?=$this->perPage == 24 ? "selected" : ""?>>24</option>
+                            <?php foreach($this->perPageAllowed as $perPage) { ?>
+                            <option value="<?=$perPage?>" <?=$this->perPage == $perPage ? "selected" : ""?>><?=$perPage?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -113,7 +114,7 @@
                 ?>
             </div>
             <!-- Product List Display Ends -->
-            <?= $this->paginationControl($paginator, 'Sliding', 'coreshop/helper/paging.php', array(
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'coreshop/helper/paging.php', array(
                 'appendQueryString' => true
             )); ?>
         </div>
