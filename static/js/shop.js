@@ -86,6 +86,18 @@ $(document).ready(function(){
         $('.range-slider').slider({
             range : true
         });
+
+        $('#changeDisplayPricesWithTax').change(function() {
+            $.ajax({
+                url : $(this).data("url"),
+                data : {
+                    displayPricesWithTax : $(this).prop('checked') ? 1 : 0
+                },
+                success : function(result, status) {
+                    window.location.reload();
+                }
+            });
+        });
     };
 
     shop.addCartEventListeners = function()

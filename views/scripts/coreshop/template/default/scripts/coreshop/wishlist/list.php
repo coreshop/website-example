@@ -51,7 +51,7 @@
                         </td>
 
                         <td class="text-right cart-item-price">
-                            <?=\CoreShop::getTools()->formatPrice($product->getPrice())?>
+                            <?=\CoreShop::getTools()->formatPrice($product->getPrice(\CoreShop::getTools()->displayPricesWithTax()))?>
                         </td>
                         <td class="text-center">
                             <button type="button" title="<?=$this->translate("Remove")?>" class="btn btn-default tool-tip btn-wishlist-remove" data-id="<?=$product->getId()?>">

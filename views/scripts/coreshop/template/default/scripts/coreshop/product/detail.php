@@ -101,14 +101,16 @@
                     <?php if($this->product->getAvailableForOrder()) { ?>
                         <div class="price">
                             <span class="price-head"><?=$this->translate("Price")?> :</span>
-                            <span class="price-new"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice());?></span>
-                            <?php if($this->product->getDiscount() > 0) { ?>
-                                <span class="price-old"><?=\CoreShop::getTools()->formatPrice($this->product->getSalesPrice(true))?></span>
-                                <span class="price-savings">(<?=\CoreShop::getTools()->numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop::getTools()->formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
-                            <?php } ?>
+                            <span class="price-new"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice(\CoreShop::getTools()->displayPricesWithTax()));?></span>
+                            <?=$this->template("product/helper/productSavings.php");?>
                         </div>
                         <div class="tax">
-                            <?=sprintf($this->translate("incl. %s%% Tax"), $this->product->getTaxRate())?> (<?=CoreShop\Tool::formatPrice($this->product->getTaxAmount())?>)
+                            <?php if(\CoreShop::getTools()->displayPricesWithTax()) { ?>
+                                <?=sprintf($this->translate("incl. %s%% Tax"), $this->product->getTaxRate())?> (<?=\CoreShop::getTools()->formatPrice($this->product->getTaxAmount())?>)
+                            <?php } else { ?>
+                                <?=$this->translate("ex. VAT");?>
+                            <?php } ?>
+
                         </div>
 
                         <div class="shipping">

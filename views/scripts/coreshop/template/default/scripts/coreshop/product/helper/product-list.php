@@ -21,11 +21,8 @@
             </div>
             <?php if($this->product->getAvailableForOrder()) { ?>
                 <div class="price">
-                    <span class="price-new"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice())?></span>
-                    <?php if($this->product->getDiscount() > 0) { ?>
-                        <span class="price-old"><?=\CoreShop::getTools()->formatPrice($this->product->getSalesPrice(true))?></span>
-                        <span class="price-savings">(<?=\CoreShop::getTools()->numberFormat(-1 * (100/$this->product->getSalesPrice(true)) * ($this->product->getSalesPrice(true) - $this->product->getPrice()), 0)?>%, <?=\CoreShop::getTools()->formatPrice($this->product->getPrice() - $this->product->getSalesPrice())?>)</span>
-                    <?php } ?>
+                    <span class="price-new"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice(\CoreShop::getTools()->displayPricesWithTax()))?></span>
+                    <?=$this->template("product/helper/productSavings.php");?>
                 </div>
                 <div class="cart-button button-group">
                     <button type="button" title="" class="btn btn-wishlist" data-original-title="<?=$this->t("wishlist")?>" data-id="<?=$this->product->getId()?>">

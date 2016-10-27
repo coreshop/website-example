@@ -75,8 +75,8 @@
                 </td>
                 <td class="text-right cart-item-price">
                     <?php
-                        $price = $item->getProductPrice();
-                        $retailPrice = $item->getProductSalesPrice(true);
+                        $price = $item->getProductPrice(\CoreShop::getTools()->displayPricesWithTax());
+                        $retailPrice = $item->getProductSalesPrice(\CoreShop::getTools()->displayPricesWithTax());
 
                         if($retailPrice != $price) {
                             ?><span class="price-old"><?=\CoreShop::getTools()->formatPrice($retailPrice)?></span><?php
@@ -86,7 +86,7 @@
                     ?>
                 </td>
                 <td class="text-right cart-item-total-price">
-                    <?=\CoreShop::getTools()->formatPrice($item->getTotal())?>
+                    <?=\CoreShop::getTools()->formatPrice($item->getTotal(\CoreShop::getTools()->displayPricesWithTax()))?>
                 </td>
                 <?php if($this->edit) { ?>
                     <td class="text-center">

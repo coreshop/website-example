@@ -29,8 +29,8 @@
         <table class="table">
             <?php if($this->product->getAvailableForOrder()) { ?>
                 <tr>
-                    <td>Price</td>
-                    <td align="right"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice())?></td>
+                    <td><?=$this->transltae("Price")?></td>
+                    <td align="right"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice(\CoreShop::getTools()->displayPricesWithTax()))?></td>
                 </tr>
             <?php } ?>
 

@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -66,7 +65,7 @@
             <div class="container">
                 <div class="row">
                 <!-- Header Links Starts -->
-                    <div class="col-sm-8 col-xs-12">
+                    <div class="col-sm-6 col-xs-12">
                         <div class="header-links">
 
                             <ul class="nav navbar-nav pull-left">
@@ -144,7 +143,7 @@
                     </div>
                 <!-- Header Links Ends -->
                 <!-- Currency & Languages Starts -->
-                    <div class="col-sm-4 col-xs-12">
+                    <div class="col-sm-6 col-xs-12">
 
                         <div class="pull-right">
 
@@ -188,6 +187,14 @@
                                         <a tabindex="-1" href="<?=\CoreShop::getTools()->url(array("lang" => "de"), "coreshop_index", true)?>"><?=$this->translate("German")?></a>
                                     </li>
                                 </ul>
+                            </div>
+
+                            <div class="pull-right">
+                                <div class="checkbox">
+                                <label>
+                                    <input id="changeDisplayPricesWithTax" data-url="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_change_display_prices_with_tax")?>" type="checkbox" data-toggle="toggle" data-size="mini" data-on="<?=$this->translate("Inc Vat")?>" data-off="<?=$this->translate("Ex Vat")?>" data-onstyle="success" <?=CoreShop::getTools()->displayPricesWithTax() ? 'checked="checked"' : ''?>>
+                                </label>
+                                </div>
                             </div>
                         <!-- Languages Ends -->
                         </div>
@@ -269,6 +276,7 @@
     <script src="/website/static/vendor/jquery.magnific-popup.min.js"></script>
     <script src="/website/static/vendor/owl.carousel.min.js"></script>
     <script src="/website/static/vendor/bootstrap-slider.min.js"></script>
+    <script src="/website/static/vendor/bootstrap-toggle.min.js"></script>
     <script src="/website/static/vendor/purl.js"></script>
     <script src="/website/static/js/shop.js"></script>
     <script src="/website/static/js/map.js"></script>
