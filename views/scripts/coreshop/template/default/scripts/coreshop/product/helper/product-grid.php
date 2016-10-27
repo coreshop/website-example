@@ -24,7 +24,7 @@
             <?php if($this->product->getAvailableForOrder()) { ?>
                 <div class="price">
                     <span class="price-new"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice(\CoreShop::getTools()->displayPricesWithTax()))?></span>
-                    <?=$this->template("product/helper/productSavings.php");?>
+                    <?=$this->template("product/helper/product-savings.php");?>
                 </div>
                 <div class="cart-button button-group">
                     <button type="button" title="<?=$this->t("wishlist")?>" class="btn btn-wishlist" data-id="<?=$this->product->getId()?>">

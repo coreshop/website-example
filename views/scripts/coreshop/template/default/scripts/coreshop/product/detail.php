@@ -102,7 +102,7 @@
                         <div class="price">
                             <span class="price-head"><?=$this->translate("Price")?> :</span>
                             <span class="price-new"><?=\CoreShop::getTools()->formatPrice($this->product->getPrice(\CoreShop::getTools()->displayPricesWithTax()));?></span>
-                            <?=$this->template("product/helper/productSavings.php");?>
+                            <?=$this->template("product/helper/product-savings.php");?>
                         </div>
                         <div class="tax">
                             <?php if(\CoreShop::getTools()->displayPricesWithTax()) { ?>
