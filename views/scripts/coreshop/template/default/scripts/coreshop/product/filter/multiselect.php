@@ -13,7 +13,7 @@
                 ?>
                 <label class="checkbox">
                     <input name="<?=$this->fieldname?>[]" type="checkbox" value="<?=$value['value']?>" <?=is_array($this->currentValues)&&in_array($value['value'],$this->currentValues) ? 'checked="checked"' : ''?>>
-                    <?=$this->translate($value['value'])?>
+                    <?=$this->translate($value['value'])?> <?=$this->quantityUnit?>
                 </label>
                 <?php
             }

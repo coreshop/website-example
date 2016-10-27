@@ -11,7 +11,7 @@
 
                 <label class="checkbox">
                     <input name="<?=$boolName?>" type="checkbox" value="1" <?= $boolValue == 1 ? 'checked="checked"' : ''?>>
-                    <?=$this->translate($boolName)?>
+                    <?=$this->translate($boolName)?> <?=$this->quantityUnit?>
                 </label>
 
             <?php } ?>
