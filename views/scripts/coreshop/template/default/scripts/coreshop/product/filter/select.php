@@ -1,4 +1,4 @@
-<?php if(count($this->values) > 0) { ?>
+<?php if(count($this->values) > 1) { ?>
 <div class="list-group">
     <div class="list-group-item">
         <?=$this->translate($this->label)?>
