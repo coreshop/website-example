@@ -132,21 +132,23 @@
         <tfoot>
         <?php
         $shipping = $this->cart->getShipping(false);
+        $shippingIt = $this->cart->getShipping(true);
         $discount = $this->cart->getDiscount();
+        $discountEt = $this->cart->getDiscount(false);
         $payment = $this->cart->getPaymentFee();
 
         $taxes = $this->cart->getTaxes();
-        
-        $rowspan = 6 + count($taxes);
+
+        $rowspan = 10 + count($taxes);
 
         if($shipping == 0)
             $rowspan--;
 
         if($discount == 0)
-            $rowspan--;
+            $rowspan-=2;
 
         if($payment == 0)
-            $rowspan--;
+            $rowspan-=2;
         ?>
         <tr>
             <td colspan="3" rowspan="<?=$rowspan?>">
@@ -182,26 +184,50 @@
                 ?>
             </td>
             <td class="text-right">
-                <strong><?=$this->translate("Subtotal")?>:</strong>
+                <strong><?=$this->translate("Subtotal (tax incl.)")?>:</strong>
             </td>
             <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-sub-total">
+                <?=\CoreShop::getTools()->formatPrice($this->cart->getSubtotal(true))?>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right">
+                <strong><?=$this->translate("Subtotal (tax excl.)")?>:</strong>
+            </td>
+            <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-discount">
                 <?=\CoreShop::getTools()->formatPrice($this->cart->getSubtotal(false))?>
             </td>
         </tr>
         <?php if($discount > 0) { ?>
             <tr>
                 <td class="text-right">
-                    <strong><?=$this->translate("Discount")?>:</strong>
+                    <strong><?=$this->translate("Discount (tax incl.)")?>:</strong>
                 </td>
                 <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-discount">
                     -<?=\CoreShop::getTools()->formatPrice($discount)?>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">
+                    <strong><?=$this->translate("Discount (tax excl.)")?>:</strong>
+                </td>
+                <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-discount">
+                    -<?=\CoreShop::getTools()->formatPrice($discountEt)?>
                 </td>
             </tr>
         <?php } ?>
         <?php if($shipping > 0) { ?>
             <tr>
                 <td class="text-right">
-                    <strong><?=$this->translate("Shipping")?>:</strong>
+                    <strong><?=$this->translate("Shipping (tax incl.)")?>:</strong>
+                </td>
+                <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-shipping">
+                    <?=\CoreShop::getTools()->formatPrice($shippingIt)?>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">
+                    <strong><?=$this->translate("Shipping (tax excl.)")?>:</strong>
                 </td>
                 <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-shipping">
                     <?=\CoreShop::getTools()->formatPrice($shipping)?>
