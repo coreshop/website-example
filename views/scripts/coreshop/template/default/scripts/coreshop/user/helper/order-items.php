@@ -25,7 +25,7 @@
                 $href = "#";
 
                 if($item->getProduct() instanceof \CoreShop\Model\Product) {
-                    $href = \CoreShop::getTools()->url(array("lang" => $this->language, "product" => $item->getProduct()->getId(), "name" => $item->getProductName()), "coreshop_detail", true);
+                    $href = $item->getProduct()->getProductUrl($this->language);
                 }
 
                 ?>

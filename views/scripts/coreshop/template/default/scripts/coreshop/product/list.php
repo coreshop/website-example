@@ -7,7 +7,7 @@
             <ol class="breadcrumb">
                 <li><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index", true)?>"><?=$this->translate("Home")?></a></li>
                 <?php foreach($this->category->getHierarchy() as $cat) { ?>
-                    <li class="active"><a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($cat->getName()), "category" => $cat->getId()), "coreshop_list", true)?>"><?=$cat->getName()?></a></li>
+                    <li class="active"><a href="<?=$cat->getCategoryUrl($this->language);?>"><?=$cat->getName()?></a></li>
                 <?php } ?>
             </ol>
             <!-- Breadcrumb Ends -->
@@ -39,17 +39,17 @@
                     <div class="col-sm-3">
                         <div class="image">
                             <?php if($cat->getImage() instanceof \Pimcore\Model\Asset\Image) { ?>
-                                <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($cat->getName()), "category" => $cat->getId()), "coreshop_list")?>">
+                                <a href="<?=$cat->getCategoryUrl($this->language);?>">
                                     <?php echo $cat->getImage()->getThumbnail("coreshop_categoryThumbnail")->getHtml(array("class" => "img-responsive"))?>
                                 </a>
                             <?php } else { ?>
-                                <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($cat->getName()), "category" => $cat->getId()), "coreshop_list")?>">
+                                <a href="<?=$cat->getCategoryUrl($this->language);?>">
                                     <img src="<?=CORESHOP_TEMPLATE_RESOURCES?>images/category/placeholder.png" class="img-responsive img-thumbnail" />
                                 </a>
                             <?php } ?>
                         </div>
                         <div class="caption">
-                            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($cat->getName()), "category" => $cat->getId()), "coreshop_list")?>">
+                            <a href="<?=$cat->getCategoryUrl($this->language);?>">
                                 <?=$cat->getName()?>
                             </a>
                         </div>

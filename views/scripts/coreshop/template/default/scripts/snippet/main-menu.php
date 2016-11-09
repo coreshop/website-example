@@ -23,14 +23,14 @@ $categories = \CoreShop\Model\Category::getFirstLevel();
                     $dropdown = count($cat->getChildCategories()) > 0;
                     ?>
                     <li class="<?=$dropdown ? "dropdown" : ""?>">
-                        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($cat->getName()), "category" => $cat->getId()), "coreshop_list", true)?>" <?=$dropdown ? 'class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10"' : '' ?>>
+                        <a href="<?=$cat->getCategoryUrl($this->language, true);?>" <?=$dropdown ? 'class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10"' : '' ?>>
                             <?=$cat->getName()?>
                         </a>
 
                         <?php if(count($cat->getChildCategories()) > 0) { ?>
                             <ul class="dropdown-menu" role="menu">
                                 <?php foreach($cat->getChildCategories() as $child) { ?>
-                                    <li><a tabindex="-1" href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($child->getName()), "category" => $child->getId()), "coreshop_list", true)?>"><?=$child->getName()?></a></li>
+                                    <li><a tabindex="-1" href="<?=$child->getCategoryUrl($this->language, true);?>"><?=$child->getName()?></a></li>
                                 <?php }?>
                             </ul>
                         <?php } ?>

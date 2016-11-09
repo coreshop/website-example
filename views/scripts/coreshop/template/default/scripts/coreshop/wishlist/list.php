@@ -34,7 +34,7 @@
                 <?php foreach($this->products as $product) { ?>
 
                     <?php
-                        $href = \CoreShop::getTools()->url(array("lang" => $this->language, "product" => $product->getId(), "name" => $product->getName()), "coreshop_detail");
+                        $href = $product->getProductUrl($this->language);
                     ?>
                     <tr class="whishlist-item">
                         <td class="text-center">

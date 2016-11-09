@@ -1,5 +1,5 @@
 <?php
-    $href = \CoreShop::getTools()->url(array("lang" => $this->language, "name" => \Pimcore\File::getValidFilename($this->product->getName()), "product" => $this->product->getId()), "coreshop_detail");
+    $href = $this->product->getProductUrl($this->language);
 ?>
 <div class="col-md-4 col-sm-6">
     <div class="product-col">

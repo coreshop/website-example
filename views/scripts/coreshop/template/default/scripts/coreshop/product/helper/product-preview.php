@@ -1,5 +1,5 @@
 <?php
-    $href = \CoreShop::getTools()->url(array("name" => \Pimcore\File::getValidFilename($this->product->getName()), "product" => $this->product->getId(), "lang" => $this->language), "coreshop_detail");
+    $href = $this->product->getProductUrl($this->language);
     $uniqid = uniqid() . "-product-image-" . $this->product->getId();
 ?>
 <div class="product-col">
