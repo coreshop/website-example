@@ -82,7 +82,7 @@ if(!$this->billingAddress || !$this->shippingAddress) {
         </div>
     </div>
 
-    <?php $this->template("helper/items.php")?>
+    <?php $this->template("invoice/helper/items.php")?>
 
     <div class="row">
         <div class="col-xs-8">
