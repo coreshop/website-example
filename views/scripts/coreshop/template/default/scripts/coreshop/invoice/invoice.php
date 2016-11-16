@@ -57,7 +57,7 @@ if(!$this->billingAddress || !$this->shippingAddress) {
                         <?=$this->translate("Date")?>
                     </div>
                     <div class="col-xs-5 text-right">
-                        <?=$this->order->getOrderDate()->get("d.M.y")?>
+                        <?=$this->order->getOrderDate()->format("d.M.y")?>
                     </div>
                 </div>
                 <div class="row">
