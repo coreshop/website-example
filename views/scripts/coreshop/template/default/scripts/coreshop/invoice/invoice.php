@@ -8,6 +8,15 @@ if(!$this->billingAddress || !$this->shippingAddress) {
     die("no shipping or billing address definied");
 }
 
+$invoiceDate = $this->invoice->getInvoiceDate();
+$date = "";
+
+if($invoiceDate instanceof \Carbon\Carbon) {
+    $date = $invoiceDate->format("d.M.y");
+}
+else if ($invoiceDate instanceof \Pimcore\Date) {
+     $date = $invoiceDate->get("d.M.y");
+}
 
 ?>
 <!doctype html>
@@ -43,7 +52,7 @@ if(!$this->billingAddress || !$this->shippingAddress) {
                         <strong><?=$this->translate("Customer");?></strong>
                     </div>
                     <div class="col-xs-10">
-                        <?=$this->order->getCustomer()->getFirstname()?> <?=$this->order->getCustomer()->getLastname()?><br/>
+                        <?=$this->invoice->getCustomer()->getFirstname()?> <?=$this->invoice->getCustomer()->getLastname()?><br/>
                         <?=$this->billingAddress->getStreet(); ?> <?=$this->billingAddress->getNr(); ?><br/>
                         <?=$this->billingAddress->getZip(); ?> <?=$this->billingAddress->getCity(); ?><br/>
                         <?=$this->billingAddress->getCountry()->getName(); ?>
@@ -57,7 +66,15 @@ if(!$this->billingAddress || !$this->shippingAddress) {
                         <?=$this->translate("Date")?>
                     </div>
                     <div class="col-xs-5 text-right">
-                        <?=$this->order->getOrderDate()->format("d.M.y")?>
+                        <?=$date?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7">
+                        <?=$this->translate("Order Number")?>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <?=$this->order->getOrderNumber()?>
                     </div>
                 </div>
                 <div class="row">
@@ -65,7 +82,7 @@ if(!$this->billingAddress || !$this->shippingAddress) {
                         <?=$this->translate("Invoice Number")?>
                     </div>
                     <div class="col-xs-5 text-right">
-                        <?=$this->order->getOrderNumber()?>
+                        <?=$this->invoice->getInvoiceNumber()?>
                     </div>
                 </div>
                 <div class="row">
