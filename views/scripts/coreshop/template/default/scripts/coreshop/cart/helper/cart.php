@@ -165,7 +165,7 @@
                     <button type="submit" name="submitAddDiscount" class="btn btn-black"><span>OK</span></button>
                 </form>
                 <?php
-                $highlightPriceRules = \CoreShop\Model\Cart\PriceRule::getHighlightItems();
+                $highlightPriceRules = \CoreShop\Model\Cart\PriceRule::getHighlightItems($this->cart);
 
                 if(count($highlightPriceRules) > 0)
                 {

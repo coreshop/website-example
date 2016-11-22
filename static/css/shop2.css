@@ -9274,6 +9274,10 @@ button.list-group-item-danger.active:focus {
   color: #fff;
 }
 
+.btn.w-100 {
+  width: 100%;
+}
+
 body {
   background: #fff;
   color: #252a2f;

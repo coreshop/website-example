@@ -21,13 +21,21 @@
     <?php } ?>
 
     <div class="row">
-        <div class="col-xs-12">
-            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index")?>" class="btn btn-default pull-left">
-                <span class="hidden-xs">Continue Shopping</span>
-                <span class="visible-xs">Continue</span>
+        <div class="col-xs-12 col-sm-2">
+            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language), "coreshop_index")?>" class="btn btn-default w-100">
+                <?=$this->translate("Continue Shopping")?>
             </a>
-            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout")?>" class="btn btn-default pull-right">
-                Checkout
+        </div>
+        <div class="col-xs-12 col-sm-1 col-sm-push-8">
+            <?php if(\CoreShop::getTools()->getUser() instanceof \CoreShop\Model\User) { ?>
+            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "save"), "coreshop_cart_list")?>" class="btn btn-warning w-100">
+                <?=$this->translate("Save Cart")?>
+            </a>
+            <?php } ?>
+        </div>
+        <div class="col-xs-12 col-sm-1 col-sm-push-8">
+            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "index"), "coreshop_checkout")?>" class="btn btn-main w-100">
+                <?=$this->translate("Checkout")?>
             </a>
         </div>
     </div>
