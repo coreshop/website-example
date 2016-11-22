@@ -11,24 +11,22 @@
     </h2>
     <!-- Main Heading Ends -->
 
-    <ul class="list list-unstyled myaccount-link-list">
-        <li>
-            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "orders"), "coreshop_user")?>" title="<?=$this->translate("Orders")?>">
-                <i class="fa fa-list-ol"></i>
-                <span><?=$this->translate("Order history and details")?></span>
-            </a>
-        </li>
-        <li>
-            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")?>" title="<?=$this->translate("Addresses")?>">
-                <i class="fa fa-building"></i>
-                <span><?=$this->translate("My addresses")?></span>
-            </a>
-        </li>
-        <li>
-            <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "settings"), "coreshop_user")?>" title="<?=$this->translate("Information")?>">
-                <i class="fa fa-user"></i>
-                <span><?=$this->translate("My personal information")?></span>
-            </a>
-        </li>
-    </ul>
+    <div class="list-group">
+        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "orders"), "coreshop_user")?>" title="<?=$this->translate("Orders")?>" class="list-group-item">
+            <i class="fa fa-list-ol"></i>
+            <span><?=$this->translate("Order history and details")?></span>
+        </a>
+        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "addresses"), "coreshop_user")?>" title="<?=$this->translate("Addresses")?>" class="list-group-item">
+            <i class="fa fa-building"></i>
+            <span><?=$this->translate("My Addresses")?></span>
+        </a>
+        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "settings"), "coreshop_user")?>" title="<?=$this->translate("Information")?>" class="list-group-item">
+            <i class="fa fa-user"></i>
+            <span><?=$this->translate("My Personal Information")?></span>
+        </a>
+        <a href="<?=\CoreShop::getTools()->url(array("lang" => $this->language, "act" => "list"), "coreshop_cart_list")?>" title="<?=$this->translate("Saved Carts")?>" class="list-group-item">
+            <i class="fa fa-shopping-cart"></i>
+            <span><?=$this->translate("Saved Carts")?></span>
+        </a>
+    </div>
 </div>
