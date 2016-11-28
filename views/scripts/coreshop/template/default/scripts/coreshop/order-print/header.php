@@ -30,7 +30,7 @@
             <td class="text-right">
                 CoreShop DEMO Address<br/>
                 Phone: +43 (0) 000 / 00 00 0000
-                <h1><?=$this->translate("INVOICE")?></h1>
+                <h1><?=$this->translate(strtoupper($this->type))?></h1>
             </td>
         </tr>
     </table>

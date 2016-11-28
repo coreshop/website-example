@@ -1,21 +1,20 @@
 <?php
 
-$this->billingAddress = $this->order->getBillingAddress();
-$this->shippingAddress = $this->order->getShippingAddress();
-$this->billingAndShippingEqual = $this->order->isShippingAndBillingAddressEqual();
+$this->billingAddress = $this->shipment->getBillingAddress();
+$this->shippingAddress = $this->shipment->getShippingAddress();
 
 if(!$this->billingAddress || !$this->shippingAddress) {
     die("no shipping or billing address definied");
 }
 
-$invoiceDate = $this->invoice->getInvoiceDate();
+$shipmentDate = $this->shipment->getShipmentDate();
 $date = "";
 
-if($invoiceDate instanceof \Carbon\Carbon) {
-    $date = $invoiceDate->format("d.M.y");
+if($shipmentDate instanceof \Carbon\Carbon) {
+    $date = $shipmentDate->format("d.M.y");
 }
-else if ($invoiceDate instanceof \Pimcore\Date) {
-     $date = $invoiceDate->get("d.M.y");
+else if ($shipmentDate instanceof \Pimcore\Date) {
+     $date = $shipmentDate->get("d.M.y");
 }
 
 ?>
@@ -31,7 +30,7 @@ else if ($invoiceDate instanceof \Pimcore\Date) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Invoice <?=$this->order->getOrderNumber()?></title>
+    <title>Order Shipment <?=$this->order->getOrderNumber()?></title>
 
     <!-- Google Web Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700" rel="stylesheet" type="text/css">
@@ -52,7 +51,7 @@ else if ($invoiceDate instanceof \Pimcore\Date) {
                         <strong><?=$this->translate("Customer");?></strong>
                     </div>
                     <div class="col-xs-10">
-                        <?=$this->invoice->getCustomer()->getFirstname()?> <?=$this->invoice->getCustomer()->getLastname()?><br/>
+                        <?=$this->shipment->getCustomer()->getFirstname()?> <?=$this->shipment->getCustomer()->getLastname()?><br/>
                         <?=$this->billingAddress->getStreet(); ?> <?=$this->billingAddress->getNr(); ?><br/>
                         <?=$this->billingAddress->getZip(); ?> <?=$this->billingAddress->getCity(); ?><br/>
                         <?=$this->billingAddress->getCountry()->getName(); ?>
@@ -79,10 +78,10 @@ else if ($invoiceDate instanceof \Pimcore\Date) {
                 </div>
                 <div class="row">
                     <div class="col-xs-7">
-                        <?=$this->translate("Invoice Number")?>
+                        <?=$this->translate("Shipment Number")?>
                     </div>
                     <div class="col-xs-5 text-right">
-                        <?=$this->invoice->getInvoiceNumber()?>
+                        <?=$this->shipment->getShipmentNumber()?>
                     </div>
                 </div>
                 <div class="row">
@@ -90,31 +89,11 @@ else if ($invoiceDate instanceof \Pimcore\Date) {
                         &nbsp;
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <?=$this->translate("Delivery Date = Invoice Date")?>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <?php $this->template("invoice/helper/items.php")?>
-
-    <div class="row">
-        <div class="col-xs-8">
-            <div class="row">
-                <div class="col-xs-2">
-                    <strong><?=$this->translate("PAYMENT")?></strong>
-                </div>
-                <div class="col-xs-10">
-                    <?php echo $this->translate($this->order->getPaymentProvider()); ?>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <hr/>
+    <?php $this->template("order-print/helper/shipment-items.php")?>
 
     <p class="bottom">
         <strong>Bank Information</strong>: CoreShop DEMO<br/>
