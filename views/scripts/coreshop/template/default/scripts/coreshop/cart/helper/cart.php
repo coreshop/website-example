@@ -102,7 +102,7 @@
             </tr>
         <?php } ?>
         <?php foreach($this->cart->getPriceRules() as $rule) {
-            if($rule->getPriceRule() instanceof \CoreShop\Model\Cart\PriceRule && $rule->getPriceRule()->getDiscount() > 0) {
+            if($rule->getPriceRule() instanceof \CoreShop\Model\Cart\PriceRule && $rule->getPriceRule()->getDiscount($this->cart) > 0) {
                 ?>
                 <tr>
                     <td colspan="2" class="text-center">
@@ -112,10 +112,10 @@
 
                     </td>
                     <td class="text-right">
-                        -<?=\CoreShop::getTools()->formatPrice($rule->getPriceRule()->getDiscount())?>
+                        -<?=\CoreShop::getTools()->formatPrice($rule->getPriceRule()->getDiscount($this->cart))?>
                     </td>
                     <td class="text-right">
-                        -<?=\CoreShop::getTools()->formatPrice($rule->getPriceRule()->getDiscount())?>
+                        -<?=\CoreShop::getTools()->formatPrice($rule->getPriceRule()->getDiscount($this->cart))?>
                     </td>
                     <?php if($this->edit) { ?>
                         <td colspan="1" class="text-left cart-sub-total">
