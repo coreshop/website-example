@@ -34,9 +34,12 @@
                         <td class="text-center">
                             <?=$item->getProduct()->getName()?> <?php if($item->getIsGiftItem()) { ?> <br/><span><?=$this->translate("Gift Item")?></span> <?php } ?>
 
-                            <? foreach($item->getProduct()->getVariants() as $variant) {
-                                if($variant instanceof \CoreShop\Model\Objectbrick\Data\Objectbrick) {
-                                    echo $variant->renderInvoice();
+                            <?
+                            if(is_array($item->getProduct()->getVariants())) {
+                                foreach ($item->getProduct()->getVariants() as $variant) {
+                                    if ($variant instanceof \CoreShop\Model\Objectbrick\Data\Objectbrick) {
+                                        echo $variant->renderInvoice();
+                                    }
                                 }
                             }?>
                         </td>
