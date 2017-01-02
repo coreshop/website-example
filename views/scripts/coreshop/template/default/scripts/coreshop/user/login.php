@@ -44,6 +44,8 @@
                             <button type="submit" class="btn btn-black">
                                 Login
                             </button>
+                            <a href="<?= \CoreShop::getTools()->url(array("lang" =>  $this->language, "act" => "password-reset-request"), "coreshop_user"); ?>">Forgot your password?</a>
+
                         </form>
                         <!-- Login Form Ends -->
                     </div>

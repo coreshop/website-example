@@ -34,8 +34,11 @@
                         <?=\CoreShop::getTools()->formatPrice($order->getTotal())?>
                     </td>
                     <td>
-                        <?php if($order->getOrderState() instanceof \CoreShop\Model\Order\State) { ?>
-                            <?=$order->getOrderState()->getName()?>
+                        <?php $status = $order->getOrderStatus(); ?>
+                        <?php if($status !== FALSE) { ?>
+                            <span class="head-el order-state">
+                        <?=$this->translate("Order Status:"); ?> <strong><?=$status["translatedLabel"]?></strong>
+                    </span>
                         <?php } ?>
                     </td>
                     <td>
