@@ -33,7 +33,7 @@
                                     <strong><?=$carrier->getName()?></strong> <?=$carrier->getLabel()?>
                                 </td>
                                 <td class="delivery-option-price">
-                                    <?=\CoreShop::getTools()->formatPrice($this->cart->getShippingCostsForCarrier($carrier))?>
+                                    <?=$this->cart->formatPrice($this->cart->getShippingCostsForCarrier($carrier))?>
                                 </td>
                             </tr>
                         <?php $i++; ?>

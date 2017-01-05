@@ -33,7 +33,7 @@
                         ?>
                     </td>
                     <td>
-                        <?=\CoreShop::getTools()->formatPrice($cart->getTotal())?>
+                        <?=$cart->formatPrice($cart->getTotal())?>
                     </td>
                     <td>
                         <a class="btn btn-black" href="<?=\CoreShop::getTools()->url(array("act" => "detail", "id" => $cart->getId()), "coreshop_cart_list", true)?>"><?=$this->translate("Show Detail")?></a>

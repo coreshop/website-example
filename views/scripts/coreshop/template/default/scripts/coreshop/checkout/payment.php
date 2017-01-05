@@ -36,7 +36,7 @@
 
                                 if($paymentFee > 0) {
                                     ?>
-                                    <td class="payment-option-price"><?=\CoreShop::getTools()->formatPrice($paymentFee);?></td>
+                                    <td class="payment-option-price"><?=$this->cart->formatPrice($paymentFee);?></td>
                                     <?php
                                 }
                                 ?>

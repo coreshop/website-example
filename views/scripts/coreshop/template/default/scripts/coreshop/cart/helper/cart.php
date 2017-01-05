@@ -50,13 +50,13 @@
                             <?php foreach($rule->getActions() as $action) { ?>
                                 <?php
                                     if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountAmount) {
-                                        echo "<br/>" . $this->translate(sprintf("You will get a discount of %s per Product.", \CoreShop::getTools()->formatPrice($action->getAmount())));
+                                        echo "<br/>" . $this->translate(sprintf("You will get a discount of %s per Product.", $this->cart->formatPrice($action->getAmount())));
                                     }
                                     else if($action instanceof \CoreShop\Model\PriceRule\Action\DiscountPercent) {
                                         echo "<br/>" . $this->translate(sprintf("You will get a discount of %s%% per Product.", $action->getPercent()));
                                     }
                                     else if($action instanceof \CoreShop\Model\PriceRule\Action\NewPrice) {
-                                        echo "<br/>" . $this->translate(sprintf("You will get a total new price of %s instead of %s.", \CoreShop::getTools()->formatPrice($action->getPriceWithTax($item->getProduct())), \CoreShop::getTools()->formatPrice($item->getProductRetailPriceWithTax())));
+                                        echo "<br/>" . $this->translate(sprintf("You will get a total new price of %s instead of %s.", $this->cart->formatPrice($action->getPriceWithTax($item->getProduct())), $this->cart->formatPrice($item->getProductRetailPriceWithTax())));
                                     }
                                 ?>
                             <?php } ?>
@@ -79,14 +79,14 @@
                         $retailPrice = $item->getProductSalesPrice(\CoreShop::getTools()->displayPricesWithTax());
 
                         if($retailPrice != $price) {
-                            ?><span class="price-old"><?=\CoreShop::getTools()->formatPrice($retailPrice)?></span><?php
+                            ?><span class="price-old"><?=$this->cart->formatPrice($retailPrice)?></span><?php
                         }
 
-                        echo \CoreShop::getTools()->formatPrice($price)
+                        echo $this->cart->formatPrice($price);
                     ?>
                 </td>
                 <td class="text-right cart-item-total-price">
-                    <?=\CoreShop::getTools()->formatPrice($item->getTotal(\CoreShop::getTools()->displayPricesWithTax()))?>
+                    <?=$this->cart->formatPrice($item->getTotal(\CoreShop::getTools()->displayPricesWithTax()))?>
                 </td>
                 <?php if($this->edit) { ?>
                     <td class="text-center">
@@ -112,10 +112,10 @@
 
                     </td>
                     <td class="text-right">
-                        -<?=\CoreShop::getTools()->formatPrice($rule->getPriceRule()->getDiscount($this->cart))?>
+                        -<?=$this->cart->formatPrice($rule->getPriceRule()->getDiscount($this->cart))?>
                     </td>
                     <td class="text-right">
-                        -<?=\CoreShop::getTools()->formatPrice($rule->getPriceRule()->getDiscount($this->cart))?>
+                        -<?=$this->cart->formatPrice($rule->getPriceRule()->getDiscount($this->cart))?>
                     </td>
                     <?php if($this->edit) { ?>
                         <td colspan="1" class="text-left cart-sub-total">
@@ -187,7 +187,7 @@
                 <strong><?=$this->translate("Subtotal (tax incl.)")?>:</strong>
             </td>
             <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-sub-total">
-                <?=\CoreShop::getTools()->formatPrice($this->cart->getSubtotal(true))?>
+                <?=$this->cart->formatPrice($this->cart->getSubtotal(true))?>
             </td>
         </tr>
         <tr>
@@ -195,7 +195,7 @@
                 <strong><?=$this->translate("Subtotal (tax excl.)")?>:</strong>
             </td>
             <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-discount">
-                <?=\CoreShop::getTools()->formatPrice($this->cart->getSubtotal(false))?>
+                <?=$this->cart->formatPrice($this->cart->getSubtotal(false))?>
             </td>
         </tr>
         <?php if($discount > 0) { ?>
@@ -204,7 +204,7 @@
                     <strong><?=$this->translate("Discount (tax incl.)")?>:</strong>
                 </td>
                 <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-discount">
-                    -<?=\CoreShop::getTools()->formatPrice($discount)?>
+                    -<?=$this->cart->formatPrice($discount)?>
                 </td>
             </tr>
             <tr>
@@ -212,7 +212,7 @@
                     <strong><?=$this->translate("Discount (tax excl.)")?>:</strong>
                 </td>
                 <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-discount">
-                    -<?=\CoreShop::getTools()->formatPrice($discountEt)?>
+                    -<?=$this->cart->formatPrice($discountEt)?>
                 </td>
             </tr>
         <?php } ?>
@@ -222,7 +222,7 @@
                     <strong><?=$this->translate("Shipping (tax incl.)")?>:</strong>
                 </td>
                 <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-shipping">
-                    <?=\CoreShop::getTools()->formatPrice($shippingIt)?>
+                    <?=$this->cart->formatPrice($shippingIt)?>
                 </td>
             </tr>
             <tr>
@@ -230,7 +230,7 @@
                     <strong><?=$this->translate("Shipping (tax excl.)")?>:</strong>
                 </td>
                 <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-shipping">
-                    <?=\CoreShop::getTools()->formatPrice($shipping)?>
+                    <?=$this->cart->formatPrice($shipping)?>
                 </td>
             </tr>
         <?php } ?>
@@ -240,7 +240,7 @@
                     <strong><?=$this->translate("Payment Fee")?>:</strong>
                 </td>
                 <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-payment">
-                    <?=\CoreShop::getTools()->formatPrice($payment)?>
+                    <?=$this->cart->formatPrice($payment)?>
                 </td>
             </tr>
         <?php } ?>
@@ -250,7 +250,7 @@
                     <strong><?=$this->translate(sprintf("Tax (%s)", $tax['tax']->getName()))?>:</strong>
                 </td>
                 <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-tax-detail">
-                    <?=\CoreShop::getTools()->formatPrice($tax['amount'])?>
+                    <?=$this->cart->formatPrice($tax['amount'])?>
                 </td>
             </tr>
         <?php } ?>
@@ -259,7 +259,7 @@
                 <strong><?=$this->translate("Total Tax")?>:</strong>
             </td>
             <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-tax">
-                <?=\CoreShop::getTools()->formatPrice($this->cart->getTotalTax())?>
+                <?=$this->cart->formatPrice($this->cart->getTotalTax())?>
             </td>
         </tr>
         <tr>
@@ -267,7 +267,7 @@
                 <strong><?=$this->translate("Total ")?>:</strong>
             </td>
             <td colspan="<?=$this->edit ? "2" : "1" ?>" class="text-right cart-total-price">
-                <?=\CoreShop::getTools()->formatPrice($this->cart->getTotal())?>
+                <?=$this->cart->formatPrice($this->cart->getTotal())?>
             </td>
         </tr>
         </tfoot>
