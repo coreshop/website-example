@@ -44,16 +44,16 @@
                             }?>
                         </td>
                         <td class="text-right">
-                            <?=\CoreShop::getTools()->formatPrice($item->getPriceWithoutTax())?>
+                            <?=$this->shipment->getOrder()->formatPrice($item->getPriceWithoutTax())?>
                         </td>
                         <td class="text-right">
-                            <?=\CoreShop::getTools()->formatPrice($item->getAmount() * $item->getPriceWithoutTax())?>
+                            <?=$this->shipment->getOrder()->formatPrice($item->getAmount() * $item->getPriceWithoutTax())?>
                         </td>
                         <td class="text-right">
-                            <?=\CoreShop::getTools()->formatPrice($item->getPrice())?>
+                            <?=$this->shipment->getOrder()->formatPrice($item->getPrice())?>
                         </td>
                         <td class="text-right">
-                            <?=\CoreShop::getTools()->formatPrice($item->getAmount() * $item->getPrice())?>
+                            <?=$this->shipment->getOrder()->formatPrice($item->getAmount() * $item->getPrice())?>
                         </td>
                     </tr>
                     <?php $i++;} ?>

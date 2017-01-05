@@ -31,11 +31,11 @@
                         <?=$order->getOrderDate()->format('d.m.Y')?>
                     </td>
                     <td>
-                        <?=\CoreShop::getTools()->formatPrice($order->getTotal())?>
+                        <?=$order->formatPrice($order->getTotal())?>
                     </td>
                     <td>
                         <?php $status = $order->getOrderStatus(); ?>
-                        <?php if($status !== FALSE) { ?>
+                        <?php if($status !== false) { ?>
                             <span class="head-el order-state">
                         <?=$this->translate("Order Status:"); ?> <strong><?=$status["translatedLabel"]?></strong>
                     </span>

@@ -52,10 +52,10 @@
                         <?php } ?>
                     </td>
                     <td class="text-right cart-item-price">
-                        <?= \CoreShop::getTools()->formatPrice($item->getPrice()) ?>
+                        <?= $this->order->formatPrice($item->getPrice()) ?>
                     </td>
                     <td class="text-right cart-item-total-price">
-                        <?= \CoreShop::getTools()->formatPrice($item->getTotal()) ?>
+                        <?= $this->order->formatPrice($item->getTotal()) ?>
                     </td>
                 </tr>
             <?php }
@@ -73,10 +73,10 @@
 
                         </td>
                         <td class="text-right">
-                            -<?=\CoreShop::getTools()->formatPrice($item->getDiscount())?>
+                            -<?=$this->order->formatPrice($item->getDiscount())?>
                         </td>
                         <td class="text-right">
-                            -<?=\CoreShop::getTools()->formatPrice($item->getDiscount())?>
+                            -<?=$this->order->formatPrice($item->getDiscount())?>
                         </td>
                     </tr>
                 <?php
@@ -111,7 +111,7 @@
                     <strong><?=$this->translate("Discount")?>:</strong>
                 </td>
                 <td class="text-right cart-discount">
-                    -<?=\CoreShop::getTools()->formatPrice($discount)?>
+                    -<?=$this->order->formatPrice($discount)?>
                 </td>
             </tr>
         <?php } ?>
@@ -122,7 +122,7 @@
                     <strong><?=$this->translate("Shipping")?>:</strong>
                 </td>
                 <td class="text-right cart-shipping">
-                    <?=\CoreShop::getTools()->formatPrice($shipping)?>
+                    <?=$this->order->formatPrice($shipping)?>
                 </td>
             </tr>
         <?php } ?>
@@ -133,7 +133,7 @@
                     <strong><?=$this->translate("Payment Fee")?>:</strong>
                 </td>
                 <td class="text-right cart-payment">
-                    <?=\CoreShop::getTools()->formatPrice($payment)?>
+                    <?=$this->order->formatPrice($payment)?>
                 </td>
             </tr>
         <?php } ?>
@@ -146,7 +146,7 @@
                                 <strong><?= $this->translate(sprintf("Tax (%s)", $tax->getName())) ?>:</strong>
                             </td>
                             <td class="text-right cart-tax-detail">
-                                <?= \CoreShop::getTools()->formatPrice($tax->getAmount()) ?>
+                                <?= $this->order->formatPrice($tax->getAmount()) ?>
                             </td>
                     </tr>
                 <?php
@@ -159,7 +159,7 @@
                 <strong><?=$this->translate("Total Tax")?>:</strong>
             </td>
             <td class="text-right cart-tax">
-                <?=\CoreShop::getTools()->formatPrice($this->order->getTotalTax())?>
+                <?=$this->order->formatPrice($this->order->getTotalTax())?>
             </td>
         </tr>
         <tr>
@@ -168,7 +168,7 @@
                 <strong><?=$this->translate("Total")?>:</strong>
             </td>
             <td class="text-right cart-total-price">
-                <?=\CoreShop::getTools()->formatPrice($this->order->getTotal())?>
+                <?=$this->order->formatPrice($this->order->getTotal())?>
             </td>
         </tr>
         </tfoot>

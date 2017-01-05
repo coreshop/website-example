@@ -44,16 +44,16 @@
                             }?>
                         </td>
                         <td class="text-right">
-                            <?=\CoreShop::getTools()->formatPrice($item->getPriceWithoutTax())?>
+                            <?=$this->invoice->getOrder()->formatPrice($item->getPriceWithoutTax())?>
                         </td>
                         <td class="text-right">
-                            <?=\CoreShop::getTools()->formatPrice($item->getAmount() * $item->getPriceWithoutTax())?>
+                            <?=$this->invoice->getOrder()->formatPrice($item->getAmount() * $item->getPriceWithoutTax())?>
                         </td>
                         <td class="text-right">
-                            <?=\CoreShop::getTools()->formatPrice($item->getPrice())?>
+                            <?=$this->invoice->getOrder()->formatPrice($item->getPrice())?>
                         </td>
                         <td class="text-right">
-                            <?=\CoreShop::getTools()->formatPrice($item->getAmount() * $item->getPrice())?>
+                            <?=$this->invoice->getOrder()->formatPrice($item->getAmount() * $item->getPrice())?>
                         </td>
                     </tr>
                     <?php $i++;} ?>
@@ -86,7 +86,7 @@
                         <strong><?=$this->translate("Subtotal (exc. Tax)")?></strong>
                     </td>
                     <td class="col-xs-2 no-border-top text-right">
-                        <?=\CoreShop::getTools()->formatPrice($this->invoice->getSubtotalWithoutTax())?>
+                        <?=$this->invoice->getOrder()->formatPrice($this->invoice->getSubtotalWithoutTax())?>
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                         <strong><?=$this->translate("Subtotal (inc. Tax)")?></strong>
                     </td>
                     <td class="col-xs-2 text-right">
-                        <?=\CoreShop::getTools()->formatPrice($this->invoice->getSubtotal())?>
+                        <?=$this->invoice->getOrder()->formatPrice($this->invoice->getSubtotal())?>
                     </td>
                 </tr>
                 <?php if($shipping > 0) { ?>
@@ -103,7 +103,7 @@
                             <strong><?=$this->translate("Shipping")?></strong>
                         </td>
                         <td class="col-xs-2 text-right">
-                            <?=\CoreShop::getTools()->formatPrice($shipping)?>
+                            <?=$this->invoice->getOrder()->formatPrice($shipping)?>
                         </td>
                     </tr>
                 <?php } ?>
@@ -113,7 +113,7 @@
                             <strong><?=$this->translate("Payment")?></strong>
                         </td>
                         <td class="col-xs-2 text-right">
-                            <?=\CoreShop::getTools()->formatPrice($payment)?>
+                            <?=$this->invoice->getOrder()->formatPrice($payment)?>
                         </td>
                     </tr>
                 <?php } ?>
@@ -122,7 +122,7 @@
                         <strong><?=$this->translate("Total Tax")?>:</strong>
                     </td>
                     <td class="col-xs-2 text-right">
-                        <?=\CoreShop::getTools()->formatPrice($this->invoice->getTotalTax())?>
+                        <?=$this->invoice->getOrder()->formatPrice($this->invoice->getTotalTax())?>
                     </td>
                 </tr>
                 <?php if($discount > 0) { ?>
@@ -131,7 +131,7 @@
                             <strong><?=$this->translate("Discount")?></strong>
                         </td>
                         <td class="col-xs-2 text-right">
-                            <?=\CoreShop::getTools()->formatPrice(-1 * $discount)?>
+                            <?=$this->invoice->getOrder()->formatPrice(-1 * $discount)?>
                         </td>
                     </tr>
                 <?php } ?>
@@ -140,7 +140,7 @@
                         <strong><?=$this->translate("Total")?></strong>
                     </td>
                     <td class="col-xs-2 text-right background-gray">
-                        <strong><?=\CoreShop::getTools()->formatPrice($this->invoice->getTotal())?></strong>
+                        <strong><?=$this->invoice->getOrder()->formatPrice($this->invoice->getTotal())?></strong>
                     </td>
                 </tr>
             </table>
