@@ -1,6 +1,6 @@
 <?php
 //TODO: finish View
-$class = Pimcore\Model\Object\ClassDefinition::getByName("CoreShopUser");
+$class = Pimcore\Model\Object\ClassDefinition::getById(\CoreShop\Model\User::classId());
 
 $postValue = function ($name) {
     if (isset($_POST[$name])) {
