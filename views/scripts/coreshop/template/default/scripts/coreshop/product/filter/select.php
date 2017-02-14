@@ -10,7 +10,7 @@
                 ?>
                 <label class="radio">
                     <input name="<?=$this->fieldname?>" type="radio" value="<?=$value['value']?>" <?=$this->currentValue === $value['value'] ? 'checked="checked"' : ''?>>
-                    <?=$this->translate($value['value'] ? $value['value'] : 'empty')?>
+                    <?=$this->translate($value['value'] ? $value['value'] : 'empty')?> <?=$this->quantityUnit instanceof \Pimcore\Model\Object\QuantityValue\Unit ? $this->quantityUnit->getAbbreviation() : ''?>
                 </label>
                 <?php
             }

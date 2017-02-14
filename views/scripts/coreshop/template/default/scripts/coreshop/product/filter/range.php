@@ -15,12 +15,7 @@
             <div class="row">
                 <div class="col-xs-3 text-left">
                     <strong>
-                        <?php if($this->quantityUnit === "[CURRENCY]") {
-                            echo CoreShop::getTools()->formatPrice($minValue);
-                        } else {
-                            echo $minValue . ' ' . $this->quantityUnit;
-                        }
-                        ?>
+                        <?php echo $minValue?> <?=$this->quantityUnit instanceof \Pimcore\Model\Object\QuantityValue\Unit ? $this->quantityUnit->getAbbreviation() : ''?>
                     </strong>
                 </div>
 
@@ -30,12 +25,7 @@
 
                 <div class="col-xs-3 text-right">
                     <strong>
-                        <?php if($this->quantityUnit === "[CURRENCY]") {
-                            echo CoreShop::getTools()->formatPrice($maxValue);
-                        } else {
-                            echo $maxValue . ' ' . $this->quantityUnit;
-                        }
-                        ?>
+                        <?php echo $maxValue?> <?=$this->quantityUnit instanceof \Pimcore\Model\Object\QuantityValue\Unit ? $this->quantityUnit->getAbbreviation() : ''?>
                     </strong>
                 </div>
             </div>

@@ -11,7 +11,7 @@
 
                 <label class="checkbox">
                     <input name="<?=$boolName?>" type="checkbox" value="1" <?= $boolValue == 1 ? 'checked="checked"' : ''?>>
-                    <?=$this->translate($boolName)?> <?=$this->quantityUnit?>
+                    <?=$this->translate($boolName)?> <?=$this->quantityUnit instanceof \Pimcore\Model\Object\QuantityValue\Unit ? $this->quantityUnit->getAbbreviation() : ''?>
                 </label>
 
             <?php } ?>
