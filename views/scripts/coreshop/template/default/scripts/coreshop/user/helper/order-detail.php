@@ -17,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach($this->order->getOrderStateHistory() as $orderStateNote) { ?>
+        <?php foreach(\CoreShop\Model\Order\State::getOrderStateHistory($this->order) as $orderStateNote) { ?>
             <tr>
                 <td class="text-left">
                     <?php
@@ -29,11 +29,7 @@
                 </td>
                 <td class="text-left">
                     <?php
-                    $state = \CoreShop\Model\Order\State::getById($orderStateNote->getData()['toState']['data']);
-
-                    if($state instanceof \CoreShop\Model\Order\State) {
-                        echo $state->getName();
-                    }
+                        echo $orderStateNote->getTitle();
                     ?>
                 </td>
             </tr>
